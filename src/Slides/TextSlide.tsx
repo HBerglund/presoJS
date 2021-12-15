@@ -24,9 +24,13 @@ const TextSlide = ({ alignYX, title, subTitle, paragraph }: TextSlideProps) => {
   return (
     <SlideParent>
       <div className={classNames('h-full flex flex-col', getAlignment())}>
-        {title && <span className='text-textPrimary'>{title}</span>}
-        {subTitle && <span className='text-textPrimary mb-8'>{subTitle}</span>}
-        {paragraph && <span className='text-textPrimary'>{paragraph}</span>}
+        {title && <span className='text-textPrimary text-xl'>{title}</span>}
+        {subTitle && (
+          <span className='text-textPrimary text-lg mb-8'>{subTitle}</span>
+        )}
+        {paragraph && (
+          <span className='text-textPrimary text-body'>{paragraph}</span>
+        )}
       </div>
     </SlideParent>
   );
