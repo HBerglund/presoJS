@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import classNames from "classnames";
-import { slides, SlideType } from "./data";
+import React, { useEffect, useState } from 'react';
+import classNames from 'classnames';
+import { slides, SlideType } from './data';
 
 function App() {
   const [current, setCurrent] = useState<number>(0);
@@ -8,25 +8,25 @@ function App() {
 
   useEffect(() => {
     setTotalSlides(slides);
-    window.addEventListener("keyup", (e: any) => {
+    window.addEventListener('keyup', (e: any) => {
       switch (e.key) {
-        case "ArrowRight":
+        case 'ArrowRight':
           goForward();
           break;
-        case "ArrowLeft":
+        case 'ArrowLeft':
           goBackward();
           break;
-        case "ArrowUp":
-          console.log("ArrowUp");
+        case 'ArrowUp':
+          console.log('ArrowUp');
           break;
-        case "ArrowDown":
-          console.log("ArrowDown");
+        case 'ArrowDown':
+          console.log('ArrowDown');
           break;
-        case "Enter":
-          console.log("Enter");
+        case 'Enter':
+          console.log('Enter');
           break;
         default:
-          console.log("Default");
+          console.log('Default');
       }
     });
   }, []);
@@ -52,15 +52,15 @@ function App() {
   return (
     <div>
       <div>{totalSlides[current]}</div>
-      <div className={classNames("flex")}>
+      <div className={classNames('flex')}>
         <button
-          className={classNames("bg-black text-white p-4")}
+          className={classNames('bg-black text-white p-4')}
           onClick={goBackward}
         >
           Backward
         </button>
         <button
-          className={classNames("bg-black text-white p-4")}
+          className={classNames('bg-black text-white p-4')}
           onClick={goForward}
         >
           Forward
