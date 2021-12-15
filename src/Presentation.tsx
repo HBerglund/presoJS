@@ -1,0 +1,74 @@
+import React, { useContext, useEffect, useState } from 'react';
+import classNames from 'classnames';
+import { slides, SlideType } from './data';
+import { AnimatePresence } from 'framer-motion';
+import { DirectionContext } from './Context/DirectionContext';
+
+const Presentation = () => {
+  const directionContext = useContext(DirectionContext);
+  const [current, setCurrent] = useState<number>(0);
+  const [totalSlides, setTotalSlides] = useState<SlideType[]>(slides);
+
+  useEffect(() => {
+    setTotalSlides(slides);
+    window.addEventListener('keyup', (e: any) => {
+      switch (e.key) {
+        case 'ArrowRight':
+          goForward();
+          break;
+        case 'ArrowLeft':
+          goBackward();
+          break;
+        case 'ArrowUp':
+          break;
+        case 'ArrowDown':
+          break;
+        case 'Enter':
+          break;
+      }
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const goForward = () => {
+    directionContext.updateDirection('forward');
+    setCurrent((prev) => {
+      if (prev !== totalSlides.length - 1) {
+        return prev + 1;
+      }
+      return prev;
+    });
+  };
+
+  const goBackward = () => {
+    directionContext.updateDirection('backward');
+    setCurrent((prev) => {
+      if (prev !== 0) {
+        return prev - 1;
+      }
+      return prev;
+    });
+  };
+
+  return (
+    <div>
+      <div className={classNames('flex')}>
+        <button
+          className={classNames('bg-black text-white p-4')}
+          onClick={goBackward}
+        >
+          Backward
+        </button>
+        <button
+          className={classNames('bg-black text-white p-4')}
+          onClick={goForward}
+        >
+          Forward
+        </button>
+      </div>
+      <AnimatePresence>{totalSlides[current]}</AnimatePresence>
+    </div>
+  );
+};
+
+export default Presentation;
