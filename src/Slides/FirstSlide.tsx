@@ -1,11 +1,15 @@
-import React from 'react'
+import React from 'react';
+import SlideParent from '../Components/SlideParent';
 
 const FirstSlide = () => {
-    return (
-        <div>
-            Hello First Slide!
-        </div>
-    )
-}
+  return (
+    <SlideParent>
+      <div className='text-headingXL'>hejhej</div>
+      <div className='text-heading'>hejhej</div>
+      <div className='text-subHeading'>hejhej</div>
+      <div className='text-paragraph'>hejhej</div>
+    </SlideParent>
+  );
+};
 
-export default FirstSlide
+export default FirstSlide;
