@@ -1,7 +1,5 @@
-import React, { FC, useEffect, useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import classNames from "classnames";
-import { handleArrowClick } from "./helpers/arrowNavigation";
 import { slides, SlideType } from "./data";
 
 function App() {
@@ -9,12 +7,33 @@ function App() {
   const [totalSlides, setTotalSlides] = useState<SlideType[]>(slides);
 
   useEffect(() => {
-    window.addEventListener("keyup", (e: KeyboardEvent) => {
-      handleArrowClick(e);
+    setTotalSlides(slides);
+    window.addEventListener("keyup", (e: any) => {
+      switch (e.key) {
+        case "ArrowRight":
+          console.log("ArrowRight");
+          goForward();
+          break;
+        case "ArrowLeft":
+          console.log("ArrowLeft");
+          goBackward();
+          break;
+        case "ArrowUp":
+          console.log("ArrowUp");
+          break;
+        case "ArrowDown":
+          console.log("ArrowDown");
+          break;
+        case "Enter":
+          console.log("Enter");
+          break;
+        default:
+          console.log("Default");
+      }
     });
   }, []);
 
-  const onGoForward = () =>
+  const goForward = () =>
     setCurrent((prev) => {
       if (prev !== totalSlides.length - 1) {
         return prev + 1;
@@ -22,7 +41,7 @@ function App() {
       return prev;
     });
 
-  const onGoBackward = () =>
+  const goBackward = () =>
     setCurrent((prev) => {
       if (prev !== 0) {
         return prev - 1;
@@ -36,13 +55,13 @@ function App() {
       <div className={classNames("flex")}>
         <button
           className={classNames("bg-black text-white p-4")}
-          onClick={onGoBackward}
+          onClick={goBackward}
         >
           Backward
         </button>
         <button
           className={classNames("bg-black text-white p-4")}
-          onClick={onGoForward}
+          onClick={goForward}
         >
           Forward
         </button>
