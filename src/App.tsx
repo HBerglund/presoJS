@@ -1,15 +1,15 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from 'react';
 
-import classNames from "classnames";
-import { handleArrowClick } from "./helpers/arrowNavigation";
-import { slides, SlideType } from "./data";
+import classNames from 'classnames';
+import { handleArrowClick } from './helpers/arrowNavigation';
+import { slides, SlideType } from './data';
 
 function App() {
   const [current, setCurrent] = useState<number>(0);
   const [totalSlides, setTotalSlides] = useState<SlideType[]>(slides);
 
   useEffect(() => {
-    window.addEventListener("keyup", (e: KeyboardEvent) => {
+    window.addEventListener('keyup', (e: any) => {
       handleArrowClick(e);
     });
   }, []);
@@ -33,15 +33,15 @@ function App() {
   return (
     <div>
       <div>{totalSlides[current]}</div>
-      <div className={classNames("flex")}>
+      <div className={classNames('flex')}>
         <button
-          className={classNames("bg-black text-white p-4")}
+          className={classNames('bg-black text-white p-4')}
           onClick={onGoBackward}
         >
           Backward
         </button>
         <button
-          className={classNames("bg-black text-white p-4")}
+          className={classNames('bg-black text-white p-4')}
           onClick={onGoForward}
         >
           Forward
