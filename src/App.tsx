@@ -11,11 +11,9 @@ function App() {
     window.addEventListener("keyup", (e: any) => {
       switch (e.key) {
         case "ArrowRight":
-          console.log("ArrowRight");
           goForward();
           break;
         case "ArrowLeft":
-          console.log("ArrowLeft");
           goBackward();
           break;
         case "ArrowUp":
@@ -30,44 +28,40 @@ function App() {
         default:
           console.log("Default");
       }
-    window.addEventListener('keyup', (e: any) => {
-      handleArrowClick(e);
     });
   }, []);
 
-  const goForward = () =>
+  const goForward = () => {
     setCurrent((prev) => {
       if (prev !== totalSlides.length - 1) {
         return prev + 1;
       }
       return prev;
     });
+  };
 
-  const goBackward = () =>
+  const goBackward = () => {
     setCurrent((prev) => {
       if (prev !== 0) {
         return prev - 1;
       }
       return prev;
     });
+  };
 
   return (
     <div>
       <div>{totalSlides[current]}</div>
-      <div className={classNames('flex')}>
+      <div className={classNames("flex")}>
         <button
           className={classNames("bg-black text-white p-4")}
           onClick={goBackward}
-          className={classNames('bg-black text-white p-4')}
-          onClick={onGoBackward}
         >
           Backward
         </button>
         <button
           className={classNames("bg-black text-white p-4")}
           onClick={goForward}
-          className={classNames('bg-black text-white p-4')}
-          onClick={onGoForward}
         >
           Forward
         </button>
