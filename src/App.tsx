@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { slides, SlideType } from './data';
+import BulletSlide from './Slides/BulletSlide';
 
 function App() {
   const [current, setCurrent] = useState<number>(0);
@@ -48,6 +49,14 @@ function App() {
       return prev;
     });
   };
+
+  const bullets: string[] = [
+    'first bullet',
+    'second bullet',
+    'third bullet',
+    'fourth bullet',
+    'fifth bullet',
+  ];
 
   return (
     <div>
