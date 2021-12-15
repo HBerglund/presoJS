@@ -1,15 +1,7 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    colors: {
-      background: '#4C65F7',
-      primary: '#B25CFA',
-      secondary: '#FF62AA',
-      tertiary: '#f5f5f5',
-      textPrimary: '#F37133',
-      textSecondary: '#FFB449',
-      textAlternative: '#6CB4E0',
-    },
+
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
       serif: ['Cormorant Garamond', 'serif'],
@@ -27,6 +19,15 @@ module.exports = {
       },
       borderRadius: {
         '4xl': '2rem',
+      },
+      colors: {
+        background: '#000',
+        primary: '#B25CFA',
+        secondary: '#FF62AA',
+        tertiary: '#4C65F7',
+        textPrimary: '#FFF',
+        textSecondary: '#b2b2b2',
+        textAlternative: '#6CB4E0',
       },
     },
   },
