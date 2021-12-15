@@ -17,10 +17,10 @@ module.exports = {
       serif: ['Cormorant Garamond', 'serif'],
     },
     fontSize: {
-      headingXL: ['8rem', { lineHeight: '1.2' }],
-      heading: ['6rem', { lineHeight: '1.2' }],
-      subHeading: ['4rem', { lineHeight: '1.2' }],
-      paragraph: ['2rem', { lineHeight: '1.2' }],
+      xl: ['7.5rem', { lineHeight: '1.1' }],
+      lg: ['5rem', { lineHeight: '1.1' }],
+      md: ['2.5rem', { lineHeight: '1.3' }],
+      body: ['1.75rem', { lineHeight: '1.4' }],
     },
     extend: {
       spacing: {
