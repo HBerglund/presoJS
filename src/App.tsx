@@ -7,48 +7,48 @@ function App() {
   const [current, setCurrent] = useState<number>(0);
   const [totalSlides, setTotalSlides] = useState<SlideType[]>(slides);
 
-  // useEffect(() => {
-  //   setTotalSlides(slides);
-  //   window.addEventListener("keyup", (e: any) => {
-  //     switch (e.key) {
-  //       case "ArrowRight":
-  //         console.log("ArrowRight");
-  //         goForward();
-  //         break;
-  //       case "ArrowLeft":
-  //         console.log("ArrowLeft");
-  //         goBackward();
-  //         break;
-  //       case "ArrowUp":
-  //         console.log("ArrowUp");
-  //         break;
-  //       case "ArrowDown":
-  //         console.log("ArrowDown");
-  //         break;
-  //       case "Enter":
-  //         console.log("Enter");
-  //         break;
-  //       default:
-  //         console.log("Default");
-  //     }
-  //   }
-  // }, []);
+  useEffect(() => {
+    setTotalSlides(slides);
+    window.addEventListener('keyup', (e: any) => {
+      switch (e.key) {
+        case 'ArrowRight':
+          goForward();
+          break;
+        case 'ArrowLeft':
+          goBackward();
+          break;
+        case 'ArrowUp':
+          console.log('ArrowUp');
+          break;
+        case 'ArrowDown':
+          console.log('ArrowDown');
+          break;
+        case 'Enter':
+          console.log('Enter');
+          break;
+        default:
+          console.log('Default');
+      }
+    });
+  }, []);
 
-  const goForward = () =>
+  const goForward = () => {
     setCurrent((prev) => {
       if (prev !== totalSlides.length - 1) {
         return prev + 1;
       }
       return prev;
     });
+  };
 
-  const goBackward = () =>
+  const goBackward = () => {
     setCurrent((prev) => {
       if (prev !== 0) {
         return prev - 1;
       }
       return prev;
     });
+  };
 
   const bullets: string[] = [
     'first bullet',
@@ -59,30 +59,22 @@ function App() {
   ];
 
   return (
-    <div style={{ height: '100%' }}>
-      <div>
-        {
-          <BulletSlide
-            title="BULLET HEADING"
-            subTitle="BULLET SUB HEADING"
-            bullets={bullets}
-          />
-        }
-      </div>
-      {/* <div className={classNames("flex")}>
+    <div>
+      <div>{totalSlides[current]}</div>
+      <div className={classNames('flex')}>
         <button
-          className={classNames("bg-black text-white p-4")}
+          className={classNames('bg-black text-white p-4')}
           onClick={goBackward}
         >
           Backward
         </button>
         <button
-          className={classNames("bg-black text-white p-4")}
+          className={classNames('bg-black text-white p-4')}
           onClick={goForward}
         >
           Forward
         </button>
-      </div> */}
+      </div>
     </div>
   );
 }
