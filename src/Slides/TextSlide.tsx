@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 import SlideParent from '../Components/SlideParent';
 import { motion } from 'framer-motion';
 import { DirectionContext } from '../Context/DirectionContext';
+import { v4 as uuidv4 } from 'uuid';
 
 interface TextSlideProps {
   alignYX?: 'topLeft' | 'topCenter' | 'centerCenter';
@@ -12,6 +13,7 @@ interface TextSlideProps {
 }
 
 const TextSlide = ({ alignYX, title, subTitle, paragraph }: TextSlideProps) => {
+  const id = uuidv4();
   const directionContext = useContext(DirectionContext);
   console.log(directionContext.direction);
 
@@ -28,10 +30,15 @@ const TextSlide = ({ alignYX, title, subTitle, paragraph }: TextSlideProps) => {
 
   return (
     <motion.div
-      initial={{ x: '100%' }}
+      key={id}
+      initial={{
+        x: directionContext.direction === 'forward' ? '100%' : '-100%',
+      }}
       animate={{ x: '0%' }}
-      exit={{ x: '-100%' }}
-      transition={{ duration: 1 }}
+      exit={{
+        x: directionContext.direction === 'forward' ? '-100%' : '100%',
+      }}
+      transition={{ duration: 0.5 }}
     >
       <SlideParent>
         <div className={classNames('h-full flex flex-col', getAlignment())}>

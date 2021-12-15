@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { slides, SlideType } from './data';
-import { AnimatePresence } from 'framer-motion';
 import { DirectionContext } from './Context/DirectionContext';
+import { AnimatePresence } from 'framer-motion';
 
 const Presentation = () => {
   const directionContext = useContext(DirectionContext);
@@ -51,23 +51,27 @@ const Presentation = () => {
   };
 
   return (
-    <div>
-      <div className={classNames('flex')}>
-        <button
-          className={classNames('bg-black text-white p-4')}
-          onClick={goBackward}
-        >
-          Backward
-        </button>
-        <button
-          className={classNames('bg-black text-white p-4')}
-          onClick={goForward}
-        >
-          Forward
-        </button>
+    <AnimatePresence>
+      <div>
+        <div>
+          <div className={classNames('flex')}>
+            <button
+              className={classNames('bg-black text-white p-4')}
+              onClick={goBackward}
+            >
+              Backward
+            </button>
+            <button
+              className={classNames('bg-black text-white p-4')}
+              onClick={goForward}
+            >
+              Forward
+            </button>
+          </div>
+        </div>
+        {totalSlides[current]}
       </div>
-      <AnimatePresence>{totalSlides[current]}</AnimatePresence>
-    </div>
+    </AnimatePresence>
   );
 };
 
