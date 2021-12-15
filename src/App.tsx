@@ -30,6 +30,8 @@ function App() {
         default:
           console.log("Default");
       }
+    window.addEventListener('keyup', (e: any) => {
+      handleArrowClick(e);
     });
   }, []);
 
@@ -52,16 +54,20 @@ function App() {
   return (
     <div>
       <div>{totalSlides[current]}</div>
-      <div className={classNames("flex")}>
+      <div className={classNames('flex')}>
         <button
           className={classNames("bg-black text-white p-4")}
           onClick={goBackward}
+          className={classNames('bg-black text-white p-4')}
+          onClick={onGoBackward}
         >
           Backward
         </button>
         <button
           className={classNames("bg-black text-white p-4")}
           onClick={goForward}
+          className={classNames('bg-black text-white p-4')}
+          onClick={onGoForward}
         >
           Forward
         </button>
