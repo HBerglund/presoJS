@@ -11,32 +11,32 @@ const carouselCards: SlideType[] = [
   {
     component: (
       <CarouselSlideCard
-        content='While initial client leads are the hardest to get, all my subsequent leads came from existing client referrals. Do good work and build relationships.'
+        content='"While initial client leads are the hardest to get, all my subsequent leads came from existing client referrals. Do good work and build relationships."'
         name='Oscar Andersson'
         imageUrl='https://media.istockphoto.com/photos/pleasant-young-indian-woman-freelancer-consult-client-via-video-call-picture-id1300972573'
       />
     ),
-    id: 5,
+    id: 100,
   },
   {
     component: (
       <CarouselSlideCard
-        content='What I am primarily looking for with new projects is a fit on both a visual and aesthetic level as well as on a personal level with the client.'
+        content='"What I am primarily looking for with new projects is a fit on both a visual and aesthetic level as well as on a personal level with the client."'
         name='Victor Wikström'
         imageUrl='https://media.istockphoto.com/photos/millennial-male-team-leader-organize-virtual-workshop-with-employees-picture-id1300972574'
       />
     ),
-    id: 6,
+    id: 101,
   },
   {
     component: (
       <CarouselSlideCard
-        content='Being independent doesnt always translate to a better income. Both paths can enable you to make money, but being independent gives you way more creative freedom.'
+        content='"Being independent doesnt always translate to a better income. Both paths can enable you to make money, but being independent gives you way more creative freedom."'
         name='Herman Berglund'
         imageUrl='https://media.istockphoto.com/photos/one-beautiful-woman-looking-at-the-camera-in-profile-picture-id1303539316'
       />
     ),
-    id: 7,
+    id: 102,
   },
 ];
 
@@ -74,7 +74,7 @@ export const slides: SlideType[] = [
   {
     component: (
       <CarouselSlide
-        title='What our clients has to say'
+        title='What our clients are saying'
         carouselCards={carouselCards}
       />
     ),
