@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { slides, SlideType } from './data';
 import BulletSlide from './Slides/BulletSlide';
+import Bullet from './Components/Bullet';
 
 function App() {
   const [current, setCurrent] = useState<number>(0);
@@ -60,7 +61,12 @@ function App() {
 
   return (
     <div>
-      <div>{totalSlides[current]}</div>
+      <BulletSlide
+        title='Show it with bullets'
+        subTitle='This is how I like to show off bullets'
+        bullets={bullets}
+      />
+      {/* <div>{totalSlides[current]}</div> */}
       <div className={classNames('flex')}>
         <button
           className={classNames('bg-black text-white p-4')}

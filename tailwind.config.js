@@ -12,6 +12,9 @@ module.exports = {
       md: ['2.5rem', { lineHeight: '1.3' }],
       body: ['1.75rem', { lineHeight: '1.4' }],
     },
+    letterSpacing: {
+      heading: '-.05em',
+    },
     extend: {
       spacing: {
         128: '32rem',
@@ -27,7 +30,7 @@ module.exports = {
         tertiary: '#4C65F7',
         textPrimary: '#FFF',
         textSecondary: '#b2b2b2',
-        textAlternative: '#6CB4E0',
+        textAlternative: '#B25CFA',
       },
     },
   },
