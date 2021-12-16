@@ -11,7 +11,6 @@ interface BulletSlideProps {
 const BulletSlide = ({ title, subTitle, bullets }: BulletSlideProps) => {
   const [visibleBullets, setVisibleBullets] = useState<string[]>([]);
   const [nextBullet, setNextBullet] = useState(0);
-  let allBulletsVisible = false; // Might need to be a state
 
   const keyPress = useCallback(
     (e: KeyboardEvent) => {
@@ -19,23 +18,18 @@ const BulletSlide = ({ title, subTitle, bullets }: BulletSlideProps) => {
         if (nextBullet < bullets.length) {
           setVisibleBullets((prev) => [...prev, bullets[nextBullet]]);
           setNextBullet((prev) => prev + 1);
-        } else {
-          allBulletsVisible = true;
         }
-        e.preventDefault();
       }
+      return;
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [visibleBullets]
+    [nextBullet]
   );
 
   useEffect(() => {
     window.addEventListener('keyup', keyPress);
     return () => window.removeEventListener('keyup', keyPress);
   }, [keyPress]);
-
-  console.log(visibleBullets);
-  console.log(nextBullet);
 
   return (
     <SlideParent>
