@@ -1,5 +1,5 @@
 import React from 'react';
-import PresentationProvider from './Context/DirectionContext';
+import PresentationProvider from './Context/PresentationContext';
 import Presentation from './Presentation';
 
 function App() {

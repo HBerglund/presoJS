@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import { PresentationContext } from '../Context/DirectionContext';
+import { PresentationContext } from '../Context/PresentationContext';
 import Image from './Image';
 
 type CarouselSlideProps = {

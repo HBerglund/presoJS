@@ -1,22 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { slides, SlideType } from './data';
-import { PresentationContext } from './Context/DirectionContext';
+import React, { useContext, useEffect } from 'react';
+import { PresentationContext } from './Context/PresentationContext';
 import { AnimatePresence } from 'framer-motion';
 
 const Presentation = () => {
-  const directionContext = useContext(PresentationContext);
-  const [current, setCurrent] = useState<number>(0);
-  const [totalSlides, setTotalSlides] = useState<SlideType[]>(slides);
+  const presentationContext = useContext(PresentationContext);
 
   useEffect(() => {
-    setTotalSlides(slides);
     window.addEventListener('keyup', (e: any) => {
       switch (e.key) {
         case 'ArrowRight':
-          goForward();
+          presentationContext.moveForward();
           break;
         case 'ArrowLeft':
-          goBackward();
+          presentationContext.moveBackward();
           break;
         case 'ArrowUp':
           break;
@@ -29,29 +25,19 @@ const Presentation = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const goForward = () => {
-    directionContext.updateDirection('forward');
-    setCurrent((prev) => {
-      if (prev !== totalSlides.length - 1) {
-        return prev + 1;
-      }
-      return prev;
-    });
-  };
-
-  const goBackward = () => {
-    directionContext.updateDirection('backward');
-    setCurrent((prev) => {
-      if (prev !== 0) {
-        return prev - 1;
-      }
-      return prev;
-    });
-  };
-
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
-      <div key={totalSlides[current].id}>{totalSlides[current].component}</div>
+      <div
+        key={
+          presentationContext.presentationDeck[presentationContext.currentSlide]
+            .id
+        }
+      >
+        {
+          presentationContext.presentationDeck[presentationContext.currentSlide]
+            .component
+        }
+      </div>
     </AnimatePresence>
   );
 };

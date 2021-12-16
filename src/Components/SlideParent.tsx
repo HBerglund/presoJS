@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
-import { PresentationContext } from '../Context/DirectionContext';
+import { PresentationContext } from '../Context/PresentationContext';
 
 type Props = {
   children: React.ReactNode;
