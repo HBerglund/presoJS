@@ -1,4 +1,5 @@
 import CarouselSlideCard from './Components/CarouselSlideCard';
+import CarouselSlide from './Slides/CarouselSlide';
 import FirstSlide from './Slides/FirstSlide';
 import SecondSlide from './Slides/SecondSlide';
 import ThirdSlide from './Slides/ThirdSlide';
@@ -6,6 +7,7 @@ import ThirdSlide from './Slides/ThirdSlide';
 export type SlideType = React.ReactNode;
 
 export const slides: SlideType[] = [
+  <CarouselSlide title='What our clients has to say' />,
   <FirstSlide />,
   <SecondSlide />,
   <ThirdSlide />,

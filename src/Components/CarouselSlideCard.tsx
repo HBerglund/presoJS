@@ -11,10 +11,7 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
   name,
 }: CarouselSlideProps) => {
   return (
-    <div
-      style={{ height: 400 }}
-      className='w-3/4 flex items-center bg-primary p-20 rounded-3xl border-2'
-    >
+    <div className='flex items-center bg-primary p-20 rounded-3xl border-2'>
       <div className={classNames('flex flex-col')}>
         <span className={classNames('text-textPrimary text-body')}>
           {content}

@@ -37,12 +37,26 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
 
   return (
     <SlideParent>
-      <div className={classNames('flex')}>
-        <button onClick={goBackward}>{'<'}</button>
-        <div className={classNames('w-full flex justify-center mx-40')}>
+      {title && (
+        <span className={classNames('text-md text-textPrimary')}>{title}</span>
+      )}
+      <div
+        className={classNames(
+          'w-full h-full flex justify-between items-center'
+        )}
+      >
+        <button onClick={goBackward} className={classNames('text-textPrimary')}>
+          {'<'}
+        </button>
+        <div
+          style={{ height: 400, width: 800 }}
+          className={classNames('flex justify-center mx-40')}
+        >
           {totalCards[current]}
         </div>
-        <button onClick={goForward}>{'>'}</button>
+        <button onClick={goForward} className={classNames('text-textPrimary')}>
+          {'>'}
+        </button>
       </div>
     </SlideParent>
   );
