@@ -1,14 +1,16 @@
 import React from 'react';
 
-interface Props {
+interface BulletProps {
   content: string;
 }
 
-const Bullet = (props: Props) => {
+const Bullet = (props: BulletProps) => {
   return (
-    <div className='flex items-center mt-2 mb-2'>
-      <div className='w-4 h-4 bg-black mr-6'></div>
-      <span className='text-body text-textPrimary uppercase font-bold'>
+    <div className='flex items-center mt-4 mb-2'>
+      <div className='p-1 bg-gradient-to-l from-primary to-secondary rounded-full mr-6'>
+        <div className='w-6 h-6 rounded-full bg-background'></div>
+      </div>
+      <span className='text-md text-textPrimary font-semibold'>
         {props.content}
       </span>
     </div>

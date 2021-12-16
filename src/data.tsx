@@ -1,3 +1,4 @@
+import BulletSlide from './Slides/BulletSlide';
 import CarouselSlideCard from './Components/CarouselSlideCard';
 import CarouselSlide from './Slides/CarouselSlide';
 import TextSlide from './Slides/TextSlide';
@@ -43,10 +44,9 @@ const carouselCards: SlideType[] = [
 export const slides: SlideType[] = [
   {
     component: (
-      <TextSlide
-        title='Herman Berglund'
-        subTitle='framer-motion showcase'
-        paragraph='Detta är en visuell demo av massa skitgrejer'
+      <BulletSlide
+        title='Bullet Slide'
+        bullets={['test1', 'test2', 'test3', 'test4']}
       />
     ),
     id: 1,
@@ -54,7 +54,7 @@ export const slides: SlideType[] = [
   {
     component: (
       <TextSlide
-        title='Victor Berglund'
+        title='Herman Berglund'
         subTitle='framer-motion showcase'
         paragraph='Detta är en visuell demo av massa skitgrejer'
       />
@@ -64,12 +64,22 @@ export const slides: SlideType[] = [
   {
     component: (
       <TextSlide
-        title='Oscar Berglund'
+        title='Victor Berglund'
         subTitle='framer-motion showcase'
         paragraph='Detta är en visuell demo av massa skitgrejer'
       />
     ),
     id: 3,
+  },
+  {
+    component: (
+      <TextSlide
+        title='Oscar Berglund'
+        subTitle='framer-motion showcase'
+        paragraph='Detta är en visuell demo av massa skitgrejer'
+      />
+    ),
+    id: 4,
   },
   {
     component: (
