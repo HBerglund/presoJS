@@ -1,7 +1,7 @@
 import React, { FC, useContext, useState } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import { PresentationContext } from '../Context/PresentationContext';
+import { PresentationContext } from '../Context/DirectionContext';
 import SlideParent from '../Components/SlideParent';
 import { SlideType } from '../data';
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg';

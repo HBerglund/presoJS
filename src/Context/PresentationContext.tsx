@@ -5,7 +5,6 @@ interface PresentationValue {
   direction: 'forward' | 'backward';
   currentSlide: number;
   presentationDeck: SlideType[];
-  updateDirection: (direction: 'forward' | 'backward') => void;
   moveForward: () => void;
   moveBackward: () => void;
 }
@@ -14,7 +13,6 @@ export const PresentationContext = createContext<PresentationValue>({
   direction: 'forward',
   currentSlide: 0,
   presentationDeck: [],
-  updateDirection: () => {},
   moveForward: () => {},
   moveBackward: () => {},
 });
@@ -54,7 +52,6 @@ const PresentationProvider: FC<{}> = ({ children }) => {
         direction,
         currentSlide,
         presentationDeck,
-        updateDirection,
         moveForward,
         moveBackward,
       }}
