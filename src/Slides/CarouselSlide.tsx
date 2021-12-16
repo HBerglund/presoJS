@@ -2,8 +2,8 @@ import React, { FC, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import SlideParent from '../Components/SlideParent';
 import { carouselCards, SlideType } from '../data';
-import { ReactComponent as ChevronLeft } from '../assets/chevron-left.svg';
-import { ReactComponent as ChevronRight } from '../assets/chevron-right.svg';
+import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg';
+import { ReactComponent as ArrowRight } from '../assets/arrow-right.svg';
 type CarouselSliderProps = {
   title?: string;
 };
@@ -39,31 +39,50 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
   return (
     <SlideParent>
       {title && (
-        <span className={classNames('text-md text-textPrimary')}>{title}</span>
+        <span className={classNames('text-lg text-textPrimary')}>{title}</span>
       )}
       <div
         className={classNames('w-full h-full flex justify-center items-center')}
       >
-        <button
-          onClick={goBackward}
-          className={classNames(current === 0 ? 'invisible' : 'visible')}
+        <div
+          className={classNames(
+            current === 0
+              ? 'w-12 h-12'
+              : 'w-12 h-12 flex justify-center border rounded-full hover:border-2 hover:border-primary'
+          )}
         >
-          <ChevronLeft />
-        </button>
+          <button
+            onClick={goBackward}
+            className={classNames(
+              'flex items-center',
+              current === 0 ? 'invisible' : 'visible'
+            )}
+          >
+            <ArrowLeft />
+          </button>
+        </div>
         <div
           style={{ height: 400, width: 800 }}
           className={classNames('flex justify-center mx-20')}
         >
           {totalCards[current]}
         </div>
-        <button
-          onClick={goForward}
+        <div
           className={classNames(
-            current === totalCards.length - 1 ? 'invisible' : 'visible'
+            current === totalCards.length - 1
+              ? 'w-12 h-12'
+              : 'w-12 h-12 flex justify-center border rounded-full hover:border-2 hover:border-primary'
           )}
         >
-          <ChevronRight />
-        </button>
+          <button
+            onClick={goForward}
+            className={classNames(
+              current === totalCards.length - 1 ? 'invisible' : 'visible'
+            )}
+          >
+            <ArrowRight />
+          </button>
+        </div>
       </div>
     </SlideParent>
   );
