@@ -1,3 +1,4 @@
+import CarouselSlide from './Slides/CarouselSlide';
 import TextSlide from './Slides/TextSlide';
 
 export type SlideType = {
