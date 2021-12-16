@@ -33,7 +33,9 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
       </div>
       {imageUrl && (
         <div className={classNames('absolute top-2/3 left-1/4')}>
-          <Image border size='sm' imageUrl={imageUrl} />
+          <div className={classNames('border-2 rounded-full')}>
+            <Image border size='sm' imageUrl={imageUrl} />
+          </div>
         </div>
       )}
     </div>

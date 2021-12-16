@@ -2,7 +2,8 @@ import React, { FC, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import SlideParent from '../Components/SlideParent';
 import { carouselCards, SlideType } from '../data';
-
+import { ReactComponent as ChevronLeft } from '../assets/chevron-left.svg';
+import { ReactComponent as ChevronRight } from '../assets/chevron-right.svg';
 type CarouselSliderProps = {
   title?: string;
 };
@@ -41,21 +42,27 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
         <span className={classNames('text-md text-textPrimary')}>{title}</span>
       )}
       <div
-        className={classNames(
-          'w-full h-full flex justify-between items-center'
-        )}
+        className={classNames('w-full h-full flex justify-center items-center')}
       >
-        <button onClick={goBackward} className={classNames('text-textPrimary')}>
-          {'<'}
+        <button
+          onClick={goBackward}
+          className={classNames(current === 0 ? 'invisible' : 'visible')}
+        >
+          <ChevronLeft />
         </button>
         <div
           style={{ height: 400, width: 800 }}
-          className={classNames('flex justify-center mx-40')}
+          className={classNames('flex justify-center mx-20')}
         >
           {totalCards[current]}
         </div>
-        <button onClick={goForward} className={classNames('text-textPrimary')}>
-          {'>'}
+        <button
+          onClick={goForward}
+          className={classNames(
+            current === totalCards.length - 1 ? 'invisible' : 'visible'
+          )}
+        >
+          <ChevronRight />
         </button>
       </div>
     </SlideParent>
