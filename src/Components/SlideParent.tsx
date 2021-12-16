@@ -1,22 +1,22 @@
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
-import { DirectionContext } from '../Context/DirectionContext';
+import { PresentationContext } from '../Context/DirectionContext';
 
 type Props = {
   children: React.ReactNode;
 };
 
 const SlideParent: React.FC<Props> = ({ children }) => {
-  const directionContext = useContext(DirectionContext);
+  const presentationContext = useContext(PresentationContext);
 
   return (
     <motion.div
       initial={{
-        x: directionContext.direction === 'forward' ? '100%' : '-100%',
+        x: presentationContext.direction === 'forward' ? '100%' : '-100%',
       }}
       animate={{ x: '0%' }}
       exit={{
-        x: directionContext.direction === 'forward' ? '-100%' : '100%',
+        x: presentationContext.direction === 'forward' ? '-100%' : '100%',
       }}
       transition={{ duration: 0.5 }}
     >

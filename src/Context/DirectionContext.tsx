@@ -5,12 +5,12 @@ interface DirectionValue {
   updateDirection: (direction: 'forward' | 'backward') => void;
 }
 
-export const DirectionContext = createContext<DirectionValue>({
+export const PresentationContext = createContext<DirectionValue>({
   direction: 'forward',
   updateDirection: () => {},
 });
 
-const DirectionProvider: FC<{}> = ({ children }) => {
+const PresentationProvider: FC<{}> = ({ children }) => {
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
 
   const updateDirection = (newValue: 'forward' | 'backward') => {
@@ -18,15 +18,15 @@ const DirectionProvider: FC<{}> = ({ children }) => {
   };
 
   return (
-    <DirectionContext.Provider
+    <PresentationContext.Provider
       value={{
         direction,
         updateDirection,
       }}
     >
       {children}
-    </DirectionContext.Provider>
+    </PresentationContext.Provider>
   );
 };
 
-export default DirectionProvider;
+export default PresentationProvider;

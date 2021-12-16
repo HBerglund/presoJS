@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { slides, SlideType } from './data';
-import { DirectionContext } from './Context/DirectionContext';
+import { PresentationContext } from './Context/DirectionContext';
 import { AnimatePresence } from 'framer-motion';
 
 const Presentation = () => {
-  const directionContext = useContext(DirectionContext);
+  const directionContext = useContext(PresentationContext);
   const [current, setCurrent] = useState<number>(0);
   const [totalSlides, setTotalSlides] = useState<SlideType[]>(slides);
 

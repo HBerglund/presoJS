@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import { DirectionContext } from '../Context/DirectionContext';
+import { PresentationContext } from '../Context/DirectionContext';
 import Image from './Image';
 
 type CarouselSlideProps = {
@@ -15,7 +15,7 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
   name,
   imageUrl,
 }: CarouselSlideProps) => {
-  const directionContext = useContext(DirectionContext);
+  const presentationContext = useContext(PresentationContext);
   return (
     <div className='flex items-center bg-primary p-20 rounded-3xl border-2'>
       <div className={classNames('flex flex-col')}>
@@ -57,9 +57,9 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
           className={classNames('absolute top-2/3 right-3/4')}
           initial={{
             opacity: 0,
-            y: directionContext.direction === 'forward' ? '-400%' : '400%',
+            y: presentationContext.direction === 'forward' ? '-400%' : '400%',
             scale: 0.5,
-            rotate: directionContext.direction === 'forward' ? 180 : -180,
+            rotate: presentationContext.direction === 'forward' ? 180 : -180,
           }}
           animate={{ opacity: 1, y: '0%', x: '100', scale: 1, rotate: 0 }}
           exit={{
