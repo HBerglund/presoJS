@@ -1,26 +1,23 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import SlideParent from '../Components/SlideParent';
-import { carouselCards, SlideType } from '../data';
+import { SlideType } from '../data';
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg';
 import { ReactComponent as ArrowRight } from '../assets/arrow-right.svg';
 type CarouselSliderProps = {
   title?: string;
+  carouselCards: SlideType[];
 };
 
 const CarouselSlide: FC<CarouselSliderProps> = ({
   title,
+  carouselCards,
 }: CarouselSliderProps) => {
   const [current, setCurrent] = useState<number>(0);
-  const [totalCards, setTotalCards] = useState<SlideType[]>(carouselCards);
-
-  useEffect(() => {
-    setTotalCards(carouselCards);
-  }, []);
 
   const goForward = () => {
     setCurrent((prev) => {
-      if (prev !== totalCards.length - 1) {
+      if (prev !== carouselCards.length - 1) {
         return prev + 1;
       }
       return prev;
@@ -65,11 +62,11 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
           style={{ height: 400, width: 800 }}
           className={classNames('flex justify-center mx-20')}
         >
-          {totalCards[current]}
+          {carouselCards[current].component}
         </div>
         <div
           className={classNames(
-            current === totalCards.length - 1
+            current === carouselCards.length - 1
               ? 'w-12 h-12'
               : 'w-12 h-12 flex justify-center border rounded-full hover:border-2 hover:border-primary'
           )}
@@ -77,7 +74,7 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
           <button
             onClick={goForward}
             className={classNames(
-              current === totalCards.length - 1 ? 'invisible' : 'visible'
+              current === carouselCards.length - 1 ? 'invisible' : 'visible'
             )}
           >
             <ArrowRight />
