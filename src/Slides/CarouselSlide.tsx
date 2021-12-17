@@ -1,7 +1,7 @@
 import React, { FC, useContext, useState } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import { PresentationContext } from '../Context/DirectionContext';
+import { PresentationContext } from '../Context/PresentationContext';
 import SlideParent from '../Components/SlideParent';
 import { SlideType } from '../data';
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg';
@@ -20,7 +20,7 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
   const [current, setCurrent] = useState<number>(0);
 
   const goForward = () => {
-    presentationContext.updateDirection('forward');
+    // presentationContext.updateDirection('forward');
     setCurrent((prev) => {
       if (prev !== carouselCards.length - 1) {
         return prev + 1;
@@ -30,7 +30,7 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
   };
 
   const goBackward = () => {
-    presentationContext.updateDirection('backward');
+    // presentationContext.updateDirection('backward');
     setCurrent((prev) => {
       if (prev !== 0) {
         return prev - 1;
