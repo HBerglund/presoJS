@@ -1,31 +1,43 @@
-import React, { FC, useContext } from 'react';
-import classNames from 'classnames';
-import SlideParent from '../Components/SlideParent';
-import { motion } from 'framer-motion';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import { PresentationContext } from '../Context/PresentationContext';
+import classNames from 'classnames';
+import { motion } from 'framer-motion';
+import SlideParent from '../Components/SlideParent';
 
 type Props = {
   title?: string;
   subTitle?: string;
   url: string;
-  size?: 'xl' | 'lg' | 'md' | 'sm';
+  size?: 'lg' | 'md' | 'sm';
 };
 
 const VideoSlide: FC<Props> = ({ title, subTitle, url, size }) => {
   const presentationContext = useContext(PresentationContext);
+  const [width, setWidth] = useState<string>('1040px');
+  const [height, setHeight] = useState<string>('592px');
 
-  const getSize = () => {
+  useEffect(() => {
+    getWidth();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const getWidth = () => {
     switch (size) {
-      case 'xl':
-        return '100%';
       case 'lg':
-        return '80%';
+        setWidth('1267px');
+        setHeight('720px');
+        break;
       case 'md':
-        return '60%';
+        setWidth('1040px');
+        setHeight('592px');
+        break;
       case 'sm':
-        return '40%';
+        setWidth('698px');
+        setHeight('400px');
+        break;
       default:
-        return '60%';
+        setWidth('1040px');
+        setHeight('592px');
     }
   };
 
@@ -34,7 +46,7 @@ const VideoSlide: FC<Props> = ({ title, subTitle, url, size }) => {
       {title && (
         <motion.span
           className={classNames(
-            'text-textPrimary text-lg tracking-heading text-center w-full uppercase'
+            ' w-full text-center text-textPrimary text-lg font-semibold tracking-heading uppercase'
           )}
           key={title}
           initial={{
@@ -66,22 +78,23 @@ const VideoSlide: FC<Props> = ({ title, subTitle, url, size }) => {
         </motion.span>
       )}
       <motion.div
-        className={classNames('w-full h-full')}
+        className={classNames('w-full h-full flex justify-center mt-8')}
         key={url}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.8 }}
       >
-        <div className={classNames('h-full flex justify-center items-center')}>
-          <iframe
-            title='video'
-            src={url}
-            width={getSize()}
-            height='100%'
-            allowFullScreen
-          ></iframe>
-        </div>
+        <iframe
+          className={classNames(
+            'rounded p-2 bg-gradient-to-l from-primary to-secondary'
+          )}
+          title={title ? title : 'video'}
+          src={url}
+          width={width}
+          height={height}
+          allowFullScreen
+        ></iframe>
       </motion.div>
     </SlideParent>
   );

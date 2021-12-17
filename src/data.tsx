@@ -93,24 +93,29 @@ export const slides: SlideType[] = [
   },
   {
     component: (
-      <VideoSlide
-        title='Video Slide'
-        subTitle='Sub Video Slide'
-        url='https://www.youtube.com/embed/tgbNymZ7vqY'
-        size='lg'
-      />
+      <VideoSlide url='https://www.youtube.com/embed/3Fbf7KovGAE' size='lg' />
     ),
     id: 6,
   },
   {
     component: (
       <VideoSlide
-        title='Video Slide'
         subTitle='Sub Video Slide'
-        url='https://player.vimeo.com/video/347119375'
-        size='lg'
+        url='https://www.youtube.com/embed/8C3j42KKrWM'
+        size='md'
       />
     ),
     id: 7,
+  },
+  {
+    component: (
+      <VideoSlide
+        title='Video Slide'
+        subTitle='Sub Video Slide'
+        url='https://www.youtube.com/embed/8C3j42KKrWM'
+        size='sm'
+      />
+    ),
+    id: 8,
   },
 ];
