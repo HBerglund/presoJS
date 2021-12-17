@@ -97,10 +97,20 @@ export const slides: SlideType[] = [
         title='Video Slide'
         subTitle='Sub Video Slide'
         url='https://www.youtube.com/embed/tgbNymZ7vqY'
-        // url='https://player.vimeo.com/video/347119375'
         size='lg'
       />
     ),
     id: 6,
+  },
+  {
+    component: (
+      <VideoSlide
+        title='Video Slide'
+        subTitle='Sub Video Slide'
+        url='https://player.vimeo.com/video/347119375'
+        size='lg'
+      />
+    ),
+    id: 7,
   },
 ];
