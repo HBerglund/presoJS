@@ -31,6 +31,9 @@ module.exports = {
         textSecondary: '#b2b2b2',
         textAlternative: '#B25CFA',
       },
+      width: {
+        '1000px': '62.5rem',
+      },
     },
   },
   plugins: [],
