@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import { PresentationContext } from './Context/PresentationContext';
 import { AnimatePresence } from 'framer-motion';
 
@@ -24,6 +24,26 @@ const Presentation = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const keyPress = useCallback(
+    (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'ArrowRight':
+          presentationContext.moveForward();
+          break;
+        case 'ArrowLeft':
+          presentationContext.moveBackward();
+          break;
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [nextBullet]
+  );
+
+  useEffect(() => {
+    window.addEventListener('keyup', keyPress);
+    return () => window.removeEventListener('keyup', keyPress);
+  }, [keyPress]);
 
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
