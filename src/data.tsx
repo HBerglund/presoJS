@@ -2,6 +2,7 @@ import BulletSlide from './Slides/BulletSlide';
 import CarouselSlideCard from './Components/CarouselSlideCard';
 import CarouselSlide from './Slides/CarouselSlide';
 import TextSlide from './Slides/TextSlide';
+import VideoSlide from './Slides/VideoSlide';
 
 export type SlideType = {
   component: React.ReactNode;
@@ -92,20 +93,16 @@ export const slides: SlideType[] = [
   },
   {
     component: (
-      <CarouselSlide
-        title='What our clients are saying'
-        carouselCards={carouselCards}
+      <VideoSlide
+        title='Video Slide'
+        subTitle='Sub Video Slide'
+        url='https://www.youtube.com/embed/tgbNymZ7vqY'
+        // url='https://player.vimeo.com/video/347119375'
+        type='youtube'
+        // type='vimeo'
+        size='lg'
       />
     ),
     id: 6,
-  },
-  {
-    component: (
-      <CarouselSlide
-        title='What our clients are saying'
-        carouselCards={carouselCards}
-      />
-    ),
-    id: 7,
   },
 ];
