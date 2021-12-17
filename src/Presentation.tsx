@@ -5,26 +5,6 @@ import { AnimatePresence } from 'framer-motion';
 const Presentation = () => {
   const presentationContext = useContext(PresentationContext);
 
-  useEffect(() => {
-    window.addEventListener('keyup', (e: any) => {
-      switch (e.key) {
-        case 'ArrowRight':
-          presentationContext.moveForward();
-          break;
-        case 'ArrowLeft':
-          presentationContext.moveBackward();
-          break;
-        case 'ArrowUp':
-          break;
-        case 'ArrowDown':
-          break;
-        case 'Enter':
-          break;
-      }
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const keyPress = useCallback(
     (e: KeyboardEvent) => {
       switch (e.key) {
@@ -35,9 +15,9 @@ const Presentation = () => {
           presentationContext.moveBackward();
           break;
       }
+      return;
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [nextBullet]
+    [presentationContext]
   );
 
   useEffect(() => {
