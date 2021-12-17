@@ -1,12 +1,12 @@
 import React from 'react';
-import DirectionProvider from './Context/DirectionContext';
+import PresentationProvider from './Context/PresentationContext';
 import Presentation from './Presentation';
 
 function App() {
   return (
-    <DirectionProvider>
+    <PresentationProvider>
       <Presentation />
-    </DirectionProvider>
+    </PresentationProvider>
   );
 }
 
