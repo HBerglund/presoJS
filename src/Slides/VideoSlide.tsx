@@ -6,11 +6,10 @@ type Props = {
   title?: string;
   subTitle?: string;
   url: string;
-  type: string;
   size?: 'xl' | 'lg' | 'md' | 'sm';
 };
 
-const VideoSlide: FC<Props> = ({ title, subTitle, url, type, size }) => {
+const VideoSlide: FC<Props> = ({ title, subTitle, url, size }) => {
   const getSize = () => {
     switch (size) {
       case 'xl':
@@ -25,6 +24,7 @@ const VideoSlide: FC<Props> = ({ title, subTitle, url, type, size }) => {
         return '60%';
     }
   };
+
   return (
     <SlideParent>
       <div className='w-full h-full flex flex-col'>
@@ -47,23 +47,13 @@ const VideoSlide: FC<Props> = ({ title, subTitle, url, type, size }) => {
           </span>
         )}
         <div className={classNames('h-full flex justify-center items-center')}>
-          {type === 'youtube' ? (
-            <iframe
-              title='youtube-video'
-              src={url}
-              width={getSize()}
-              height='100%'
-              allowFullScreen
-            ></iframe>
-          ) : type === 'vimeo' ? (
-            <iframe
-              title='vimeo-video'
-              width={getSize()}
-              height='100%'
-              allowFullScreen
-              src={url}
-            ></iframe>
-          ) : null}
+          <iframe
+            title='video'
+            src={url}
+            width={getSize()}
+            height='100%'
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
     </SlideParent>

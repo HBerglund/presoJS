@@ -98,8 +98,6 @@ export const slides: SlideType[] = [
         subTitle='Sub Video Slide'
         url='https://www.youtube.com/embed/tgbNymZ7vqY'
         // url='https://player.vimeo.com/video/347119375'
-        type='youtube'
-        // type='vimeo'
         size='lg'
       />
     ),
