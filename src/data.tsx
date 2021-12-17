@@ -88,6 +88,24 @@ export const slides: SlideType[] = [
         carouselCards={carouselCards}
       />
     ),
-    id: 4,
+    id: 5,
+  },
+  {
+    component: (
+      <CarouselSlide
+        title='What our clients are saying'
+        carouselCards={carouselCards}
+      />
+    ),
+    id: 6,
+  },
+  {
+    component: (
+      <CarouselSlide
+        title='What our clients are saying'
+        carouselCards={carouselCards}
+      />
+    ),
+    id: 7,
   },
 ];
