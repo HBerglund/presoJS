@@ -23,11 +23,11 @@ module.exports = {
         '4xl': '2rem',
       },
       colors: {
-        background: '#F4F4F4',
+        background: '#000',
         primary: '#B25CFA',
         secondary: '#FF62AA',
         tertiary: '#4C65F7',
-        textPrimary: '#4C65F7',
+        textPrimary: '#FFF',
         textSecondary: '#b2b2b2',
         textAlternative: '#B25CFA',
       },
