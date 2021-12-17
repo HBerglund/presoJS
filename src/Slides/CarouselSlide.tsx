@@ -1,9 +1,8 @@
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import { PresentationContext } from '../Context/PresentationContext';
-import SlideParent from '../Components/SlideParent';
 import { SlideType } from '../data';
+import SlideParent from '../Components/SlideParent';
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg';
 import { ReactComponent as ArrowRight } from '../assets/arrow-right.svg';
 
@@ -16,11 +15,11 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
   title,
   carouselCards,
 }: CarouselSliderProps) => {
-  const presentationContext = useContext(PresentationContext);
+  const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const [current, setCurrent] = useState<number>(0);
 
-  const goForward = () => {
-    // presentationContext.updateDirection('forward');
+  const moveForward = () => {
+    setDirection('forward');
     setCurrent((prev) => {
       if (prev !== carouselCards.length - 1) {
         return prev + 1;
@@ -29,8 +28,8 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
     });
   };
 
-  const goBackward = () => {
-    // presentationContext.updateDirection('backward');
+  const moveBackward = () => {
+    setDirection('backward');
     setCurrent((prev) => {
       if (prev !== 0) {
         return prev - 1;
@@ -67,7 +66,7 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
           )}
         >
           <button
-            onClick={goBackward}
+            onClick={moveBackward}
             className={classNames(
               'flex items-center',
               current === 0 ? 'invisible' : 'visible'
@@ -82,12 +81,12 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
           key={carouselCards[current].id}
           initial={{
             opacity: 0,
-            x: presentationContext.direction === 'forward' ? '100%' : '-200%',
+            x: direction === 'forward' ? '200%' : '-200%',
           }}
           animate={{ opacity: 1, x: '0%' }}
           exit={{
             opacity: 0,
-            x: presentationContext.direction === 'forward' ? '-200%' : '0%',
+            x: direction === 'forward' ? '-200%' : '0%',
           }}
           transition={{ duration: 0.5 }}
         >
@@ -101,7 +100,7 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
           )}
         >
           <button
-            onClick={goForward}
+            onClick={moveForward}
             className={classNames(
               current === carouselCards.length - 1 ? 'invisible' : 'visible'
             )}
