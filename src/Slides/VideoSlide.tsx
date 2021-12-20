@@ -13,8 +13,7 @@ type Props = {
 
 const VideoSlide: FC<Props> = ({ title, subTitle, url, size }) => {
   const presentationContext = useContext(PresentationContext);
-  const [width, setWidth] = useState<string>('1040px');
-  const [height, setHeight] = useState<string>('592px');
+  const [width, setWidth] = useState<string>('80%');
 
   useEffect(() => {
     getWidth();
@@ -24,20 +23,16 @@ const VideoSlide: FC<Props> = ({ title, subTitle, url, size }) => {
   const getWidth = () => {
     switch (size) {
       case 'lg':
-        setWidth('1267px');
-        setHeight('720px');
+        setWidth('100%');
         break;
       case 'md':
-        setWidth('1040px');
-        setHeight('592px');
+        setWidth('80%');
         break;
       case 'sm':
-        setWidth('698px');
-        setHeight('400px');
+        setWidth('60%');
         break;
       default:
-        setWidth('1040px');
-        setHeight('592px');
+        setWidth('80%');
     }
   };
 
@@ -92,7 +87,7 @@ const VideoSlide: FC<Props> = ({ title, subTitle, url, size }) => {
           title={title ? title : 'video'}
           src={url}
           width={width}
-          height={height}
+          height={'100%'}
           allowFullScreen
         ></iframe>
       </motion.div>
