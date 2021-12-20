@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 
 const Presentation = () => {
   const presentationContext = useContext(PresentationContext);
+  const { currentSlide, presentationDeck } = presentationContext;
 
   const keyPress = useCallback(
     (e: KeyboardEvent) => {
@@ -27,16 +28,8 @@ const Presentation = () => {
 
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
-      <div
-        key={
-          presentationContext.presentationDeck[presentationContext.currentSlide]
-            .id
-        }
-      >
-        {
-          presentationContext.presentationDeck[presentationContext.currentSlide]
-            .component
-        }
+      <div key={presentationDeck[currentSlide].id}>
+        {presentationDeck[currentSlide].component}
       </div>
     </AnimatePresence>
   );

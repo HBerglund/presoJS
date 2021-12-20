@@ -6,9 +6,15 @@ import TextSlide from './Slides/TextSlide';
 export type SlideType = {
   component: React.ReactNode;
   id: number;
+  chapter: string;
 };
 
-const carouselCards: SlideType[] = [
+export type CarouselSlideType = {
+  component: React.ReactNode;
+  id: number;
+};
+
+const carouselCards: CarouselSlideType[] = [
   {
     component: (
       <CarouselSlideCard
@@ -50,6 +56,7 @@ export const slides: SlideType[] = [
       />
     ),
     id: 1,
+    chapter: 'Chapter 1',
   },
   {
     component: (
@@ -60,6 +67,7 @@ export const slides: SlideType[] = [
       />
     ),
     id: 2,
+    chapter: 'Chapter 1',
   },
   {
     component: (
@@ -70,6 +78,7 @@ export const slides: SlideType[] = [
       />
     ),
     id: 3,
+    chapter: 'Chapter 1',
   },
   {
     component: (
@@ -80,6 +89,7 @@ export const slides: SlideType[] = [
       />
     ),
     id: 4,
+    chapter: 'Chapter 2',
   },
   {
     component: (
@@ -89,6 +99,7 @@ export const slides: SlideType[] = [
       />
     ),
     id: 5,
+    chapter: 'Chapter 2',
   },
   {
     component: (
@@ -98,6 +109,7 @@ export const slides: SlideType[] = [
       />
     ),
     id: 6,
+    chapter: 'Chapter 2',
   },
   {
     component: (
@@ -107,6 +119,7 @@ export const slides: SlideType[] = [
       />
     ),
     id: 7,
+    chapter: 'Chapter 2',
   },
   {
     component: (
@@ -117,6 +130,7 @@ export const slides: SlideType[] = [
       />
     ),
     id: 8,
+    chapter: 'Chapter 3',
   },
   {
     component: (
@@ -127,6 +141,7 @@ export const slides: SlideType[] = [
       />
     ),
     id: 9,
+    chapter: 'Chapter 3',
   },
   {
     component: (
@@ -137,5 +152,6 @@ export const slides: SlideType[] = [
       />
     ),
     id: 10,
+    chapter: 'Chapter 3',
   },
 ];

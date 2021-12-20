@@ -1,5 +1,5 @@
-import { createContext, FC, useEffect, useState } from 'react';
-import { slides, SlideType } from '../data';
+import { createContext, FC, useState } from 'react';
+import { SlideType, slides } from '../data';
 
 interface PresentationValue {
   direction: 'forward' | 'backward';
