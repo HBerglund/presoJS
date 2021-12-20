@@ -119,7 +119,7 @@ export const slides: SlideType[] = [
       <VideoSlide
         subTitle='Sub Video Slide'
         url='https://www.youtube.com/embed/8C3j42KKrWM'
-        size='md'
+        size='lg'
       />
     ),
     id: 7,

@@ -31,6 +31,7 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
           {quote && (
             <motion.div
               className={classNames('text-textPrimary text-md')}
+              key={quote}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 1 }}
@@ -42,6 +43,7 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
           {name && (
             <motion.div
               className={classNames('text-textSecondary text-body mt-4')}
+              key={name}
               initial={{
                 opacity: 0,
                 scale: 0.75,
@@ -62,6 +64,7 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
         {imageUrl && (
           <motion.div
             className={classNames('')}
+            key={imageUrl}
             initial={{
               opacity: 0.25,
             }}

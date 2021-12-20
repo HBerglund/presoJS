@@ -20,6 +20,7 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
         {content && (
           <motion.div
             className={classNames('text-textPrimary text-body')}
+            key={content}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 1 }}
@@ -33,6 +34,7 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
             className={classNames(
               'text-textSecondary text-body text-right mt-4'
             )}
+            key={name}
             initial={{
               opacity: 0,
               scale: 0.75,
@@ -48,6 +50,7 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
       {imageUrl && (
         <motion.div
           className={classNames('absolute top-3/5 right-3/4')}
+          key={imageUrl}
           initial={{
             opacity: 0.25,
           }}
