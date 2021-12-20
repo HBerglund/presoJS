@@ -18,7 +18,7 @@ const SlideParent: React.FC<Props> = ({ children }) => {
       }}
       animate={{ x: '0%' }}
       exit={{
-        // x: presentationContext.direction === 'forward' ? '-100%' : '100%',
+        x: presentationContext.direction === 'forward' ? '-100%' : '100%',
         opacity: 0,
       }}
       transition={{ duration: 0.5 }}

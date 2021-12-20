@@ -2,9 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
 html,
 body,
 .root {
   height: 100%;
   @apply bg-background;
+}
+
+span {
+  white-space: pre;
 }

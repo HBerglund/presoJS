@@ -2,13 +2,20 @@ import BulletSlide from './Slides/BulletSlide';
 import CarouselSlideCard from './Components/CarouselSlideCard';
 import CarouselSlide from './Slides/CarouselSlide';
 import TextSlide from './Slides/TextSlide';
+import VideoSlide from './Slides/VideoSlide';
 
 export type SlideType = {
   component: React.ReactNode;
   id: number;
+  chapter: string;
 };
 
-const carouselCards: SlideType[] = [
+export type CarouselSlideType = {
+  component: React.ReactNode;
+  id: number;
+};
+
+const carouselCards: CarouselSlideType[] = [
   {
     component: (
       <CarouselSlideCard
@@ -46,10 +53,15 @@ export const slides: SlideType[] = [
     component: (
       <BulletSlide
         title='Bullet Slide'
-        bullets={['test1', 'test2', 'test3', 'test4']}
+        bullets={[
+          'This is the first bullet',
+          'This is the second bullet',
+          'This is the third bullet',
+        ]}
       />
     ),
     id: 1,
+    chapter: 'Chapter 1',
   },
   {
     component: (
@@ -60,6 +72,7 @@ export const slides: SlideType[] = [
       />
     ),
     id: 2,
+    chapter: 'Chapter 1',
   },
   {
     component: (
@@ -70,6 +83,7 @@ export const slides: SlideType[] = [
       />
     ),
     id: 3,
+    chapter: 'Chapter 1',
   },
   {
     component: (
@@ -80,6 +94,7 @@ export const slides: SlideType[] = [
       />
     ),
     id: 4,
+    chapter: 'Chapter 2',
   },
   {
     component: (
@@ -89,23 +104,68 @@ export const slides: SlideType[] = [
       />
     ),
     id: 5,
+    chapter: 'Chapter 2',
   },
   {
     component: (
-      <CarouselSlide
-        title='What our clients are saying'
-        carouselCards={carouselCards}
-      />
+      <VideoSlide url='https://www.youtube.com/embed/3Fbf7KovGAE' size='lg' />
     ),
     id: 6,
+    chapter: 'Chapter 2',
   },
   {
     component: (
-      <CarouselSlide
-        title='What our clients are saying'
-        carouselCards={carouselCards}
+      <VideoSlide
+        subTitle='Sub Video Slide'
+        url='https://www.youtube.com/embed/8C3j42KKrWM'
+        size='md'
       />
     ),
     id: 7,
+    chapter: 'Chapter 2',
+  },
+  {
+    component: (
+      <TextSlide
+        title='Oskar Berglund'
+        subTitle='framer-motion showcase'
+        paragraph='Detta är en visuell demo av Oskars skit'
+      />
+    ),
+    id: 8,
+    chapter: 'Chapter 3',
+  },
+  {
+    component: (
+      <TextSlide
+        title='Oskar Berglund'
+        subTitle='framer-motion showcase'
+        paragraph='Detta är en visuell demo av Oskars skit'
+      />
+    ),
+    id: 9,
+    chapter: 'Chapter 3',
+  },
+  {
+    component: (
+      <TextSlide
+        title='Oskar Berglund'
+        subTitle='framer-motion showcase'
+        paragraph='Detta är en visuell demo av Oskars skit'
+      />
+    ),
+    id: 10,
+    chapter: 'Chapter 3',
+  },
+  {
+    component: (
+      <VideoSlide
+        title='Video Slide'
+        subTitle='Sub Video Slide'
+        url='https://www.youtube.com/embed/8C3j42KKrWM'
+        size='sm'
+      />
+    ),
+    id: 8,
   },
 ];
