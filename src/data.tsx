@@ -47,7 +47,11 @@ export const slides: SlideType[] = [
     component: (
       <BulletSlide
         title='Bullet Slide'
-        bullets={['test1', 'test2', 'test3', 'test4']}
+        bullets={[
+          'This is the first bullet',
+          'This is the second bullet',
+          'This is the third bullet',
+        ]}
       />
     ),
     id: 1,

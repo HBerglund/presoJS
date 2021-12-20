@@ -8,3 +8,7 @@ body,
   height: 100%;
   @apply bg-background;
 }
+
+span {
+  white-space: pre;
+}
