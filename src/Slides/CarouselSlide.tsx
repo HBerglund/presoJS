@@ -82,13 +82,18 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
           style={{ height: 400, width: 800 }}
           key={carouselCards[current].id}
           initial={{
-            opacity: 0.8,
+            opacity: 0.5,
+            x: direction === 'forward' ? '200%' : '-200%',
           }}
-          animate={{ opacity: 1 }}
+          animate={{
+            opacity: 1,
+            x: direction === 'forward' ? '0%' : '0%',
+          }}
           exit={{
             opacity: 0,
+            x: direction === 'forward' ? '-200%' : '200%',
           }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.5 }}
         >
           {carouselCards[current].component}
         </motion.div>
