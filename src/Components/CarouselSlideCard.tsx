@@ -15,18 +15,18 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
   imageUrl,
 }: CarouselSlideProps) => {
   return (
-    <div className='flex items-center bg-primary p-20 rounded-3xl border-2'>
+    <div className='bg-primary p-20 rounded-3xl border-2'>
       <div className={classNames('flex flex-col')}>
         {content && (
-          <motion.span
+          <motion.div
             className={classNames('text-textPrimary text-body')}
-            initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            exit={{ opacity: 1, scale: 0.5, rotate: 180 }}
-            transition={{ duration: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
           >
             {content}
-          </motion.span>
+          </motion.div>
         )}
         {name && (
           <motion.span
@@ -35,16 +35,11 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
             )}
             initial={{
               opacity: 0,
-              x: '-50%',
-              scale: 0.5,
+              scale: 0.75,
             }}
-            animate={{ opacity: 1, x: '0%', scale: 1 }}
-            exit={{
-              opacity: 0,
-              x: '100%',
-              scale: 0.5,
-            }}
-            transition={{ duration: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.75 }}
+            transition={{ duration: 0.5 }}
           >
             {name}
           </motion.span>
@@ -52,14 +47,11 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
       </div>
       {imageUrl && (
         <motion.div
-          className={classNames('absolute top-2/3 right-3/4')}
+          className={classNames('absolute top-3/5 left-1/4')}
           initial={{
             opacity: 0,
-            y: '400%',
-            scale: 0.5,
-            rotate: -180,
           }}
-          animate={{ opacity: 1, y: '0%', x: '100', scale: 1, rotate: 0 }}
+          animate={{ opacity: 1 }}
           exit={{
             opacity: 0,
             y: '0%',
