@@ -1,5 +1,4 @@
-import React, { FC, useContext, useState } from 'react';
-import { PresentationContext } from '../Context/PresentationContext';
+import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { CarouselSlideType } from '../data';
@@ -16,7 +15,6 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
   title,
   carouselCards,
 }: CarouselSliderProps) => {
-  const presentationContext = useContext(PresentationContext);
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const [current, setCurrent] = useState<number>(0);
 
@@ -43,19 +41,7 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
   return (
     <SlideParent>
       {title && (
-        <motion.span
-          className={classNames('text-lg text-textPrimary')}
-          key={title}
-          initial={{
-            opacity: 0,
-            x: presentationContext.direction === 'forward' ? '100%' : '-100%',
-          }}
-          animate={{ opacity: 1, x: '0%' }}
-          exit={{ opacity: 0, x: '0%' }}
-          transition={{ duration: 0.8 }}
-        >
-          {title}
-        </motion.span>
+        <span className={classNames('text-md text-textPrimary')}>{title}</span>
       )}
       <div
         className={classNames('w-full h-full flex justify-center items-center')}
@@ -82,15 +68,12 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
           style={{ height: 400, width: 800 }}
           key={carouselCards[current].id}
           initial={{
-            opacity: 0.5,
             x: direction === 'forward' ? '200%' : '-200%',
           }}
           animate={{
-            opacity: 1,
             x: direction === 'forward' ? '0%' : '0%',
           }}
           exit={{
-            opacity: 0,
             x: direction === 'forward' ? '-200%' : '200%',
           }}
           transition={{ duration: 0.5 }}
