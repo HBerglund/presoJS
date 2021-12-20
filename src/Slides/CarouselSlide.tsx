@@ -1,14 +1,14 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import { SlideType } from '../data';
+import { CarouselSlideType } from '../data';
 import SlideParent from '../Components/SlideParent';
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg';
 import { ReactComponent as ArrowRight } from '../assets/arrow-right.svg';
 
 type CarouselSliderProps = {
   title?: string;
-  carouselCards: SlideType[];
+  carouselCards: CarouselSlideType[];
 };
 
 const CarouselSlide: FC<CarouselSliderProps> = ({

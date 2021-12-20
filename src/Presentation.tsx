@@ -1,12 +1,13 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import { PresentationContext } from './Context/PresentationContext';
 import { AnimatePresence } from 'framer-motion';
 
 const Presentation = () => {
   const presentationContext = useContext(PresentationContext);
+  const { currentSlide, presentationDeck } = presentationContext;
 
-  useEffect(() => {
-    window.addEventListener('keyup', (e: any) => {
+  const keyPress = useCallback(
+    (e: KeyboardEvent) => {
       switch (e.key) {
         case 'ArrowRight':
           presentationContext.moveForward();
@@ -14,29 +15,21 @@ const Presentation = () => {
         case 'ArrowLeft':
           presentationContext.moveBackward();
           break;
-        case 'ArrowUp':
-          break;
-        case 'ArrowDown':
-          break;
-        case 'Enter':
-          break;
       }
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+      return;
+    },
+    [presentationContext]
+  );
+
+  useEffect(() => {
+    window.addEventListener('keyup', keyPress);
+    return () => window.removeEventListener('keyup', keyPress);
+  }, [keyPress]);
 
   return (
     <AnimatePresence exitBeforeEnter initial={false}>
-      <div
-        key={
-          presentationContext.presentationDeck[presentationContext.currentSlide]
-            .id
-        }
-      >
-        {
-          presentationContext.presentationDeck[presentationContext.currentSlide]
-            .component
-        }
+      <div key={presentationDeck[currentSlide].id}>
+        {presentationDeck[currentSlide].component}
       </div>
     </AnimatePresence>
   );
