@@ -166,6 +166,7 @@ export const slides: SlideType[] = [
         size='sm'
       />
     ),
-    id: 8,
+    id: 11,
+    chapter: 'Chapter 3',
   },
 ];
