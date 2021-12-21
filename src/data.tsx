@@ -3,6 +3,7 @@ import CarouselSlideCard from './Components/CarouselSlideCard';
 import CarouselSlide from './Slides/CarouselSlide';
 import TextSlide from './Slides/TextSlide';
 import VideoSlide from './Slides/VideoSlide';
+import ChapterSlide from './Slides/ChapterSlide';
 
 export type SlideType = {
   component: React.ReactNode;
@@ -166,7 +167,31 @@ export const slides: SlideType[] = [
         size='sm'
       />
     ),
-    id: 8,
+    id: 11,
     chapter: 'Chapter 3',
+  },
+  {
+    component: (
+      <ChapterSlide
+        alignXY='left'
+        chapter={4}
+        title='This is how you'
+        subTitle='Create a chapter'
+        image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
+      />
+    ),
+    id: 12,
+    chapter: 'Chapter 4',
+  },
+  {
+    component: (
+      <TextSlide
+        title='Oskar Berglund'
+        subTitle='framer-motion showcase'
+        paragraph='Detta är en visuell demo av Oskars skit'
+      />
+    ),
+    id: 13,
+    chapter: 'Chapter 4',
   },
 ];
