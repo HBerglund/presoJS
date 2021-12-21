@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 
@@ -25,8 +25,6 @@ const Typography: React.FC<TypographyProps> = ({
   overflowHidden,
   animateFrom,
 }) => {
-  const [elements, setElements] = useState<string[] | undefined>([]);
-
   const getElements = () => {
     if (splitOn === 'words') {
       return children?.toString().split('((?<=\\s+)|(?=\\s+))');
@@ -39,12 +37,11 @@ const Typography: React.FC<TypographyProps> = ({
 
   const stringArr = getElements();
 
-  console.log(stringArr);
-
   const getOverflow = () => {
     if (overflowHidden) {
       return 'overflow-hidden';
     }
+    return '';
   };
 
   const getSize = () => {
@@ -60,6 +57,7 @@ const Typography: React.FC<TypographyProps> = ({
     }
   };
 
+  // NEED DEFAULT
   const getAnimation = () => {
     switch (animateFrom) {
       case 'top':
@@ -81,34 +79,57 @@ const Typography: React.FC<TypographyProps> = ({
     }
   };
 
-  stringArr?.map((el, i) => {
-    return (
-      <motion.span
-        key={i}
-        initial={getAnimation()}
-        animate={{ x: 0, y: 0 }}
-        transition={{ duration: 0.5, delay: i * 0.2 }}
-        className={classNames('text-textPrimary', getSize())}
-      >
-        {el}
-      </motion.span>
-    );
-  });
-  return null; // To remove error
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        staggerChildren: 0.5,
+      },
+    },
+  };
 
-  // if (!stringArr) {
-  //   return (
-  //     <motion.span
-  //       initial={{ x: -100 }}
-  //       animate={{ x: 0, y: 0 }}
-  //       transition={{ duration: 2 }}
-  //       className={classNames('text-textPrimary', getSize())}
-  //     >
-  //       {children}
-  //     </motion.span>
-  //   );
-  // }
-  // return null;
+  const item = {
+    hidden: {x: 100, opacity: 0 },
+    visible: {
+      opacity: 1,
+      x: 0,
+    },
+  };
+
+  if (stringArr?.length) {
+    return (
+      <motion.div
+        variants={container}
+        initial='hidden'
+        animate={stringArr.length > 0 && 'visible'}
+      >
+        {stringArr.map((el, i) => (
+          <motion.span
+            key={i}
+            variants={item}
+            className={classNames('text-textPrimary', getSize())}
+          >
+            {el}
+          </motion.span>
+        ))}
+      </motion.div>
+    );
+  }
+
+  console.log('got here');
+
+  return (
+    <motion.span
+      initial={{ x: -100 }}
+      animate={{ x: 0, y: 0 }}
+      transition={{ duration: 2 }}
+      className={classNames('text-textPrimary', getSize())}
+    >
+      {children}
+    </motion.span>
+  );
 };
 
 export default Typography;

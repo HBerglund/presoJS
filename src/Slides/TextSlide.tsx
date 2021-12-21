@@ -26,7 +26,7 @@ const TextSlide = ({ alignYX, title, subTitle, paragraph }: TextSlideProps) => {
     <SlideParent>
       <div className={classNames('h-full flex flex-col', getAlignment())}>
         {title && (
-          <Typography size='md' splitOn='chars'>
+          <Typography size='md' splitOn='chars' animateFrom='top-left'>
             {title}
           </Typography>
         )}
