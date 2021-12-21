@@ -167,5 +167,6 @@ export const slides: SlideType[] = [
       />
     ),
     id: 8,
+    chapter: 'Chapter 3',
   },
 ];

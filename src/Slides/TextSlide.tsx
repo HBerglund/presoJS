@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import SlideParent from '../Components/SlideParent';
+import Typography from '../Components/Typography';
 
 interface TextSlideProps {
   alignYX?: 'topLeft' | 'topCenter' | 'centerCenter';
@@ -24,7 +25,11 @@ const TextSlide = ({ alignYX, title, subTitle, paragraph }: TextSlideProps) => {
   return (
     <SlideParent>
       <div className={classNames('h-full flex flex-col', getAlignment())}>
-        {title && <span className='text-textPrimary text-xl'>{title}</span>}
+        {title && (
+          <Typography size='md' splitOn='chars'>
+            {title}
+          </Typography>
+        )}
         {subTitle && (
           <span className='text-textPrimary text-lg mb-8'>{subTitle}</span>
         )}
