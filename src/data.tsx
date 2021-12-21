@@ -173,10 +173,11 @@ export const slides: SlideType[] = [
   {
     component: (
       <ChapterSlide
-        alignXY='center'
+        alignXY='left'
         chapter={4}
         title='This is how you'
         subTitle='Create a chapter'
+        image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
       />
     ),
     id: 12,

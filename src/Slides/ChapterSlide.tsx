@@ -3,12 +3,14 @@ import { PresentationContext } from '../Context/PresentationContext';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import SlideParent from '../Components/SlideParent';
+import Image from '../Components/Image';
 
 type ChapterSlideProps = {
   alignXY: 'left' | 'center';
   chapter: number;
   title: string;
   subTitle: string;
+  image: string;
 };
 
 const ChapterSlide: FC<ChapterSlideProps> = ({
@@ -16,6 +18,7 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
   chapter,
   title,
   subTitle,
+  image,
 }: ChapterSlideProps) => {
   const presentationContext = useContext(PresentationContext);
   return (
@@ -44,7 +47,15 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
                         : '-600',
                   }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, opacity: { duration: 0.8 } }}
+                  transition={{
+                    duration: 0.8,
+                    opacity: {
+                      duration:
+                        presentationContext.direction === 'forward'
+                          ? '0.8'
+                          : '1',
+                    },
+                  }}
                 >
                   Chapter
                 </motion.span>
@@ -61,7 +72,15 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
                         : '-800',
                   }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, opacity: { duration: 1 } }}
+                  transition={{
+                    duration: 0.8,
+                    opacity: {
+                      duration:
+                        presentationContext.direction === 'forward'
+                          ? '1'
+                          : '0.8',
+                    },
+                  }}
                 >
                   <div
                     className={classNames(
@@ -110,6 +129,17 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
             </motion.span>
           )}
         </div>
+        {alignXY === 'left' && (
+          <motion.div
+            className={classNames('w-full flex justify-center')}
+            key={image}
+            initial={{ opacity: 0, scale: 0.6 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, opacity: { duration: 1 } }}
+          >
+            <Image imageUrl={image} border size='lg' />
+          </motion.div>
+        )}
       </div>
     </SlideParent>
   );
