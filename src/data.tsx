@@ -3,6 +3,7 @@ import CarouselSlideCard from './Components/CarouselSlideCard';
 import CarouselSlide from './Slides/CarouselSlide';
 import TextSlide from './Slides/TextSlide';
 import VideoSlide from './Slides/VideoSlide';
+import ChapterSlide from './Slides/ChapterSlide';
 
 export type SlideType = {
   component: React.ReactNode;
@@ -166,7 +167,18 @@ export const slides: SlideType[] = [
         size='sm'
       />
     ),
-    id: 8,
+    id: 11,
     chapter: 'Chapter 3',
+  },
+  {
+    component: (
+      <ChapterSlide
+        chapter={4}
+        title='Learn about React'
+        subTitle='Become a world class programmer'
+      />
+    ),
+    id: 12,
+    chapter: 'Chapter 4',
   },
 ];
