@@ -110,7 +110,10 @@ export const slides: SlideType[] = [
   },
   {
     component: (
-      <VideoSlide url='https://www.youtube.com/embed/3Fbf7KovGAE' size='lg' />
+      <VideoSlide
+        url='https://www.youtube.com/embed/Kuwk1fkP4vA'
+        size='large'
+      />
     ),
     id: 6,
     chapter: 'Chapter 2',
@@ -118,9 +121,10 @@ export const slides: SlideType[] = [
   {
     component: (
       <VideoSlide
+        alignXY='center'
         subTitle='Sub Video Slide'
         url='https://www.youtube.com/embed/8C3j42KKrWM'
-        size='lg'
+        size='large'
       />
     ),
     id: 7,
@@ -162,10 +166,11 @@ export const slides: SlideType[] = [
   {
     component: (
       <VideoSlide
+        alignXY='left'
         title='Video Slide'
         subTitle='Sub Video Slide'
         url='https://www.youtube.com/embed/8C3j42KKrWM'
-        size='sm'
+        size='small'
       />
     ),
     id: 11,

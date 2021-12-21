@@ -1,75 +1,87 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import SlideParent from '../Components/SlideParent';
 
 type Props = {
+  alignXY?: 'left' | 'center';
   title?: string;
   subTitle?: string;
   url: string;
-  size?: 'lg' | 'sm';
+  size?: 'large' | 'small';
 };
 
-const VideoSlide: FC<Props> = ({ title, subTitle, url, size }) => {
-  const [width, setWidth] = useState<string>('80%');
-
+const VideoSlide: FC<Props> = ({ alignXY, title, subTitle, url, size }) => {
   useEffect(() => {
+    getAlignment();
     getWidth();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const getAlignment = () => {
+    switch (alignXY) {
+      case 'left':
+        return 'justify-start';
+      case 'center':
+        return 'justify-center';
+      default:
+        return 'justify-start';
+    }
+  };
   const getWidth = () => {
     switch (size) {
-      case 'lg':
-        setWidth('80%');
-        break;
-      case 'sm':
-        setWidth('60%');
-        break;
+      case 'large':
+        return '80%';
+      case 'small':
+        return '60%';
       default:
-        setWidth('80%');
+        return '60%';
     }
   };
 
   return (
     <SlideParent>
-      {title && (
-        <span
-          className={classNames(
-            ' w-full text-center text-textPrimary text-lg font-semibold tracking-heading uppercase'
-          )}
+      <div className={classNames('w-full h-full flex flex-col')}>
+        {title && (
+          <span
+            className={classNames(
+              'w-full flex text-textPrimary text-lg tracking-heading font-medium uppercase mb-4',
+              getAlignment()
+            )}
+          >
+            {title}
+          </span>
+        )}
+        {subTitle && (
+          <span
+            className={classNames(
+              'w-full flex text-textSecondary text-md tracking-heading uppercase mb-4',
+              getAlignment()
+            )}
+          >
+            {subTitle}
+          </span>
+        )}
+        <motion.div
+          className={classNames('w-full h-full flex justify-center')}
+          key={url}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
         >
-          {title}
-        </span>
-      )}
-      {subTitle && (
-        <span
-          className={classNames(
-            'text-textSecondary text-md tracking-heading text-center w-full'
-          )}
-        >
-          {subTitle}
-        </span>
-      )}
-      <motion.div
-        className={classNames('w-full h-full flex justify-center mt-8')}
-        key={url}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <iframe
-          className={classNames(
-            'rounded p-2 bg-gradient-to-l from-primary to-secondary'
-          )}
-          title={title ? title : 'video'}
-          src={url}
-          width={width}
-          height={'100%'}
-          allowFullScreen
-        ></iframe>
-      </motion.div>
+          <iframe
+            className={classNames(
+              'rounded p-1.5 bg-gradient-to-l from-primary to-secondary'
+            )}
+            title={title ? title : 'video'}
+            src={url}
+            width={getWidth()}
+            height={'100%'}
+            allowFullScreen
+          ></iframe>
+        </motion.div>
+      </div>
     </SlideParent>
   );
 };
