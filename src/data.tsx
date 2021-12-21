@@ -173,9 +173,10 @@ export const slides: SlideType[] = [
   {
     component: (
       <ChapterSlide
+        alignXY='center'
         chapter={4}
-        title='Learn about React'
-        subTitle='Become a world class programmer'
+        title='This is how you'
+        subTitle='Create a chapter'
       />
     ),
     id: 12,
