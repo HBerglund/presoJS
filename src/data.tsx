@@ -181,4 +181,15 @@ export const slides: SlideType[] = [
     id: 12,
     chapter: 'Chapter 4',
   },
+  {
+    component: (
+      <TextSlide
+        title='Oskar Berglund'
+        subTitle='framer-motion showcase'
+        paragraph='Detta är en visuell demo av Oskars skit'
+      />
+    ),
+    id: 13,
+    chapter: 'Chapter 4',
+  },
 ];

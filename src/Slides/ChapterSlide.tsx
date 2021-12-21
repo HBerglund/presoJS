@@ -28,7 +28,7 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
                   key={chapter}
                   initial={{ opacity: 0, x: 1200 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, opacity: { duration: 1 } }}
+                  transition={{ duration: 0.8, opacity: { duration: 0.8 } }}
                 >
                   Chapter
                 </motion.span>
@@ -39,7 +39,7 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
                   key={chapter}
                   initial={{ opacity: 0, x: 1600 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, opacity: { duration: 1.5 } }}
+                  transition={{ duration: 0.8, opacity: { duration: 1 } }}
                 >
                   <span
                     className={classNames(
@@ -53,18 +53,28 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
             )}
           </div>
           {title && (
-            <span
+            <motion.span
               className={classNames(
                 'text-textPrimary text-lg tracking-heading font-bold uppercase'
               )}
+              key={title}
+              initial={{ opacity: 0, y: 200 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, opacity: { duration: 1 } }}
             >
               {title}
-            </span>
+            </motion.span>
           )}
           {subTitle && (
-            <span className={classNames('text-textSecondary text-body')}>
+            <motion.span
+              className={classNames('text-textSecondary text-body')}
+              key={title}
+              initial={{ opacity: 0, y: 300 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, opacity: { duration: 1 } }}
+            >
               {subTitle}
-            </span>
+            </motion.span>
           )}
         </div>
       </div>
