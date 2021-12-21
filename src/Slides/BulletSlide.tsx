@@ -34,14 +34,14 @@ const BulletSlide = ({ title, subTitle, bullets }: BulletSlideProps) => {
   return (
     <SlideParent>
       <div className='flex flex-col items-start h-full w-full'>
-        {title && (
-          <span className='text-lg text-textPrimary uppercase tracking-heading font-bold text-center w-full'>
-            {title}
+        {subTitle && (
+          <span className='text-textPrimary serifHeading text-xs mt-4'>
+            {subTitle}
           </span>
         )}
-        {subTitle && (
-          <span className='text-md text-primary text-center font-semibold w-full mt-4'>
-            {subTitle}
+        {title && (
+          <span className='text-xl text-textPrimary sansHeading w-full'>
+            {title}
           </span>
         )}
         <div className='flex h-full flex-col flex-wrap mt-16'>

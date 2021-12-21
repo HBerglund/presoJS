@@ -1,11 +1,6 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    fontFamily: {
-      sansHeading: ['Inter', 'sans-serif', { lineHeight: '1.1', letterSpacing: '-0.1em' }],
-      sansBody: ['Inter', 'sans-serif', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
-      serifHeading: ['Cormorant Garamond', 'serif', { lineHeight: '1.1', letterSpacing: '-0.05em' }],
-    },
     fontSize: {
       xl: ['6rem'],
       lg: ['5rem'],

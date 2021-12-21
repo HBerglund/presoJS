@@ -24,13 +24,17 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
       <div className='h-full flex justify-center items-center p-16'>
         <div className={classNames('flex flex-col p-8')}>
           {preHeading && (
-            <div className={classNames('text-primary text-body mb-4')}>
+            <div
+              className={classNames(
+                'text-textPrimary serifHeading text-xs mb-4'
+              )}
+            >
               {preHeading}
             </div>
           )}
           {quote && (
             <motion.div
-              className={classNames('text-textPrimary text-md')}
+              className={classNames('text-textPrimary sansBody text-sm')}
               key={quote}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -42,7 +46,9 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
           )}
           {name && (
             <motion.div
-              className={classNames('text-textSecondary text-body mt-4')}
+              className={classNames(
+                'gradientMask from-primary to-secondary sansHeading text-xs mt-8'
+              )}
               key={name}
               initial={{
                 opacity: 0,
@@ -56,7 +62,11 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
             </motion.div>
           )}
           {role && (
-            <div className={classNames('text-tertiary text-body opacity-60')}>
+            <div
+              className={classNames(
+                'text-textSecondary sansHeading text-xs mt-2'
+              )}
+            >
               {role}
             </div>
           )}
