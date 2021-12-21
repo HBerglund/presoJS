@@ -2,9 +2,9 @@ import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { CarouselSlideType } from '../data';
-import SlideParent from '../Components/SlideParent';
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg';
 import { ReactComponent as ArrowRight } from '../assets/arrow-right.svg';
+import SlideParent from '../Components/SlideParent';
 
 type CarouselSliderProps = {
   title?: string;
@@ -41,19 +41,7 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
   return (
     <SlideParent>
       {title && (
-        <motion.span
-          className={classNames('text-lg text-textPrimary')}
-          initial={{
-            y: '-200%',
-          }}
-          animate={{ y: '0%' }}
-          exit={{
-            y: '100%',
-          }}
-          transition={{ duration: 1 }}
-        >
-          {title}
-        </motion.span>
+        <span className={classNames('text-md text-textPrimary')}>{title}</span>
       )}
       <div
         className={classNames('w-full h-full flex justify-center items-center')}
@@ -76,17 +64,17 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
           </button>
         </div>
         <motion.div
+          className={classNames('w-full flex justify-center mx-20')}
           style={{ height: 400, width: 800 }}
-          className={classNames('flex justify-center mx-20')}
           key={carouselCards[current].id}
           initial={{
-            opacity: 0,
             x: direction === 'forward' ? '200%' : '-200%',
           }}
-          animate={{ opacity: 1, x: '0%' }}
+          animate={{
+            x: direction === 'forward' ? '0%' : '0%',
+          }}
           exit={{
-            opacity: 0,
-            x: direction === 'forward' ? '-200%' : '0%',
+            x: direction === 'forward' ? '-200%' : '200%',
           }}
           transition={{ duration: 0.5 }}
         >

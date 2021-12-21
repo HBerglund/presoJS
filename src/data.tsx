@@ -3,6 +3,7 @@ import CarouselSlideCard from './Components/CarouselSlideCard';
 import CarouselSlide from './Slides/CarouselSlide';
 import TextSlide from './Slides/TextSlide';
 import VideoSlide from './Slides/VideoSlide';
+import TestimonialSlide from './Slides/TestimonialSlide';
 import ChapterSlide from './Slides/ChapterSlide';
 
 export type SlideType = {
@@ -119,7 +120,7 @@ export const slides: SlideType[] = [
       <VideoSlide
         subTitle='Sub Video Slide'
         url='https://www.youtube.com/embed/8C3j42KKrWM'
-        size='md'
+        size='lg'
       />
     ),
     id: 7,
@@ -172,6 +173,19 @@ export const slides: SlideType[] = [
   },
   {
     component: (
+      <TestimonialSlide
+        preHeading='From the experts'
+        quote='"Consectetur adipisicing duis commodo reprehenderit. Eiusmod sint ut quis elit aute dolore cillum anim deserunt."'
+        name='Oscar Andersson'
+        role='Web developer, Coding Coders'
+        imageUrl='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1'
+      />
+    ),
+    id: 12,
+    chapter: 'Chapter 3',
+  },
+  {
+    component: (
       <ChapterSlide
         alignXY='left'
         chapter={4}
@@ -180,7 +194,7 @@ export const slides: SlideType[] = [
         image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
       />
     ),
-    id: 12,
+    id: 13,
     chapter: 'Chapter 4',
   },
   {
@@ -191,7 +205,7 @@ export const slides: SlideType[] = [
         paragraph='Detta är en visuell demo av Oskars skit'
       />
     ),
-    id: 13,
+    id: 14,
     chapter: 'Chapter 4',
   },
 ];
