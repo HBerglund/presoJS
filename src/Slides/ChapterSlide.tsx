@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import React, { FC } from 'react';
+import classNames from 'classnames';
+import { motion } from 'framer-motion';
 import SlideParent from '../Components/SlideParent';
 
 type ChapterSlideProps = {
@@ -15,36 +16,48 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
 }: ChapterSlideProps) => {
   return (
     <SlideParent>
-      <div className='flex items-center p-20'>
+      <div className='flex items-center'>
         <div className={classNames('flex flex-col hover:cursor-default')}>
-          <div className={classNames('mb-2')}>
-            <div className={classNames('flex flex-row items-center')}>
-              <span
-                className={classNames(
-                  'text-tertiary text-body font-semibold uppercase mr-4'
-                )}
-              >
-                {chapter && 'Chapter'}
-              </span>
-              <div
-                className={classNames(
-                  'w-12 h-12 border-2 bg-transparent rounded-full'
-                )}
-              >
-                {chapter && (
+          <div className={classNames('my-4')}>
+            {chapter && (
+              <div className={classNames('flex flex-row items-center')}>
+                <motion.span
+                  className={classNames(
+                    'text-tertiary text-body font-semibold uppercase mr-4'
+                  )}
+                  key={chapter}
+                  initial={{ opacity: 0, x: 1200 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, opacity: { duration: 1 } }}
+                >
+                  Chapter
+                </motion.span>
+                <motion.div
+                  className={classNames(
+                    'w-12 h-12 flex justify-center border-2 bg-transparent rounded-full'
+                  )}
+                  key={chapter}
+                  initial={{ opacity: 0, x: 1600 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, opacity: { duration: 1.5 } }}
+                >
                   <span
                     className={classNames(
-                      'h-full w-full flex justify-center items-center text-primary text-body font-semibold'
+                      'flex items-center text-primary text-body'
                     )}
                   >
                     {chapter}
                   </span>
-                )}
+                </motion.div>
               </div>
-            </div>
+            )}
           </div>
           {title && (
-            <span className={classNames('text-textSecondary text-body')}>
+            <span
+              className={classNames(
+                'text-textPrimary text-lg tracking-heading font-bold uppercase'
+              )}
+            >
               {title}
             </span>
           )}
