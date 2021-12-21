@@ -41,7 +41,11 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
   return (
     <SlideParent>
       {title && (
-        <span className={classNames('text-md text-textPrimary')}>{title}</span>
+        <span
+          className={classNames('text-md text-textPrimary tracking-heading')}
+        >
+          {title}
+        </span>
       )}
       <div
         className={classNames('w-full h-full flex justify-center items-center')}
@@ -64,8 +68,8 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
           </button>
         </div>
         <motion.div
-          className={classNames('w-full flex justify-center mx-20')}
-          style={{ height: 400, width: 800 }}
+          className={classNames('w-full h-full mx-20')}
+          style={{ width: '60%', height: '80%' }}
           key={carouselCards[current].id}
           initial={{
             x: direction === 'forward' ? '200%' : '-200%',

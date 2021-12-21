@@ -6,16 +6,18 @@ import Image from './Image';
 type CarouselSlideProps = {
   content?: string;
   name?: string;
+  role?: string;
   imageUrl?: string;
 };
 
 const CarouselSlideCard: FC<CarouselSlideProps> = ({
   content,
   name,
+  role,
   imageUrl,
 }: CarouselSlideProps) => {
   return (
-    <div className='bg-primary p-20 rounded-3xl border-2'>
+    <div className='bg-gradient-to-r from-black to-transparent p-12 rounded-3xl border-2'>
       <div className={classNames('flex flex-col')}>
         {content && (
           <motion.div
@@ -32,7 +34,7 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
         {name && (
           <motion.span
             className={classNames(
-              'text-textSecondary text-body text-right mt-16'
+              'text-textSecondary text-body text-right mt-4'
             )}
             key={name}
             initial={{
@@ -44,6 +46,21 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
             transition={{ duration: 0.5 }}
           >
             {name}
+          </motion.span>
+        )}
+        {role && (
+          <motion.span
+            className={classNames('text-textSecondary text-right')}
+            key={role}
+            initial={{
+              opacity: 0,
+              scale: 0.75,
+            }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.75 }}
+            transition={{ duration: 0.5 }}
+          >
+            {role}
           </motion.span>
         )}
       </div>

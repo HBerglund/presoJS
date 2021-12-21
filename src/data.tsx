@@ -23,6 +23,7 @@ const carouselCards: CarouselSlideType[] = [
       <CarouselSlideCard
         content='"While initial client leads are the hardest to get, all my subsequent leads came from existing client referrals. Do good work and build relationships."'
         name='Oscar Andersson'
+        role='Gardener'
         imageUrl='https://media.istockphoto.com/photos/pleasant-young-indian-woman-freelancer-consult-client-via-video-call-picture-id1300972573'
       />
     ),
@@ -33,6 +34,7 @@ const carouselCards: CarouselSlideType[] = [
       <CarouselSlideCard
         content='"What I am primarily looking for with new projects is a fit on both a visual and aesthetic level as well as on a personal level with the client."'
         name='Victor Wikström'
+        role='Spiritual leader'
         imageUrl='https://media.istockphoto.com/photos/millennial-male-team-leader-organize-virtual-workshop-with-employees-picture-id1300972574'
       />
     ),
@@ -43,6 +45,7 @@ const carouselCards: CarouselSlideType[] = [
       <CarouselSlideCard
         content='"Being independent doesnt always translate to a better income. Both paths can enable you to make money, but being independent gives you way more creative freedom."'
         name='Herman Berglund'
+        role='Songwriter'
         imageUrl='https://media.istockphoto.com/photos/one-beautiful-woman-looking-at-the-camera-in-profile-picture-id1303539316'
       />
     ),
