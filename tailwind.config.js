@@ -22,6 +22,9 @@ module.exports = {
       borderRadius: {
         '4xl': '2rem',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+      },
       colors: {
         background: '#000',
         primary: '#B25CFA',
