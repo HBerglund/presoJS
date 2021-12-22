@@ -84,12 +84,12 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
                 >
                   <div
                     className={classNames(
-                      'w-10 h-10 fixed flex justify-center bg-black rounded-full'
+                      'w-10 h-10 flex justify-center items-center bg-black rounded-full'
                     )}
                   >
                     <div
                       className={classNames(
-                        'absolute -top-1 text-textPrimary serifHeading text-xs'
+                        'text-textPrimary serifHeading text-xs text-center'
                       )}
                     >
                       {chapter}
