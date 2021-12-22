@@ -21,13 +21,14 @@ body,
 }
 
 span {
-  white-space: pre;
+  white-space: pre-wrap;
+  display: block;
 }
 
 @layer components {
   .sansHeading {
     font-family: Inter;
-    letter-spacing: -0.07em;
+    letter-spacing: -0.05em;
     font-weight: 600;
     line-height: 1.1;
     text-transform: uppercase;

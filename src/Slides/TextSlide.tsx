@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import SlideParent from '../Components/SlideParent';
+import AnimatedText from '../Components/AnimatedText';
 
 interface TextSlideProps {
   alignYX?: 'topLeft' | 'topCenter' | 'centerCenter';
@@ -31,22 +32,39 @@ const TextSlide = ({
   return (
     <SlideParent>
       <div className={classNames('h-full flex flex-col', getAlignment())}>
-        {preTitle && (
-          <span className='text-textPrimary text-xs serifHeading'>
-            {preTitle}
-          </span>
-        )}
         {title && (
-          <span className='text-textPrimary text-xl sansHeading'>{title}</span>
+          <AnimatedText
+            size='md'
+            variant='sansHeading'
+            splitOn='chars'
+            staggerChildren
+            animateFrom='bottom'
+            overflowHidden
+          >
+            {title}
+          </AnimatedText>
         )}
-        {subTitle && (
-          <span className='text-primary text-sm sansHeading mb-12'>
-            {subTitle}
-          </span>
-        )}
-        {paragraph && (
-          <span className='text-textPrimary sansBody text-xs'>{paragraph}</span>
-        )}
+        <AnimatedText
+          size='lg'
+          variant='sansHeading'
+          splitOn='chars'
+          overflowHidden
+          staggerChildren
+          delay={1}
+          animateFrom='bottom'
+        >
+          {subTitle}
+        </AnimatedText>
+        <AnimatedText
+          size='sm'
+          variant='sansBody'
+          splitOn='words'
+          overflowHidden
+          delay={1.75}
+          animateFrom='bottom'
+        >
+          {paragraph}
+        </AnimatedText>
       </div>
     </SlideParent>
   );
