@@ -67,7 +67,7 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
               className={classNames(
                 current === 0
                   ? 'w-12 h-12'
-                  : 'w-12 h-12 flex justify-center border rounded-full hover:border-2 hover:border-primary'
+                  : 'w-12 h-12 flex justify-center border rounded-full hover:border-2 hover:border-secondary'
               )}
             >
               <button
@@ -82,7 +82,7 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
             </div>
             <motion.div
               className={classNames('w-full h-full mx-20')}
-              style={{ width: '60%', height: '80%' }}
+              style={{ width: '800px', height: '400px' }}
               key={carouselCards[current].id}
               initial={{
                 x: direction === 'forward' ? '200%' : '-200%',
@@ -101,7 +101,7 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
               className={classNames(
                 current === carouselCards.length - 1
                   ? 'w-12 h-12'
-                  : 'w-12 h-12 flex justify-center border rounded-full hover:border-2 hover:border-primary'
+                  : 'w-12 h-12 flex justify-center border rounded-full hover:border-2 hover:border-secondary'
               )}
             >
               <button

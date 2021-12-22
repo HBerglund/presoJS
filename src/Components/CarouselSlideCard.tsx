@@ -34,7 +34,7 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
         {name && (
           <motion.span
             className={classNames(
-              'text-textSecondary sansHeading text-xs text-right mt-16'
+              'gradientMask from-primary to-secondary sansHeading text-xs mt-8'
             )}
             key={name}
             initial={{
@@ -50,7 +50,9 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
         )}
         {role && (
           <motion.span
-            className={classNames('text-textSecondary text-right')}
+            className={classNames(
+              'text-textSecondary sansHeading text-xs mt-2'
+            )}
             key={role}
             initial={{
               opacity: 0,
@@ -67,7 +69,7 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
       {imageUrl && (
         <div className={classNames('fixed')}>
           <motion.div
-            className={classNames('absolute -top-20 -right-20')}
+            className={classNames('absolute -top-24 left-144')}
             key={imageUrl}
             initial={{
               opacity: 0.25,
