@@ -79,36 +79,39 @@ const Typography: React.FC<TypographyProps> = ({
     }
   };
 
-  const container = {
-    hidden: { opacity: 1, scale: 0 },
+  const parentVariants = {
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      scale: 1,
       transition: {
-        staggerChildren: 0.5,
+        duration: 1,
+        when: 'beforeChildren',
+        staggerChildren: 0.1,
       },
     },
   };
 
-  const item = {
-    hidden: {x: 100, opacity: 0 },
+  const childVariants = {
+    hidden: { y: 100 },
     visible: {
-      opacity: 1,
-      x: 0,
+      y: 0,
+      transition: {
+        duration: 0.1,
+      },
     },
   };
 
   if (stringArr?.length) {
     return (
       <motion.div
-        variants={container}
+        variants={parentVariants}
         initial='hidden'
-        animate={stringArr.length > 0 && 'visible'}
+        animate={'visible'}
       >
         {stringArr.map((el, i) => (
           <motion.span
             key={i}
-            variants={item}
+            variants={childVariants}
             className={classNames('text-textPrimary', getSize())}
           >
             {el}
@@ -117,8 +120,6 @@ const Typography: React.FC<TypographyProps> = ({
       </motion.div>
     );
   }
-
-  console.log('got here');
 
   return (
     <motion.span
