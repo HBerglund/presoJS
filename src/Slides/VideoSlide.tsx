@@ -33,22 +33,22 @@ const VideoSlide: FC<Props> = ({ title, subTitle, url, size }) => {
 
   return (
     <SlideParent>
-      {title && (
-        <span
-          className={classNames(
-            ' w-full text-center text-textPrimary text-lg font-semibold tracking-heading uppercase'
-          )}
-        >
-          {title}
-        </span>
-      )}
       {subTitle && (
         <span
           className={classNames(
-            'text-textSecondary text-md tracking-heading text-center w-full'
+            'text-textPrimary serifHeading text-xs text-center w-full'
           )}
         >
           {subTitle}
+        </span>
+      )}
+      {title && (
+        <span
+          className={classNames(
+            'text-center sansHeading text-textPrimary text-lg w-full'
+          )}
+        >
+          {title}
         </span>
       )}
       <motion.div

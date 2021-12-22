@@ -25,7 +25,7 @@ const Bullet = ({ content }: BulletProps) => {
           animate={{ y: 0, scale: 1 }}
           transition={{ duration: 0.7, delay: i * 0.02, ease: 'easeOut' }}
           key={i}
-          className='text-md text-textPrimary'
+          className='text-sm font-sansBody text-textPrimary'
         >
           {word}
         </motion.span>
@@ -34,7 +34,7 @@ const Bullet = ({ content }: BulletProps) => {
         initial={{ height: '100%' }}
         animate={{ height: '0%' }}
         transition={{ duration: 1.5, ease: 'linear' }}
-        className='absolute right-0 left-30 bottom-0 bg-black'
+        className='absolute right-0 left-30 bottom-0 bg-background'
       ></motion.div>
     </div>
   );
