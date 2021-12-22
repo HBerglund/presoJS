@@ -3,6 +3,8 @@ import CarouselSlideCard from './Components/CarouselSlideCard';
 import CarouselSlide from './Slides/CarouselSlide';
 import TextSlide from './Slides/TextSlide';
 import VideoSlide from './Slides/VideoSlide';
+import TestimonialSlide from './Slides/TestimonialSlide';
+import ChapterSlide from './Slides/ChapterSlide';
 
 export type SlideType = {
   component: React.ReactNode;
@@ -52,7 +54,8 @@ export const slides: SlideType[] = [
   {
     component: (
       <BulletSlide
-        title='Bullet Slide'
+        subTitle='This is a'
+        title='Bullet Slide Example'
         bullets={[
           'This is the first bullet',
           'This is the second bullet',
@@ -67,6 +70,7 @@ export const slides: SlideType[] = [
     component: (
       <TextSlide
         title='Herman Berglund'
+        preTitle='Testing out the preheading'
         subTitle='framer-motion showcase'
         paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
       />
@@ -97,12 +101,7 @@ export const slides: SlideType[] = [
     chapter: 'Chapter 2',
   },
   {
-    component: (
-      <CarouselSlide
-        title='What our clients are saying'
-        carouselCards={carouselCards}
-      />
-    ),
+    component: <CarouselSlide carouselCards={carouselCards} />,
     id: 5,
     chapter: 'Chapter 2',
   },
@@ -118,7 +117,7 @@ export const slides: SlideType[] = [
       <VideoSlide
         subTitle='Sub Video Slide'
         url='https://www.youtube.com/embed/8C3j42KKrWM'
-        size='md'
+        size='lg'
       />
     ),
     id: 7,
@@ -166,7 +165,44 @@ export const slides: SlideType[] = [
         size='sm'
       />
     ),
-    id: 8,
+    id: 11,
     chapter: 'Chapter 3',
+  },
+  {
+    component: (
+      <TestimonialSlide
+        preHeading='From the experts'
+        quote='"Consectetur adipisicing duis commodo reprehenderit. Eiusmod sint ut quis elit aute dolore cillum anim deserunt."'
+        name='Oscar Andersson'
+        role='Web developer, Coding Coders'
+        imageUrl='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1'
+      />
+    ),
+    id: 12,
+    chapter: 'Chapter 3',
+  },
+  {
+    component: (
+      <ChapterSlide
+        alignXY='left'
+        chapter={4}
+        title='This is how you'
+        subTitle='Create a chapter'
+        image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
+      />
+    ),
+    id: 13,
+    chapter: 'Chapter 4',
+  },
+  {
+    component: (
+      <TextSlide
+        title='Oskar Berglund'
+        subTitle='framer-motion showcase'
+        paragraph='Detta är en visuell demo av Oskars skit'
+      />
+    ),
+    id: 14,
+    chapter: 'Chapter 4',
   },
 ];

@@ -7,10 +7,17 @@ interface TextSlideProps {
   alignYX?: 'topLeft' | 'topCenter' | 'centerCenter';
   title?: string;
   subTitle?: string;
+  preTitle?: string;
   paragraph?: string;
 }
 
-const TextSlide = ({ alignYX, title, subTitle, paragraph }: TextSlideProps) => {
+const TextSlide = ({
+  alignYX,
+  title,
+  subTitle,
+  preTitle,
+  paragraph,
+}: TextSlideProps) => {
   const getAlignment = () => {
     switch (alignYX) {
       case 'topCenter':

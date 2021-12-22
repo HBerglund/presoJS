@@ -1,18 +1,12 @@
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-      serif: ['Cormorant Garamond', 'serif'],
-    },
     fontSize: {
-      xl: ['7.5rem', { lineHeight: '1.1' }],
-      lg: ['5rem', { lineHeight: '1.1' }],
-      md: ['2.5rem', { lineHeight: '1.3' }],
-      body: ['1.75rem', { lineHeight: '1.4' }],
-    },
-    letterSpacing: {
-      heading: '-.05em',
+      xl: ['6rem'],
+      lg: ['5rem'],
+      md: ['4rem'],
+      sm: ['3rem'],
+      xs: ['2rem'],
     },
     extend: {
       spacing: {
