@@ -9,6 +9,7 @@ interface AnimatedTextProps {
   splitOn?: 'words' | 'chars';
   overflowHidden?: true;
   delay?: number;
+  staggerChildren?: true;
   animateFrom?:
     | 'top'
     | 'bottom'
@@ -27,6 +28,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
   splitOn,
   delay,
   overflowHidden,
+  staggerChildren,
   animateFrom,
 }) => {
   const getElements = () => {
@@ -70,13 +72,13 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
       case 'right':
         return { x: '105%', y: 0 };
       case 'top-left':
-        return { x: '-105%', y: '-105%' };
+        return { x: '-50%', y: '-105%' };
       case 'top-right':
-        return { x: '105%', y: '-105%' };
+        return { x: '50%', y: '-105%' };
       case 'bottom-left':
-        return { x: '-105%', y: '105%' };
+        return { x: '-50%', y: '105%' };
       case 'bottom-right':
-        return { x: '105%', y: '105%' };
+        return { x: '50%', y: '105%' };
       default:
         return '';
     }
@@ -89,7 +91,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
       transition: {
         delay: delay || 0.5,
         when: 'beforeChildren',
-        staggerChildren: 0.02,
+        staggerChildren: staggerChildren ? 0.015 : 0.005,
       },
     },
   };
@@ -101,7 +103,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
       y: 0,
       opacity: 1,
       transition: {
-        duration: i < 10 ? 0.7 + i * 0.02 : 1,
+        duration: i < 10 ? 0.7 + i * 0.01 : 1,
         ease: [0.2, 0.9, 0.6, 1],
       },
     }),

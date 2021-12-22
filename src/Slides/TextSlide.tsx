@@ -37,6 +37,7 @@ const TextSlide = ({
             size='md'
             variant='sansHeading'
             splitOn='chars'
+            staggerChildren
             animateFrom='bottom'
             overflowHidden
           >
@@ -48,6 +49,7 @@ const TextSlide = ({
           variant='sansHeading'
           splitOn='chars'
           overflowHidden
+          staggerChildren
           delay={1}
           animateFrom='bottom'
         >
@@ -58,7 +60,7 @@ const TextSlide = ({
           variant='sansBody'
           splitOn='words'
           overflowHidden
-          delay={2}
+          delay={1.75}
           animateFrom='bottom'
         >
           {paragraph}
