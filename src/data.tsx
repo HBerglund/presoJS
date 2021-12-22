@@ -68,7 +68,7 @@ export const slides: SlideType[] = [
       <TextSlide
         title='Herman Berglund'
         subTitle='framer-motion showcase'
-        paragraph='Detta är en visuell demo av massa skitgrejer'
+        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
       />
     ),
     id: 2,
@@ -77,7 +77,7 @@ export const slides: SlideType[] = [
   {
     component: (
       <TextSlide
-        title='Victor Berglund'
+        title='Victor Wikström'
         subTitle='framer-motion showcase'
         paragraph='Detta är en visuell demo av massa skitgrejer'
       />
@@ -88,7 +88,7 @@ export const slides: SlideType[] = [
   {
     component: (
       <TextSlide
-        title='Oskar Berglund'
+        title='Oscar Andersson'
         subTitle='framer-motion showcase'
         paragraph='Detta är en visuell demo av Oskars skit'
       />

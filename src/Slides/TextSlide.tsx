@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import SlideParent from '../Components/SlideParent';
-import Typography from '../Components/Typography';
+import AnimatedText from '../Components/AnimatedText';
 
 interface TextSlideProps {
   alignYX?: 'topLeft' | 'topCenter' | 'centerCenter';
@@ -26,16 +26,35 @@ const TextSlide = ({ alignYX, title, subTitle, paragraph }: TextSlideProps) => {
     <SlideParent>
       <div className={classNames('h-full flex flex-col', getAlignment())}>
         {title && (
-          <Typography size='md' splitOn='chars' animateFrom='top-left'>
+          <AnimatedText
+            size='md'
+            variant='sansHeading'
+            splitOn='chars'
+            animateFrom='bottom'
+            overflowHidden
+          >
             {title}
-          </Typography>
+          </AnimatedText>
         )}
-        {subTitle && (
-          <span className='text-textPrimary text-lg mb-8'>{subTitle}</span>
-        )}
-        {paragraph && (
-          <span className='text-textPrimary text-body'>{paragraph}</span>
-        )}
+        <AnimatedText
+          size='lg'
+          variant='sansHeading'
+          splitOn='chars'
+          overflowHidden
+          delay={1}
+          animateFrom='bottom'
+        >
+          {subTitle}
+        </AnimatedText>
+        <AnimatedText
+          size='md'
+          variant='sansHeading'
+          overflowHidden
+          delay={2}
+          animateFrom='bottom'
+        >
+          {paragraph}
+        </AnimatedText>
       </div>
     </SlideParent>
   );

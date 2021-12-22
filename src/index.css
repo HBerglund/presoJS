@@ -17,5 +17,6 @@ body,
 }
 
 span {
-  white-space: pre;
+  white-space: pre-wrap;
+  display: block;
 }
