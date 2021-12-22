@@ -57,7 +57,8 @@ export const slides: SlideType[] = [
   {
     component: (
       <BulletSlide
-        title='Bullet Slide'
+        subTitle='This is a'
+        title='Bullet Slide Example'
         bullets={[
           'This is the first bullet',
           'This is the second bullet',
@@ -72,6 +73,7 @@ export const slides: SlideType[] = [
     component: (
       <TextSlide
         title='Herman Berglund'
+        preTitle='Testing out the preheading'
         subTitle='framer-motion showcase'
         paragraph='Detta är en visuell demo av massa skitgrejer'
       />
@@ -102,12 +104,7 @@ export const slides: SlideType[] = [
     chapter: 'Chapter 2',
   },
   {
-    component: (
-      <CarouselSlide
-        title='What our clients are saying'
-        carouselCards={carouselCards}
-      />
-    ),
+    component: <CarouselSlide carouselCards={carouselCards} />,
     id: 5,
     chapter: 'Chapter 2',
   },

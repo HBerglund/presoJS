@@ -41,47 +41,43 @@ const VideoSlide: FC<Props> = ({ alignXY, title, subTitle, url, size }) => {
 
   return (
     <SlideParent>
-      <div className={classNames('w-full h-full flex flex-col')}>
-        {title && (
-          <span
-            className={classNames(
-              'w-full flex text-textPrimary text-lg tracking-heading font-medium uppercase mb-4',
-              getAlignment()
-            )}
-          >
-            {title}
-          </span>
-        )}
-        {subTitle && (
-          <span
-            className={classNames(
-              'w-full flex text-textSecondary text-md tracking-heading uppercase mb-4',
-              getAlignment()
-            )}
-          >
-            {subTitle}
-          </span>
-        )}
-        <motion.div
-          className={classNames('w-full h-full flex justify-center')}
-          key={url}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
+      {subTitle && (
+        <span
+          className={classNames(
+            'text-textPrimary serifHeading text-xs text-center w-full'
+          )}
         >
-          <iframe
-            className={classNames(
-              'rounded p-1.5 bg-gradient-to-l from-primary to-secondary'
-            )}
-            title={title ? title : 'video'}
-            src={url}
-            width={getWidth()}
-            height={'100%'}
-            allowFullScreen
-          ></iframe>
-        </motion.div>
-      </div>
+          {subTitle}
+        </span>
+      )}
+      {title && (
+        <span
+          className={classNames(
+            'text-center sansHeading text-textPrimary text-lg w-full'
+          )}
+        >
+          {title}
+        </span>
+      )}
+      <motion.div
+        className={classNames('w-full h-full flex justify-center mt-8')}
+        key={url}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <iframe
+          className={classNames(
+            'rounded p-2 bg-gradient-to-l from-primary to-secondary'
+          )}
+          title={title ? title : 'video'}
+          src={url}
+          width={getWidth()}
+          height={'100%'}
+          allowFullScreen
+        ></iframe>
+      </motion.div>
     </SlideParent>
   );
 };

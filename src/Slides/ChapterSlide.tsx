@@ -36,7 +36,7 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
               <div className={classNames('flex flex-row items-center')}>
                 <motion.span
                   className={classNames(
-                    'text-tertiary text-body tracking-heading uppercase mr-4'
+                    'text-textPrimary bodySans text-xs mr-4'
                   )}
                   key={chapter}
                   initial={{
@@ -89,7 +89,7 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
                   >
                     <div
                       className={classNames(
-                        'absolute -top-1 text-textPrimary text-body font-light font-serif'
+                        'absolute -top-1 text-textPrimary serifHeading text-xs'
                       )}
                     >
                       {chapter}
@@ -101,9 +101,7 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
           </div>
           {title && (
             <motion.span
-              className={classNames(
-                'text-textPrimary text-lg tracking-heading font-extralight font-serif uppercase'
-              )}
+              className={classNames('text-textPrimary text-lg serifHeading')}
               key={title}
               initial={{ opacity: 0, y: 200 }}
               animate={{ opacity: 1, y: 0 }}
@@ -114,9 +112,7 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
           )}
           {subTitle && (
             <motion.span
-              className={classNames(
-                'text-textPrimary text-lg tracking-heading font-semibold uppercase'
-              )}
+              className={classNames('text-textPrimary text-lg sansHeading')}
               key={title}
               initial={{ opacity: 0, y: -100 }}
               animate={{ opacity: 1, y: 0 }}

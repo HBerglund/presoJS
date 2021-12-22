@@ -7,12 +7,10 @@ import { ReactComponent as ArrowRight } from '../assets/arrow-right.svg';
 import SlideParent from '../Components/SlideParent';
 
 type CarouselSliderProps = {
-  title?: string;
   carouselCards: CarouselSlideType[];
 };
 
 const CarouselSlide: FC<CarouselSliderProps> = ({
-  title,
   carouselCards,
 }: CarouselSliderProps) => {
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
@@ -40,13 +38,6 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
 
   return (
     <SlideParent>
-      {title && (
-        <span
-          className={classNames('text-md text-textPrimary tracking-heading')}
-        >
-          {title}
-        </span>
-      )}
       <div
         className={classNames('w-full h-full flex justify-center items-center')}
       >

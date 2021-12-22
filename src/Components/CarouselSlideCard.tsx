@@ -21,7 +21,7 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
       <div className={classNames('flex flex-col')}>
         {content && (
           <motion.div
-            className={classNames('text-textPrimary text-body')}
+            className={classNames('text-textPrimary sansBody text-xs')}
             key={content}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -34,7 +34,7 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
         {name && (
           <motion.span
             className={classNames(
-              'text-textSecondary text-body text-right mt-4'
+              'text-textSecondary sansHeading text-xs text-right mt-16'
             )}
             key={name}
             initial={{
