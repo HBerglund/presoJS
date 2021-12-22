@@ -62,21 +62,21 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
   const getAnimation = () => {
     switch (animateFrom) {
       case 'top':
-        return { x: 0, y: '-100%' };
+        return { x: 0, y: '-105%' };
       case 'bottom':
-        return { x: 0, y: '100%' };
+        return { x: 0, y: '105%' };
       case 'left':
-        return { x: '-100%', y: 0 };
+        return { x: '-105%', y: 0 };
       case 'right':
-        return { x: '100%', y: 0 };
+        return { x: '105%', y: 0 };
       case 'top-left':
-        return { x: '-100%', y: '-100%' };
+        return { x: '-105%', y: '-105%' };
       case 'top-right':
-        return { x: '100%', y: '-100%' };
+        return { x: '105%', y: '-105%' };
       case 'bottom-left':
-        return { x: '-100%', y: '100%' };
+        return { x: '-105%', y: '105%' };
       case 'bottom-right':
-        return { x: '100%', y: '100%' };
+        return { x: '105%', y: '105%' };
       default:
         return '';
     }
@@ -116,14 +116,19 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
         className='flex flex-wrap'
       >
         {elements.map((el, i) => (
-          <div style={overflowHidden ? { overflow: 'hidden' } : {}}>
+          <div
+            style={
+              overflowHidden
+                ? { overflowY: 'hidden', overflowX: 'visible' }
+                : {}
+            }
+            className='pt-1'
+          >
             <motion.span
               key={i}
               variants={childAnimation}
               custom={i}
-              className={classNames('text-textPrimary', getSize(), {
-                variant,
-              })}
+              className={classNames('text-textPrimary', getSize(), variant)}
             >
               {el}
             </motion.span>
@@ -134,7 +139,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
   }
 
   return (
-    <span className={classNames('text-textPrimary', getSize(), { variant })}>
+    <span className={classNames('text-textPrimary', getSize(), variant)}>
       {elements}
     </span>
   );

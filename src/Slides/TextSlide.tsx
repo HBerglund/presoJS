@@ -54,8 +54,9 @@ const TextSlide = ({
           {subTitle}
         </AnimatedText>
         <AnimatedText
-          size='md'
-          variant='sansHeading'
+          size='sm'
+          variant='sansBody'
+          splitOn='words'
           overflowHidden
           delay={2}
           animateFrom='bottom'
