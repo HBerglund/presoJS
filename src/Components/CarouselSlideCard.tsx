@@ -28,10 +28,10 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
   };
   const cardImageAnimation = {
     visible: {
-      opacity: 1,
-      transition: { duration: 0.5 },
+      scale: 1,
+      transition: { duration: 1 },
     },
-    hidden: { opacity: 0 },
+    hidden: { scale: 0.75 },
   };
 
   return (

@@ -37,7 +37,7 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.75,
+        duration: 1,
       },
     },
     hidden: { opacity: 0.25, scale: 0.75 },

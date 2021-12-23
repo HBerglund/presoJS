@@ -24,7 +24,11 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
   return (
     <SlideParent>
       <div
-        className={classNames(`w-full flex justify-${alignXY} items-center`)}
+        className={classNames(
+          `w-full flex ${
+            alignXY !== 'left' ? 'justify-center' : 'justify-between'
+          }`
+        )}
       >
         <div
           className={classNames(
@@ -127,7 +131,7 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
         </div>
         {alignXY === 'left' && (
           <motion.div
-            className={classNames('w-full flex justify-center')}
+            className={classNames('mr-16')}
             key={image}
             initial={{ opacity: 0, scale: 0.6 }}
             animate={{ opacity: 1, scale: 1 }}
