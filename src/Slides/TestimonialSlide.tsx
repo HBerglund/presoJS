@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import AnimatedText from '../Components/AnimatedText';
+import BlurBlob from '../Components/BlurBlob';
 import SlideParent from '../Components/SlideParent';
 import Image from '../Components/Image';
-import BlurBlob from '../Components/BlurBlob';
 
 type TestimonialSlideProps = {
   preHeading: string;
@@ -11,6 +12,7 @@ type TestimonialSlideProps = {
   name: string;
   role: string;
   imageUrl: string;
+  disableAnimations?: boolean;
 };
 
 const TestimonialSlide: FC<TestimonialSlideProps> = ({
@@ -19,6 +21,7 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
   name,
   role,
   imageUrl,
+  disableAnimations,
 }: TestimonialSlideProps) => {
   const testimonialTextAnimation = {
     visible: {
@@ -52,18 +55,26 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
             animate='visible'
           >
             {preHeading && (
-              <div
-                className={classNames(
-                  'text-textPrimary serifHeading text-xs mb-4'
-                )}
+              <AnimatedText
+                disableAnimations={disableAnimations}
+                className='text-textPrimary serifHeading text-xs mb-4'
+                splitOn='chars'
+                staggerChildren
+                animation='opacity-right'
               >
                 {preHeading}
-              </div>
+              </AnimatedText>
             )}
             {quote && (
-              <div className={classNames('text-textPrimary sansBody text-sm')}>
+              <AnimatedText
+                disableAnimations={disableAnimations}
+                className='text-textPrimary sansBody text-sm'
+                splitOn='words'
+                staggerChildren
+                animation='bottom'
+              >
                 {quote}
-              </div>
+              </AnimatedText>
             )}
             {name && (
               <div

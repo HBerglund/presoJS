@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import AnimatedText from './AnimatedText';
 import Image from './Image';
 
 type CarouselSlideProps = {
@@ -8,6 +9,7 @@ type CarouselSlideProps = {
   name?: string;
   role?: string;
   imageUrl?: string;
+  disableAnimations?: boolean;
 };
 
 const CarouselSlideCard: FC<CarouselSlideProps> = ({
@@ -15,6 +17,7 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
   name,
   role,
   imageUrl,
+  disableAnimations,
 }: CarouselSlideProps) => {
   const cardTextAnimation = {
     visible: {
@@ -40,9 +43,15 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
         animate='visible'
       >
         {content && (
-          <div className={classNames('text-textPrimary sansBody text-xs')}>
+          <AnimatedText
+            disableAnimations={disableAnimations}
+            className='text-textPrimary sansBody text-xs'
+            splitOn='words'
+            staggerChildren
+            animation='bottom'
+          >
             {content}
-          </div>
+          </AnimatedText>
         )}
         {name && (
           <span
