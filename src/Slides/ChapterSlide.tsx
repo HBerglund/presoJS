@@ -1,9 +1,11 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, Fragment, useContext } from 'react';
 import { PresentationContext } from '../Context/PresentationContext';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import SlideParent from '../Components/SlideParent';
 import Image from '../Components/Image';
+import AnimatedText from '../Components/AnimatedText';
+import BlurBlob from '../Components/BlurBlob';
 
 type ChapterSlideProps = {
   alignXY: 'left' | 'center';
@@ -11,6 +13,7 @@ type ChapterSlideProps = {
   title: string;
   subTitle: string;
   image: string;
+  disableAnimations?: boolean;
 };
 
 const ChapterSlide: FC<ChapterSlideProps> = ({
@@ -19,129 +22,124 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
   title,
   subTitle,
   image,
+  disableAnimations,
 }: ChapterSlideProps) => {
   const presentationContext = useContext(PresentationContext);
+  const chapterAnimation = {
+    visible: {
+      opacity: 1,
+      x: presentationContext.direction === 'forward' ? '1200' : '-600',
+      transition: {
+        duration: presentationContext.direction === 'forward' ? '0.8' : '1',
+      },
+    },
+    hidden: { opacity: 0, x: 0 },
+  };
+  const chapterImageAnimation = {
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 1, delay: 0.25 },
+    },
+    hidden: { opacity: 0, scale: 0.6 },
+  };
+
   return (
-    <SlideParent>
-      <div
-        className={classNames(
-          `w-full flex ${
-            alignXY !== 'left' ? 'justify-center' : 'justify-between'
-          }`
-        )}
-      >
+    <Fragment>
+      <SlideParent>
         <div
           className={classNames(
-            `flex flex-col items-${alignXY} hover:cursor-default`
+            `w-full flex ${
+              alignXY !== 'left' ? 'justify-center' : 'justify-between'
+            }`
           )}
         >
-          <div className={classNames('my-8')}>
-            {chapter && (
-              <div className={classNames('flex flex-row items-center')}>
-                <motion.span
-                  className={classNames(
-                    'text-textPrimary bodySans text-xs mr-4'
-                  )}
-                  key={chapter}
-                  initial={{
-                    opacity: 0,
-                    x:
-                      presentationContext.direction === 'forward'
-                        ? '1200'
-                        : '-600',
-                  }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.8,
-                    opacity: {
-                      duration:
-                        presentationContext.direction === 'forward'
-                          ? '0.8'
-                          : '1',
-                    },
-                  }}
-                >
-                  Chapter
-                </motion.span>
-                <motion.div
-                  className={classNames(
-                    'w-11 h-11 flex justify-center items-center bg-gradient-to-l from-primary to-secondary rounded-full'
-                  )}
-                  key={chapter}
-                  initial={{
-                    opacity: 0,
-                    x:
-                      presentationContext.direction === 'forward'
-                        ? '1600'
-                        : '-800',
-                  }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.8,
-                    opacity: {
-                      duration:
-                        presentationContext.direction === 'forward'
-                          ? '1'
-                          : '0.8',
-                    },
-                  }}
-                >
-                  <div
-                    className={classNames(
-                      'w-10 h-10 flex justify-center items-center bg-black rounded-full'
-                    )}
-                  >
-                    <div
+          <div
+            className={classNames(
+              `flex flex-col items-${alignXY} hover:cursor-default`
+            )}
+          >
+            <div className={classNames('my-8')}>
+              <motion.div
+                className={classNames('flex flex-row items-center')}
+                key={chapter}
+                variants={chapterAnimation}
+                initial='hidden'
+                animate='visible'
+              >
+                {chapter && (
+                  <Fragment>
+                    <span
                       className={classNames(
-                        'text-textPrimary serifHeading text-xs text-center'
+                        'text-textPrimary bodySans text-xs mr-4'
                       )}
                     >
-                      {chapter}
+                      Chapter
+                    </span>
+                    <div
+                      className={classNames(
+                        'w-11 h-11 flex justify-center items-center bg-gradient-to-l from-primary to-secondary rounded-full'
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          'w-10 h-10 flex justify-center items-center bg-black rounded-full'
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            'text-textPrimary serifHeading text-xs text-center'
+                          )}
+                        >
+                          {chapter}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              </div>
+                  </Fragment>
+                )}
+              </motion.div>
+            </div>
+            {title && (
+              <AnimatedText
+                disableAnimations={disableAnimations}
+                className='text-textPrimary text-lg serifHeading'
+                splitOn='chars'
+                staggerChildren
+                animation='opacity-left'
+                delay={0.5}
+              >
+                {title}
+              </AnimatedText>
+            )}
+            {subTitle && (
+              <AnimatedText
+                disableAnimations={disableAnimations}
+                className='text-textPrimary text-lg sansHeading'
+                splitOn='words'
+                staggerChildren
+                animation='top'
+                delay={0.75}
+              >
+                {subTitle}
+              </AnimatedText>
             )}
           </div>
-          {title && (
-            <motion.span
-              className={classNames('text-textPrimary text-lg serifHeading')}
-              key={title}
-              initial={{ opacity: 0, y: 200 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, opacity: { duration: 1 } }}
+          {alignXY === 'left' && (
+            <motion.div
+              className={classNames('mr-16')}
+              key={image}
+              variants={chapterImageAnimation}
+              initial='hidden'
+              animate='visible'
             >
-              {title}
-            </motion.span>
-          )}
-          {subTitle && (
-            <motion.span
-              className={classNames('text-textPrimary text-lg sansHeading')}
-              key={title}
-              initial={{ opacity: 0, y: -100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                opacity: { duration: 1, delay: 0.25 },
-              }}
-            >
-              {subTitle}
-            </motion.span>
+              <Image imageUrl={image} border size='lg' />
+            </motion.div>
           )}
         </div>
-        {alignXY === 'left' && (
-          <motion.div
-            className={classNames('mr-16')}
-            key={image}
-            initial={{ opacity: 0, scale: 0.6 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, opacity: { duration: 1 } }}
-          >
-            <Image imageUrl={image} border size='lg' />
-          </motion.div>
-        )}
-      </div>
-    </SlideParent>
+      </SlideParent>
+      <BlurBlob position={1} size='large' color='tertiary' />
+      <BlurBlob position={3} size='small' color='primary' />
+    </Fragment>
   );
 };
 

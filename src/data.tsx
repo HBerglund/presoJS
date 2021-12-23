@@ -217,13 +217,26 @@ export const slides: SlideType[] = [
   },
   {
     component: (
+      <ChapterSlide
+        alignXY='left'
+        chapter={6}
+        title='Next up'
+        subTitle='Learn JavaScript'
+        image='https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?ixlib=rb-1.2.1'
+      />
+    ),
+    id: 15,
+    chapter: 'Chapter 6',
+  },
+  {
+    component: (
       <TextSlide
         title='Oskar Berglund'
         subTitle='framer-motion showcase'
         paragraph='Detta är en visuell demo av Oskars skit'
       />
     ),
-    id: 15,
+    id: 16,
     chapter: 'Chapter 5',
   },
 ];
