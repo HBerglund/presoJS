@@ -16,70 +16,61 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
   role,
   imageUrl,
 }: CarouselSlideProps) => {
+  const cardTextAnimation = {
+    visible: {
+      opacity: 1,
+      transition: { duration: 1 },
+    },
+    hidden: { opacity: 0 },
+  };
+  const cardImageAnimation = {
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+    hidden: { opacity: 0 },
+  };
+
   return (
     <div className='bg-gradient-to-r from-black to-transparent p-12 rounded-3xl border-2'>
-      <div className={classNames('flex flex-col')}>
+      <motion.div
+        className={classNames('flex flex-col')}
+        variants={cardTextAnimation}
+        initial='hidden'
+        animate='visible'
+      >
         {content && (
-          <motion.div
-            className={classNames('text-textPrimary sansBody text-xs')}
-            key={content}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
+          <div className={classNames('text-textPrimary sansBody text-xs')}>
             {content}
-          </motion.div>
+          </div>
         )}
         {name && (
-          <motion.span
+          <span
             className={classNames(
               'gradientMask from-primary to-secondary sansHeading text-xs mt-8'
             )}
-            key={name}
-            initial={{
-              opacity: 0,
-              scale: 0.75,
-            }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.75 }}
-            transition={{ duration: 0.5 }}
           >
             {name}
-          </motion.span>
+          </span>
         )}
         {role && (
-          <motion.span
+          <span
             className={classNames(
               'text-textSecondary sansHeading text-xs mt-2'
             )}
-            key={role}
-            initial={{
-              opacity: 0,
-              scale: 0.75,
-            }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.75 }}
-            transition={{ duration: 0.5 }}
           >
             {role}
-          </motion.span>
+          </span>
         )}
-      </div>
+      </motion.div>
       {imageUrl && (
         <div className={classNames('fixed')}>
           <motion.div
             className={classNames('absolute -top-24 left-144')}
             key={imageUrl}
-            initial={{
-              opacity: 0.25,
-            }}
-            animate={{ opacity: 1 }}
-            exit={{
-              opacity: 0,
-              y: '0%',
-            }}
-            transition={{ duration: 0.5 }}
+            variants={cardImageAnimation}
+            initial='hidden'
+            animate='visible'
           >
             <div className={classNames('border-2 rounded-full')}>
               <Image border size='sm' imageUrl={imageUrl} />

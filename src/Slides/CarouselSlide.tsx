@@ -7,13 +7,13 @@ import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg';
 import { ReactComponent as ArrowRight } from '../assets/arrow-right.svg';
 import SlideParent from '../Components/SlideParent';
 
-type CarouselSliderProps = {
+type CarouselSlideProps = {
   carouselCards: CarouselSlideType[];
 };
 
-const CarouselSlide: FC<CarouselSliderProps> = ({
+const CarouselSlide: FC<CarouselSlideProps> = ({
   carouselCards,
-}: CarouselSliderProps) => {
+}: CarouselSlideProps) => {
   const presentationContext = useContext(PresentationContext);
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const [current, setCurrent] = useState<number>(0);
@@ -45,21 +45,32 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
     return 'bg-transparent';
   };
 
+  const carouselAnimation = {
+    visible: {
+      x: presentationContext.direction === 'forward' ? '0%' : '0%',
+      transition: { duration: 0.5 },
+    },
+    hidden: {
+      x: presentationContext.direction === 'forward' ? '200%' : '-200%',
+    },
+  };
+
+  const carouselCardAnimation = {
+    visible: {
+      x: direction === 'forward' ? '0%' : '0%',
+      transition: { duration: 0.5 },
+    },
+    hidden: { x: direction === 'forward' ? '200%' : '-200%' },
+  };
+
   return (
     <SlideParent>
       <motion.div
         className={classNames('w-full h-full flex justify-center items-center')}
-        key={200}
-        initial={{
-          x: presentationContext.direction === 'forward' ? '200%' : '-200%',
-        }}
-        animate={{
-          x: presentationContext.direction === 'forward' ? '0%' : '0%',
-        }}
-        exit={{
-          x: presentationContext.direction === 'forward' ? '-200%' : '200%',
-        }}
-        transition={{ duration: 0.5 }}
+        key={200} // Need some proper id
+        variants={carouselAnimation}
+        initial='hidden'
+        animate='visible'
       >
         <div>
           <div className={classNames('flex justify-center items-center')}>
@@ -84,16 +95,9 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
               className={classNames('w-full h-full mx-20')}
               style={{ width: '800px', height: '400px' }}
               key={carouselCards[current].id}
-              initial={{
-                x: direction === 'forward' ? '200%' : '-200%',
-              }}
-              animate={{
-                x: direction === 'forward' ? '0%' : '0%',
-              }}
-              exit={{
-                x: direction === 'forward' ? '-200%' : '200%',
-              }}
-              transition={{ duration: 0.5 }}
+              variants={carouselCardAnimation}
+              initial='hidden'
+              animate='visible'
             >
               {carouselCards[current].component}
             </motion.div>
@@ -119,7 +123,7 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
               <div
                 className={classNames(
                   fillIfActive(card),
-                  'w-3 h-3 border rounded-full mx-1'
+                  'w-3 h-3 border rounded-full mx-2'
                 )}
               ></div>
             ))}

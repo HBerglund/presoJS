@@ -19,9 +19,25 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
   role,
   imageUrl,
 }: TestimonialSlideProps) => {
+  const testimonialAnimation = {
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+    hidden: { opacity: 0 },
+  };
+
   return (
     <SlideParent>
-      <div className='h-full flex justify-center items-center p-16'>
+      <motion.div
+        className='h-full flex justify-center items-center p-16'
+        key={quote}
+        variants={testimonialAnimation}
+        initial='hidden'
+        animate='visible'
+      >
         <div className={classNames('flex flex-col p-8')}>
           {preHeading && (
             <div
@@ -33,33 +49,18 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
             </div>
           )}
           {quote && (
-            <motion.div
-              className={classNames('text-textPrimary sansBody text-sm')}
-              key={quote}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-            >
+            <div className={classNames('text-textPrimary sansBody text-sm')}>
               {quote}
-            </motion.div>
+            </div>
           )}
           {name && (
-            <motion.div
+            <div
               className={classNames(
                 'gradientMask from-primary to-secondary sansHeading text-xs mt-8'
               )}
-              key={name}
-              initial={{
-                opacity: 0,
-                scale: 0.75,
-              }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.75 }}
-              transition={{ duration: 0.5 }}
             >
               {name}
-            </motion.div>
+            </div>
           )}
           {role && (
             <div
@@ -72,25 +73,13 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
           )}
         </div>
         {imageUrl && (
-          <motion.div
-            className={classNames('')}
-            key={imageUrl}
-            initial={{
-              opacity: 0.25,
-            }}
-            animate={{ opacity: 1 }}
-            exit={{
-              opacity: 0,
-              y: '0%',
-            }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className={classNames('')}>
             <div className={classNames('p-8')}>
               <Image border size='lg' imageUrl={imageUrl} />
             </div>
-          </motion.div>
+          </div>
         )}
-      </div>
+      </motion.div>
     </SlideParent>
   );
 };
