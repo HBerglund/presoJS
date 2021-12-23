@@ -5,6 +5,7 @@ import { CarouselSlideType } from '../data';
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg';
 import { ReactComponent as ArrowRight } from '../assets/arrow-right.svg';
 import SlideParent from '../Components/SlideParent';
+import BlurBlob from '../Components/BlurBlob';
 
 type CarouselSliderProps = {
   carouselCards: CarouselSlideType[];
@@ -92,6 +93,7 @@ const CarouselSlide: FC<CarouselSliderProps> = ({
           </button>
         </div>
       </div>
+      <BlurBlob position={2} size='small' color='tertiary' />
     </SlideParent>
   );
 };
