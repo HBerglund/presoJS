@@ -13,6 +13,9 @@ module.exports = {
         128: '32rem',
         144: '36rem',
       },
+      blur: {
+        '4xl': '100px'
+      },
       borderRadius: {
         '4xl': '2rem',
       },

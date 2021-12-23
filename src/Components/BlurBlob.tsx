@@ -18,7 +18,7 @@ const BlurBlob = ({ position, color, size }: BlurBlobProps) => {
       case 3:
         return 'bottom-[-20%] right-[-25%]';
       case 4:
-        return 'bottom-[-20%] right-[-25%]';
+        return 'bottom-[-20%] left-[-25%]';
     }
   };
   const getColor = () => {
@@ -31,7 +31,6 @@ const BlurBlob = ({ position, color, size }: BlurBlobProps) => {
         return 'from-tertiary';
     }
   };
-  console.log('hej');
 
   const getSize = () => {
     switch (size) {
@@ -44,16 +43,31 @@ const BlurBlob = ({ position, color, size }: BlurBlobProps) => {
 
   return (
     <motion.div
+      exit={{ opacity: 0, transition: { duration: 0.5 } }}
       initial={{ opacity: 0 }}
-      animate={{ opacity: 0.5 }}
-      transition={{ duration: 1 }}
-      className={classNames(
-        getSize(),
-        getPosition(),
-        getColor(),
-        'fixed bg-gradient-radial z-0 blur-3xl rounded-full skew-y-12'
-      )}
-    ></motion.div>
+      animate={{ opacity: 1 }}
+      transition={{
+        duration: 1,
+        delay: 0.5,
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0.5, scale: 1, y: '-10%', x: '-10%' }}
+        animate={{ opacity: 0.3, scale: 0.8, y: '20%', x: '10%' }}
+        transition={{
+          duration: 7,
+          delay: 3,
+          repeatType: 'mirror',
+          repeat: Infinity,
+        }}
+        className={classNames(
+          getSize(),
+          getPosition(),
+          getColor(),
+          'fixed bg-gradient-radial z-0 blur-4xl rounded-full skew-y-12'
+        )}
+      ></motion.div>
+    </motion.div>
   );
 };
 

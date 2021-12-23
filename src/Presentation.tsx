@@ -2,6 +2,7 @@ import React, { useCallback, useContext, useEffect } from 'react';
 import { PresentationContext } from './Context/PresentationContext';
 import { AnimatePresence } from 'framer-motion';
 import grain from './assets/bg-grain.png';
+import BlurBlob from './Components/BlurBlob';
 
 const Presentation = () => {
   const presentationContext = useContext(PresentationContext);
@@ -28,14 +29,22 @@ const Presentation = () => {
   }, [keyPress]);
 
   return (
-    <AnimatePresence exitBeforeEnter initial={false}>
-      <div key={presentationDeck[currentSlide].id}>
-        {presentationDeck[currentSlide].component}
-        <div className={'fixed inset-0'}>
-          <img className={'w-full h-full'} src={grain} alt='background grain' />
+    <div>
+      <AnimatePresence exitBeforeEnter initial={false}>
+        <div key={presentationDeck[currentSlide].id}>
+          {presentationDeck[currentSlide].component}
+          <div className={'fixed inset-0'}>
+            <img
+              className={'w-full h-full'}
+              src={grain}
+              alt='background grain'
+            />
+          </div>
         </div>
-      </div>
-    </AnimatePresence>
+      </AnimatePresence>
+      {/* <BlurBlob position={1} size='small' color='primary' />
+      <BlurBlob position={3} size='large' color='secondary' /> */}
+    </div>
   );
 };
 
