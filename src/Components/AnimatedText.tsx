@@ -4,32 +4,22 @@ import { motion } from 'framer-motion';
 
 interface AnimatedTextProps {
   children: React.ReactNode;
-  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  variant: 'sansHeading' | 'serifHeading' | 'sansBody';
   splitOn?: 'words' | 'chars';
-  overflowHidden?: true;
   delay?: number;
   staggerChildren?: true;
-  animateFrom?:
-    | 'top'
-    | 'bottom'
-    | 'left'
-    | 'right'
-    | 'bottom-left'
-    | 'bottom-right'
-    | 'top-left'
-    | 'top-right';
+  disableAnimations?: boolean;
+  className?: string;
+  animation?: 'top' | 'bottom' | 'opacity-left' | 'opacity-right';
 }
 
 const AnimatedText: React.FC<AnimatedTextProps> = ({
   children,
-  size,
-  variant,
   splitOn,
   delay,
-  overflowHidden,
   staggerChildren,
-  animateFrom,
+  className,
+  animation,
+  disableAnimations,
 }) => {
   const getElements = () => {
     if (splitOn === 'words') {
@@ -43,42 +33,17 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
 
   const elements = getElements();
 
-  const getSize = () => {
-    switch (size) {
-      case 'xs':
-        return 'text-xs';
-      case 'sm':
-        return 'text-sm';
-      case 'md':
-        return 'text-md';
-      case 'lg':
-        return 'text-lg';
-      case 'xl':
-        return 'text-xl';
-      default:
-        return '';
-    }
-  };
-
   // NEED DEFAULT
   const getAnimation = () => {
-    switch (animateFrom) {
+    switch (animation) {
       case 'top':
         return { x: 0, y: '-105%' };
       case 'bottom':
         return { x: 0, y: '105%' };
-      case 'left':
-        return { x: '-105%', y: 0 };
-      case 'right':
-        return { x: '105%', y: 0 };
-      case 'top-left':
-        return { x: '-50%', y: '-105%' };
-      case 'top-right':
-        return { x: '50%', y: '-105%' };
-      case 'bottom-left':
-        return { x: '-50%', y: '105%' };
-      case 'bottom-right':
-        return { x: '50%', y: '105%' };
+      case 'opacity-left':
+        return { x: '-15%', y: '50%', opacity: 0 };
+      case 'opacity-right':
+        return { x: '15%', y: '50%', opacity: 0 };
       default:
         return '';
     }
@@ -89,7 +54,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
     visible: {
       opacity: 1,
       transition: {
-        delay: delay || 0.5,
+        delay: delay || 0,
         when: 'beforeChildren',
         staggerChildren: staggerChildren ? 0.015 : 0.005,
       },
@@ -104,46 +69,45 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
       opacity: 1,
       transition: {
         duration: i < 10 ? 0.7 + i * 0.01 : 1,
-        ease: [0.2, 0.9, 0.6, 1],
+        ease:
+          animation === 'top' || animation === 'bottom'
+            ? [0.2, 0.9, 0.6, 1]
+            : [0.7, 0.4, 0.3, 0.8],
       },
     }),
   };
 
-  if (Array.isArray(elements)) {
-    return (
-      <motion.div
-        variants={parentAnimation}
-        initial='hidden'
-        animate='visible'
-        className='flex flex-wrap'
-      >
-        {elements.map((el, i) => (
-          <div
-            style={
-              overflowHidden
-                ? { overflowY: 'hidden', overflowX: 'visible' }
-                : {}
-            }
-            className='pt-1'
-          >
-            <motion.span
-              key={i}
-              variants={childAnimation}
-              custom={i}
-              className={classNames('text-textPrimary', getSize(), variant)}
-            >
-              {el}
-            </motion.span>
-          </div>
-        ))}
-      </motion.div>
-    );
+  if (disableAnimations || !Array.isArray(elements)) {
+    return <span className={classNames(className)}>{elements}</span>;
   }
 
   return (
-    <span className={classNames('text-textPrimary', getSize(), variant)}>
-      {elements}
-    </span>
+    <motion.div
+      variants={parentAnimation}
+      initial='hidden'
+      animate='visible'
+      className='flex flex-wrap'
+    >
+      {elements.map((el, i) => (
+        <div
+          style={
+            animation === 'top' || animation === 'bottom'
+              ? { overflow: 'hidden' }
+              : {}
+          }
+          className='pt-1'
+        >
+          <motion.span
+            key={i}
+            variants={childAnimation}
+            custom={i}
+            className={classNames(className)}
+          >
+            {el}
+          </motion.span>
+        </div>
+      ))}
+    </motion.div>
   );
 };
 

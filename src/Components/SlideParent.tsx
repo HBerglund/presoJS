@@ -12,7 +12,7 @@ const SlideParent: React.FC<Props> = ({ children }) => {
 
   return (
     <motion.div
-      className={'relative z-10'}
+      className={'relative z-10 overflow-hidden'}
       initial={{
         x: presentationContext.direction === 'forward' ? '100%' : '-100%',
       }}
@@ -28,8 +28,6 @@ const SlideParent: React.FC<Props> = ({ children }) => {
       >
         {children}
       </div>
-      <BlurBlob position={1} size='small' color='primary' />
-      <BlurBlob position={3} size='large' color='secondary' />
     </motion.div>
   );
 };

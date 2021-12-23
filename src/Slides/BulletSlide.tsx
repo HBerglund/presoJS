@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import AnimatedText from '../Components/AnimatedText';
 import Bullet from '../Components/Bullet';
 import SlideParent from '../Components/SlideParent';
 
@@ -35,14 +36,23 @@ const BulletSlide = ({ title, subTitle, bullets }: BulletSlideProps) => {
     <SlideParent>
       <div className='flex flex-col items-start h-full w-full'>
         {subTitle && (
-          <span className='text-textPrimary serifHeading text-xs mt-4'>
+          <AnimatedText
+            className='text-textPrimary serifHeading text-xs'
+            animation='bottom'
+            splitOn='chars'
+          >
             {subTitle}
-          </span>
+          </AnimatedText>
         )}
         {title && (
-          <span className='text-xl text-textPrimary sansHeading w-full'>
+          <AnimatedText
+            className='text-xl text-textPrimary sansHeading w-full'
+            animation='bottom'
+            splitOn='chars'
+            delay={0.25}
+          >
             {title}
-          </span>
+          </AnimatedText>
         )}
         <div className='flex h-full flex-col flex-wrap mt-16'>
           {visibleBullets.map((bullet: string, i: number) => (
