@@ -6,8 +6,8 @@ import SlideParent from '../Components/SlideParent';
 import BlurBlob from '../Components/BlurBlob';
 
 type ImageSlideProps = {
-  title: string;
-  subTitle: string;
+  title?: string;
+  subTitle?: string;
   imageUrls: string[];
 };
 
@@ -21,13 +21,15 @@ const ImageSlide: FC<ImageSlideProps> = ({
   const setImageWidth = () => {
     switch (imageUrls.length) {
       case 1:
-        return 'w-full';
+        return 'w-full h-2/5';
       case 2:
-        return 'w-1/2';
+        return 'w-1/2 h-3/4';
       case 3:
-        return 'w-1/3';
+        return 'w-1/3 h-2/3';
       case 4:
-        return 'w-1/4';
+        return 'w-1/4 h-3/4';
+      default:
+        return 'hidden'; // TODO: MAXIMUM FOUR IMAGES;
     }
   };
 
@@ -48,7 +50,9 @@ const ImageSlide: FC<ImageSlideProps> = ({
   return (
     <Fragment>
       <SlideParent>
-        <div className={classNames('w-full flex flex-col')}>
+        <div
+          className={classNames('w-full h-full flex flex-col justify-between')}
+        >
           <div className={classNames('flex flex-col')}>
             {subTitle && (
               <span
@@ -70,20 +74,18 @@ const ImageSlide: FC<ImageSlideProps> = ({
             )}
           </div>
           <div className={classNames('flex flex-row')}>
-            {imageUrls.map((url: string, id: number) => (
-              <motion.img
-                className={classNames(
-                  'h-96 object-cover my-4',
-                  setImageWidth()
-                )}
-                src={url}
-                alt=''
-                key={id}
-                variants={imagesAnimation}
-                initial='hidden'
-                animate='visible'
-              ></motion.img>
-            ))}
+            {imageUrls.length > 0 &&
+              imageUrls.map((url: string, id: number) => (
+                <motion.img
+                  className={classNames('object-cover my-4', setImageWidth())}
+                  src={url}
+                  alt=''
+                  key={id}
+                  variants={imagesAnimation}
+                  initial='hidden'
+                  animate='visible'
+                ></motion.img>
+              ))}
           </div>
         </div>
       </SlideParent>
