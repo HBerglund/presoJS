@@ -28,8 +28,8 @@ const ImageSlide: FC<ImageSlideProps> = ({
 
   return (
     <SlideParent>
-      <div className={classNames('w-full h-full flex flex-col')}>
-        <div className={classNames('')}>
+      <div className={classNames('w-full flex flex-col')}>
+        <div className={classNames('flex flex-col')}>
           {subTitle && (
             <span
               className={classNames(
@@ -49,10 +49,10 @@ const ImageSlide: FC<ImageSlideProps> = ({
             </span>
           )}
         </div>
-        <div className={classNames('flex w-full')}>
+        <div className={classNames('flex flex-row')}>
           {imageUrls.map((url: string) => (
             <img
-              className={classNames('h-96 object-cover my-2', setImageWidth())}
+              className={classNames('h-96 object-cover my-4', setImageWidth())}
               src={url}
               alt=''
             />
