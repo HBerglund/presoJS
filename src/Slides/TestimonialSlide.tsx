@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import AnimatedText from '../Components/AnimatedText';
+import BlurBlob from '../Components/BlurBlob';
 import SlideParent from '../Components/SlideParent';
 import Image from '../Components/Image';
-import BlurBlob from '../Components/BlurBlob';
 
 type TestimonialSlideProps = {
   preHeading: string;
@@ -11,6 +12,7 @@ type TestimonialSlideProps = {
   name: string;
   role: string;
   imageUrl: string;
+  disableAnimations?: boolean;
 };
 
 const TestimonialSlide: FC<TestimonialSlideProps> = ({
@@ -19,49 +21,69 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
   name,
   role,
   imageUrl,
+  disableAnimations,
 }: TestimonialSlideProps) => {
+  const testimonialTextAnimation = {
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+    hidden: { opacity: 0 },
+  };
+  const testimonialImageAnimation = {
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+    hidden: { opacity: 0.25, scale: 0.75 },
+  };
+
   return (
     <div>
       <SlideParent>
-        <div className='h-full flex justify-center items-center p-16'>
-          <div className={classNames('flex flex-col p-8')}>
+        <div className='h-full flex justify-center items-center p-16 cursor-default'>
+          <motion.div
+            className={classNames('flex flex-col p-8')}
+            key={quote}
+            variants={testimonialTextAnimation}
+            initial='hidden'
+            animate='visible'
+          >
             {preHeading && (
-              <div
-                className={classNames(
-                  'text-textPrimary serifHeading text-xs mb-4'
-                )}
+              <AnimatedText
+                disableAnimations={disableAnimations}
+                className='text-textPrimary serifHeading text-xs mb-4'
+                splitOn='chars'
+                staggerChildren
+                animation='opacity-right'
               >
                 {preHeading}
-              </div>
+              </AnimatedText>
             )}
             {quote && (
-              <motion.div
-                className={classNames('text-textPrimary sansBody text-sm')}
-                key={quote}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
+              <AnimatedText
+                disableAnimations={disableAnimations}
+                className='text-textPrimary sansBody text-sm'
+                splitOn='words'
+                staggerChildren
+                animation='bottom'
               >
                 {quote}
-              </motion.div>
+              </AnimatedText>
             )}
             {name && (
-              <motion.div
+              <div
                 className={classNames(
                   'gradientMask from-primary to-secondary sansHeading text-xs mt-8'
                 )}
-                key={name}
-                initial={{
-                  opacity: 0,
-                  scale: 0.75,
-                }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.75 }}
-                transition={{ duration: 0.5 }}
               >
                 {name}
-              </motion.div>
+              </div>
             )}
             {role && (
               <div
@@ -72,26 +94,19 @@ const TestimonialSlide: FC<TestimonialSlideProps> = ({
                 {role}
               </div>
             )}
-          </div>
-          {imageUrl && (
-            <motion.div
-              className={classNames('')}
-              key={imageUrl}
-              initial={{
-                opacity: 0.25,
-              }}
-              animate={{ opacity: 1 }}
-              exit={{
-                opacity: 0,
-                y: '0%',
-              }}
-              transition={{ duration: 0.5 }}
-            >
+          </motion.div>
+          <motion.div
+            key={imageUrl}
+            variants={testimonialImageAnimation}
+            initial='hidden'
+            animate='visible'
+          >
+            {imageUrl && (
               <div className={classNames('p-8')}>
                 <Image border size='lg' imageUrl={imageUrl} />
               </div>
-            </motion.div>
-          )}
+            )}
+          </motion.div>
         </div>
       </SlideParent>
       <BlurBlob position={1} size='large' color='tertiary' />

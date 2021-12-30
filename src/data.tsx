@@ -23,6 +23,7 @@ const carouselCards: CarouselSlideType[] = [
       <CarouselSlideCard
         content='"While initial client leads are the hardest to get, all my subsequent leads came from existing client referrals. Do good work and build relationships."'
         name='Oscar Andersson'
+        role='Gardener'
         imageUrl='https://media.istockphoto.com/photos/pleasant-young-indian-woman-freelancer-consult-client-via-video-call-picture-id1300972573'
       />
     ),
@@ -33,6 +34,7 @@ const carouselCards: CarouselSlideType[] = [
       <CarouselSlideCard
         content='"What I am primarily looking for with new projects is a fit on both a visual and aesthetic level as well as on a personal level with the client."'
         name='Victor Wikström'
+        role='Spiritual leader'
         imageUrl='https://media.istockphoto.com/photos/millennial-male-team-leader-organize-virtual-workshop-with-employees-picture-id1300972574'
       />
     ),
@@ -43,6 +45,7 @@ const carouselCards: CarouselSlideType[] = [
       <CarouselSlideCard
         content='"Being independent doesnt always translate to a better income. Both paths can enable you to make money, but being independent gives you way more creative freedom."'
         name='Herman Berglund'
+        role='Songwriter'
         imageUrl='https://media.istockphoto.com/photos/one-beautiful-woman-looking-at-the-camera-in-profile-picture-id1303539316'
       />
     ),
@@ -107,7 +110,10 @@ export const slides: SlideType[] = [
   },
   {
     component: (
-      <VideoSlide url='https://www.youtube.com/embed/3Fbf7KovGAE' size='lg' />
+      <VideoSlide
+        url='https://www.youtube.com/embed/Kuwk1fkP4vA'
+        size='large'
+      />
     ),
     id: 6,
     chapter: 'Chapter 2',
@@ -115,9 +121,10 @@ export const slides: SlideType[] = [
   {
     component: (
       <VideoSlide
+        alignXY='center'
         subTitle='Sub Video Slide'
         url='https://www.youtube.com/embed/8C3j42KKrWM'
-        size='lg'
+        size='large'
       />
     ),
     id: 7,
@@ -159,10 +166,11 @@ export const slides: SlideType[] = [
   {
     component: (
       <VideoSlide
+        alignXY='left'
         title='Video Slide'
         subTitle='Sub Video Slide'
         url='https://www.youtube.com/embed/8C3j42KKrWM'
-        size='sm'
+        size='small'
       />
     ),
     id: 11,
@@ -196,13 +204,39 @@ export const slides: SlideType[] = [
   },
   {
     component: (
+      <ChapterSlide
+        alignXY='center'
+        chapter={5}
+        title='This is how you'
+        subTitle='Create a chapter'
+        image='https://media.istockphoto.com/photos/chapter-one-picture-id1302839734'
+      />
+    ),
+    id: 14,
+    chapter: 'Chapter 5',
+  },
+  {
+    component: (
+      <ChapterSlide
+        alignXY='left'
+        chapter={6}
+        title='Next up'
+        subTitle='Learn JavaScript'
+        image='https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?ixlib=rb-1.2.1'
+      />
+    ),
+    id: 15,
+    chapter: 'Chapter 6',
+  },
+  {
+    component: (
       <TextSlide
         title='Oskar Berglund'
         subTitle='framer-motion showcase'
         paragraph='Detta är en visuell demo av Oskars skit'
       />
     ),
-    id: 14,
-    chapter: 'Chapter 4',
+    id: 16,
+    chapter: 'Chapter 5',
   },
 ];

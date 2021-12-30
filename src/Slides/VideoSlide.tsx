@@ -1,33 +1,41 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import SlideParent from '../Components/SlideParent';
 
 type Props = {
+  alignXY?: 'left' | 'center';
   title?: string;
   subTitle?: string;
   url: string;
-  size?: 'lg' | 'sm';
+  size?: 'large' | 'small';
 };
 
-const VideoSlide: FC<Props> = ({ title, subTitle, url, size }) => {
-  const [width, setWidth] = useState<string>('80%');
-
+const VideoSlide: FC<Props> = ({ alignXY, title, subTitle, url, size }) => {
   useEffect(() => {
+    getAlignment();
     getWidth();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const getAlignment = () => {
+    switch (alignXY) {
+      case 'left':
+        return 'justify-start';
+      case 'center':
+        return 'justify-center';
+      default:
+        return 'justify-start';
+    }
+  };
   const getWidth = () => {
     switch (size) {
-      case 'lg':
-        setWidth('80%');
-        break;
-      case 'sm':
-        setWidth('60%');
-        break;
+      case 'large':
+        return '80%';
+      case 'small':
+        return '60%';
       default:
-        setWidth('80%');
+        return '60%';
     }
   };
 
@@ -65,7 +73,7 @@ const VideoSlide: FC<Props> = ({ title, subTitle, url, size }) => {
           )}
           title={title ? title : 'video'}
           src={url}
-          width={width}
+          width={getWidth()}
           height={'100%'}
           allowFullScreen
         ></iframe>
