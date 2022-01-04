@@ -17,6 +17,7 @@ const ImageSlide: FC<ImageSlideProps> = ({
   imageUrls,
 }: ImageSlideProps) => {
   const presentationContext = useContext(PresentationContext);
+  console.log(imageUrls.length);
 
   const setImageWidth = () => {
     switch (imageUrls.length) {
@@ -29,7 +30,7 @@ const ImageSlide: FC<ImageSlideProps> = ({
       case 4:
         return 'w-1/4 h-3/4';
       default:
-        return 'hidden'; // TODO: MAXIMUM FOUR IMAGES;
+        return 'hidden';
     }
   };
 
@@ -74,7 +75,7 @@ const ImageSlide: FC<ImageSlideProps> = ({
             )}
           </div>
           <div className={classNames('flex flex-row')}>
-            {imageUrls.length > 0 &&
+            {imageUrls.length <= 4 ? (
               imageUrls.map((url: string, id: number) => (
                 <motion.img
                   className={classNames('object-cover my-4', setImageWidth())}
@@ -85,7 +86,16 @@ const ImageSlide: FC<ImageSlideProps> = ({
                   initial='hidden'
                   animate='visible'
                 ></motion.img>
-              ))}
+              ))
+            ) : (
+              <img
+                className={classNames('object-cover my-4 w-full h-2/5')}
+                src={
+                  'https://media.istockphoto.com/photos/concept-of-error-in-program-code-picture-id1308685498?s=2048x2048'
+                }
+                alt='Error'
+              ></img>
+            )}
           </div>
         </div>
       </SlideParent>

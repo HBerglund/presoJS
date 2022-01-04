@@ -5,6 +5,7 @@ import TextSlide from './Slides/TextSlide';
 import VideoSlide from './Slides/VideoSlide';
 import TestimonialSlide from './Slides/TestimonialSlide';
 import ChapterSlide from './Slides/ChapterSlide';
+import ImageSlide from './Slides/ImageSlide';
 
 export type SlideType = {
   component: React.ReactNode;
@@ -238,5 +239,22 @@ export const slides: SlideType[] = [
     ),
     id: 16,
     chapter: 'Chapter 5',
+  },
+  {
+    component: (
+      <ImageSlide
+        title='The heart of Asia'
+        subTitle='Visit Malaysia'
+        imageUrls={[
+          'https://images.unsplash.com/photo-1626308888778-2b77082d53b6?ixlib=rb-1.2.1',
+          'https://images.unsplash.com/photo-1592723905426-1181bf431d3a?ixlib=rb-1.2.1',
+          'https://images.unsplash.com/photo-1580496297468-1e05179cfd81?ixlib=rb-1.2.1',
+          'https://images.unsplash.com/photo-1565197239446-a89a684c2651?ixlib=rb-1.2.1',
+          // 'https://images.unsplash.com/photo-1565197239446-a89a684c2651?ixlib=rb-1.2.1',
+        ]}
+      />
+    ),
+    id: 17,
+    chapter: 'Chapter 4',
   },
 ];
