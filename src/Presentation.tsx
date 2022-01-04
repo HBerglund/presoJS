@@ -2,7 +2,6 @@ import React, { useCallback, useContext, useEffect } from 'react';
 import { PresentationContext } from './Context/PresentationContext';
 import { AnimatePresence } from 'framer-motion';
 import grain from './assets/bg-grain.png';
-import BlurBlob from './Components/BlurBlob';
 
 const Presentation = () => {
   const presentationContext = useContext(PresentationContext);
@@ -42,8 +41,6 @@ const Presentation = () => {
           </div>
         </div>
       </AnimatePresence>
-      {/* <BlurBlob position={1} size='small' color='primary' />
-      <BlurBlob position={3} size='large' color='secondary' /> */}
     </div>
   );
 };
