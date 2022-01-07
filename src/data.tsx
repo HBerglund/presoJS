@@ -5,11 +5,12 @@ import TextSlide from './Slides/TextSlide';
 import VideoSlide from './Slides/VideoSlide';
 import TestimonialSlide from './Slides/TestimonialSlide';
 import ChapterSlide from './Slides/ChapterSlide';
+import ImageSlide from './Slides/ImageSlide';
 
 export type SlideType = {
   component: React.ReactNode;
   id: number;
-  chapter: string;
+  chapter?: string;
 };
 
 export type CarouselSlideType = {
@@ -56,6 +57,91 @@ const carouselCards: CarouselSlideType[] = [
 export const slides: SlideType[] = [
   {
     component: (
+      <TextSlide
+        title='presoJS'
+        preTitle='Welcome to'
+        subTitle='framer-motion showcase'
+        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.'
+      />
+    ),
+    id: 1,
+  },
+  {
+    component: (
+      <ChapterSlide
+        alignXY='left'
+        chapter={1}
+        title='This is how you'
+        subTitle='Create a chapter'
+        image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
+      />
+    ),
+    id: 2,
+    chapter: 'Chapter 1',
+  },
+  {
+    component: (
+      <TextSlide
+        title='Herman Berglund'
+        preTitle='Testing out the preheading'
+        subTitle='framer-motion showcase'
+        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.'
+      />
+    ),
+    id: 3,
+    chapter: 'Chapter 1',
+  },
+  {
+    component: (
+      <TextSlide
+        title='Victor Wikström'
+        subTitle='framer-motion showcase'
+        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.'
+      />
+    ),
+    id: 4,
+    chapter: 'Chapter 1',
+  },
+  {
+    component: (
+      <TextSlide
+        title='Oscar Andersson'
+        subTitle='framer-motion showcase'
+        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.'
+      />
+    ),
+    id: 5,
+    chapter: 'Chapter 1',
+  },
+  {
+    component: (
+      <ChapterSlide
+        alignXY='center'
+        chapter={2}
+        title='This is how you'
+        subTitle='Create a chapter'
+        image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
+      />
+    ),
+    id: 6,
+    chapter: 'Chapter 2',
+  },
+  {
+    component: (
+      <ImageSlide
+        title='The heart of Asia'
+        subTitle='Visit Malaysia'
+        imageUrls={[
+          'https://images.unsplash.com/photo-1626308888778-2b77082d53b6?ixlib=rb-1.2.1',
+          'https://images.unsplash.com/photo-1592723905426-1181bf431d3a?ixlib=rb-1.2.1',
+        ]}
+      />
+    ),
+    id: 7,
+    chapter: 'Chapter 2',
+  },
+  {
+    component: (
       <BulletSlide
         subTitle='This is a'
         title='Bullet Slide Example'
@@ -66,47 +152,37 @@ export const slides: SlideType[] = [
         ]}
       />
     ),
-    id: 1,
-    chapter: 'Chapter 1',
-  },
-  {
-    component: (
-      <TextSlide
-        title='Herman Berglund'
-        preTitle='Testing out the preheading'
-        subTitle='framer-motion showcase'
-        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
-      />
-    ),
-    id: 2,
-    chapter: 'Chapter 1',
-  },
-  {
-    component: (
-      <TextSlide
-        title='Victor Wikström'
-        subTitle='framer-motion showcase'
-        paragraph='Detta är en visuell demo av massa skitgrejer'
-      />
-    ),
-    id: 3,
-    chapter: 'Chapter 1',
-  },
-  {
-    component: (
-      <TextSlide
-        title='Oscar Andersson'
-        subTitle='framer-motion showcase'
-        paragraph='Detta är en visuell demo av Oskars skit'
-      />
-    ),
-    id: 4,
+    id: 8,
     chapter: 'Chapter 2',
+  },
+  {
+    component: (
+      <ChapterSlide
+        alignXY='left'
+        chapter={3}
+        title='This is how you'
+        subTitle='Create a chapter'
+        image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
+      />
+    ),
+    id: 9,
+    chapter: 'Chapter 3',
   },
   {
     component: <CarouselSlide carouselCards={carouselCards} />,
-    id: 5,
-    chapter: 'Chapter 2',
+    id: 10,
+    chapter: 'Chapter 3',
+  },
+  {
+    component: (
+      <TextSlide
+        title='Media content'
+        subTitle='framer-motion showcase'
+        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+      />
+    ),
+    id: 11,
+    chapter: 'Chapter 3',
   },
   {
     component: (
@@ -115,65 +191,45 @@ export const slides: SlideType[] = [
         size='large'
       />
     ),
-    id: 6,
-    chapter: 'Chapter 2',
+    id: 12,
+    chapter: 'Chapter 3',
   },
   {
     component: (
       <VideoSlide
         alignXY='center'
-        subTitle='Sub Video Slide'
+        subTitle='Small video slide'
         url='https://www.youtube.com/embed/8C3j42KKrWM'
-        size='large'
+        size='small'
       />
     ),
-    id: 7,
-    chapter: 'Chapter 2',
-  },
-  {
-    component: (
-      <TextSlide
-        title='Oskar Berglund'
-        subTitle='framer-motion showcase'
-        paragraph='Detta är en visuell demo av Oskars skit'
-      />
-    ),
-    id: 8,
-    chapter: 'Chapter 3',
-  },
-  {
-    component: (
-      <TextSlide
-        title='Oskar Berglund'
-        subTitle='framer-motion showcase'
-        paragraph='Detta är en visuell demo av Oskars skit'
-      />
-    ),
-    id: 9,
-    chapter: 'Chapter 3',
-  },
-  {
-    component: (
-      <TextSlide
-        title='Oskar Berglund'
-        subTitle='framer-motion showcase'
-        paragraph='Detta är en visuell demo av Oskars skit'
-      />
-    ),
-    id: 10,
+    id: 13,
     chapter: 'Chapter 3',
   },
   {
     component: (
       <VideoSlide
         alignXY='left'
-        title='Video Slide'
-        subTitle='Sub Video Slide'
+        title='With title'
+        subTitle='Small video slide'
         url='https://www.youtube.com/embed/8C3j42KKrWM'
         size='small'
       />
     ),
-    id: 11,
+    id: 14,
+    chapter: 'Chapter 3',
+  },
+  {
+    component: (
+      <ChapterSlide
+        alignXY='center'
+        chapter={3}
+        title='This is how you'
+        subTitle='Create a chapter'
+        image='https://media.istockphoto.com/photos/chapter-one-picture-id1302839734'
+      />
+    ),
+    id: 15,
     chapter: 'Chapter 3',
   },
   {
@@ -186,57 +242,47 @@ export const slides: SlideType[] = [
         imageUrl='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1'
       />
     ),
-    id: 12,
+    id: 16,
     chapter: 'Chapter 3',
   },
   {
     component: (
-      <ChapterSlide
-        alignXY='left'
-        chapter={4}
-        title='This is how you'
-        subTitle='Create a chapter'
-        image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
+      <ImageSlide
+        title='Image Slide'
+        subTitle='Two images'
+        imageUrls={[
+          'https://images.unsplash.com/photo-1626308888778-2b77082d53b6?ixlib=rb-1.2.1',
+          'https://images.unsplash.com/photo-1592723905426-1181bf431d3a?ixlib=rb-1.2.1',
+        ]}
       />
     ),
-    id: 13,
-    chapter: 'Chapter 4',
+    id: 17,
+    chapter: 'Chapter 3',
   },
   {
     component: (
-      <ChapterSlide
-        alignXY='center'
-        chapter={5}
-        title='This is how you'
-        subTitle='Create a chapter'
-        image='https://media.istockphoto.com/photos/chapter-one-picture-id1302839734'
+      <ImageSlide
+        title='Image Slide'
+        subTitle='Four images'
+        imageUrls={[
+          'https://images.unsplash.com/photo-1626308888778-2b77082d53b6?ixlib=rb-1.2.1',
+          'https://images.unsplash.com/photo-1592723905426-1181bf431d3a?ixlib=rb-1.2.1',
+          'https://images.unsplash.com/photo-1580496297468-1e05179cfd81?ixlib=rb-1.2.1',
+          'https://images.unsplash.com/photo-1565197239446-a89a684c2651?ixlib=rb-1.2.1',
+        ]}
       />
     ),
-    id: 14,
-    chapter: 'Chapter 5',
-  },
-  {
-    component: (
-      <ChapterSlide
-        alignXY='left'
-        chapter={6}
-        title='Next up'
-        subTitle='Learn JavaScript'
-        image='https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?ixlib=rb-1.2.1'
-      />
-    ),
-    id: 15,
-    chapter: 'Chapter 6',
+    id: 18,
+    chapter: 'Chapter 3',
   },
   {
     component: (
       <TextSlide
-        title='Oskar Berglund'
-        subTitle='framer-motion showcase'
-        paragraph='Detta är en visuell demo av Oskars skit'
+        title='The end'
+        subTitle='This is the end of the presentation'
+        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
       />
     ),
-    id: 16,
-    chapter: 'Chapter 5',
+    id: 19,
   },
 ];

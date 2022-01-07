@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import SlideParent from '../Components/SlideParent';
 import AnimatedText from '../Components/AnimatedText';
