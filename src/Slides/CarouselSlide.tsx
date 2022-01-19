@@ -46,32 +46,15 @@ const CarouselSlide: FC<CarouselSlideProps> = ({
     return 'bg-transparent';
   };
 
-  const carouselAnimation = {
-    visible: {
-      x: presentationContext.direction === 'forward' ? '0%' : '0%',
-      transition: { duration: 0.5 },
-    },
-    hidden: {
-      x: presentationContext.direction === 'forward' ? '200%' : '-200%',
-    },
-  };
-
   const carouselCardAnimation = {
-    visible: {
-      x: direction === 'forward' ? '0%' : '0%',
-      transition: { duration: 0.5 },
-    },
-    hidden: { x: direction === 'forward' ? '200%' : '-200%' },
+    visible: { transition: { duration: 0.5 } },
+    hidden: { transition: { duration: 0.5 } },
   };
 
   return (
     <SlideParent>
-      <motion.div
+      <div
         className={classNames('w-full h-full flex justify-center items-center')}
-        key={200} // Need some proper id
-        variants={carouselAnimation}
-        initial='hidden'
-        animate='visible'
       >
         <div>
           <div className={classNames('flex justify-center items-center')}>
@@ -130,7 +113,7 @@ const CarouselSlide: FC<CarouselSlideProps> = ({
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
       <BlurBlob position={2} size='small' color='tertiary' />
     </SlideParent>
   );
