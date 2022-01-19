@@ -17,7 +17,6 @@ const ImageSlide: FC<ImageSlideProps> = ({
   imageUrls,
 }: ImageSlideProps) => {
   const presentationContext = useContext(PresentationContext);
-  console.log(imageUrls.length);
 
   const setImageWidth = () => {
     switch (imageUrls.length) {
@@ -39,7 +38,7 @@ const ImageSlide: FC<ImageSlideProps> = ({
       opacity: 1,
       x: '0',
       transition: {
-        duration: 0.8,
+        duration: 1,
       },
     },
     hidden: {
