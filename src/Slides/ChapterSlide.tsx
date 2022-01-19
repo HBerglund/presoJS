@@ -78,21 +78,21 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
                     </span>
                     <div
                       className={classNames(
-                        'w-11 h-11 flex justify-center items-center bg-gradient-to-l from-primary to-secondary rounded-full'
+                        'w-11 h-11 p-0.5 flex justify-center items-center bg-gradient-to-l from-primary to-secondary rounded-full'
                       )}
                     >
                       <div
                         className={classNames(
-                          'w-10 h-10 flex justify-center items-center bg-black rounded-full'
+                          'w-full h-full flex justify-center items-center bg-black rounded-full'
                         )}
                       >
-                        <div
+                        <span
                           className={classNames(
-                            'text-textPrimary serifHeading text-xs text-center'
+                            'text-textPrimary serifHeading text-center text-[26px] leading-none mt-1 mr-[1px]'
                           )}
                         >
                           {chapter}
-                        </div>
+                        </span>
                       </div>
                     </div>
                   </Fragment>
@@ -126,7 +126,6 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
           </div>
           {alignXY === 'left' && (
             <motion.div
-              className={classNames('mr-16')}
               key={image}
               variants={chapterImageAnimation}
               initial='hidden'
