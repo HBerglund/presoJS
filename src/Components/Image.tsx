@@ -11,7 +11,7 @@ const Image = ({ imageUrl, border, size }: ImageProps) => {
   const getImageSize = () => {
     switch (size) {
       case 'lg':
-        return 'w-96 h-96';
+        return 'largeImage';
       case 'md':
         return 'w-72 h-72';
       case 'sm':
