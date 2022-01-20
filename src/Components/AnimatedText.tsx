@@ -101,7 +101,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
             key={i}
             variants={childAnimation}
             custom={i}
-            className={classNames(className)}
+            className={classNames(className, 'keepSpanWrap')}
           >
             {el}
           </motion.span>

@@ -6,6 +6,7 @@ import VideoSlide from './Slides/VideoSlide';
 import TestimonialSlide from './Slides/TestimonialSlide';
 import ChapterSlide from './Slides/ChapterSlide';
 import ImageSlide from './Slides/ImageSlide';
+import CodeSlide from './Slides/CodeSlide';
 
 export type SlideType = {
   component: React.ReactNode;
@@ -56,14 +57,7 @@ const carouselCards: CarouselSlideType[] = [
 
 export const slides: SlideType[] = [
   {
-    component: (
-      <TextSlide
-        title='presoJS'
-        preTitle='Welcome to'
-        subTitle='framer-motion showcase'
-        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.'
-      />
-    ),
+    component: <CodeSlide />,
     id: 1,
   },
   {

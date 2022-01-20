@@ -21,11 +21,6 @@ body,
   @apply bg-background;
 }
 
-span {
-  white-space: pre-wrap;
-  display: block;
-}
-
 @layer components {
   .sansHeading {
     font-family: Inter;
@@ -35,7 +30,7 @@ span {
     text-transform: uppercase;
   }
   .serifHeading {
-    font-family: Josefin Slab;
+    font-family: Zilla Slab;
     letter-spacing: -0.05em;
     font-weight: 400;
     line-height: 1.1;
@@ -66,5 +61,17 @@ span {
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
+  }
+  .keepSpanWrap {
+    white-space: pre-wrap;
+    display: block;
+  }
+  .largeImage {
+    width: 40vw;
+    height: 40vw;
+    max-width: 800px;
+    min-width: 400px;
+    max-height: 800px;
+    min-height: 400px;
   }
 }
