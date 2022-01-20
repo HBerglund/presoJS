@@ -1,5 +1,4 @@
-import React, { FC, useContext, useState } from 'react';
-import { PresentationContext } from '../Context/PresentationContext';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { CarouselSlideType } from '../data';
@@ -15,12 +14,27 @@ type CarouselSlideProps = {
 const CarouselSlide: FC<CarouselSlideProps> = ({
   carouselCards,
 }: CarouselSlideProps) => {
-  const presentationContext = useContext(PresentationContext);
-  const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const [current, setCurrent] = useState<number>(0);
 
+  const keyPress = useCallback((e: KeyboardEvent) => {
+    switch (e.key) {
+      case 'd':
+        moveForward();
+        break;
+      case 'a':
+        moveBackward();
+        break;
+    }
+    return;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('keyup', keyPress);
+    return () => window.removeEventListener('keyup', keyPress);
+  }, [keyPress]);
+
   const moveForward = () => {
-    setDirection('forward');
     setCurrent((prev) => {
       if (prev !== carouselCards.length - 1) {
         return prev + 1;
@@ -30,7 +44,6 @@ const CarouselSlide: FC<CarouselSlideProps> = ({
   };
 
   const moveBackward = () => {
-    setDirection('backward');
     setCurrent((prev) => {
       if (prev !== 0) {
         return prev - 1;
@@ -46,32 +59,15 @@ const CarouselSlide: FC<CarouselSlideProps> = ({
     return 'bg-transparent';
   };
 
-  const carouselAnimation = {
-    visible: {
-      x: presentationContext.direction === 'forward' ? '0%' : '0%',
-      transition: { duration: 0.5 },
-    },
-    hidden: {
-      x: presentationContext.direction === 'forward' ? '200%' : '-200%',
-    },
-  };
-
   const carouselCardAnimation = {
-    visible: {
-      x: direction === 'forward' ? '0%' : '0%',
-      transition: { duration: 0.5 },
-    },
-    hidden: { x: direction === 'forward' ? '200%' : '-200%' },
+    visible: { transition: { duration: 0.5 } },
+    hidden: { transition: { duration: 0.5 } },
   };
 
   return (
     <SlideParent>
-      <motion.div
+      <div
         className={classNames('w-full h-full flex justify-center items-center')}
-        key={200} // Need some proper id
-        variants={carouselAnimation}
-        initial='hidden'
-        animate='visible'
       >
         <div>
           <div className={classNames('flex justify-center items-center')}>
@@ -79,7 +75,7 @@ const CarouselSlide: FC<CarouselSlideProps> = ({
               className={classNames(
                 current === 0
                   ? 'w-12 h-12'
-                  : 'w-12 h-12 flex justify-center border rounded-full hover:border-2 hover:border-secondary'
+                  : 'w-12 h-12 flex justify-center border rounded-full'
               )}
             >
               <button
@@ -106,7 +102,7 @@ const CarouselSlide: FC<CarouselSlideProps> = ({
               className={classNames(
                 current === carouselCards.length - 1
                   ? 'w-12 h-12'
-                  : 'w-12 h-12 flex justify-center border rounded-full hover:border-2 hover:border-secondary'
+                  : 'w-12 h-12 flex justify-center border rounded-full'
               )}
             >
               <button
@@ -130,7 +126,7 @@ const CarouselSlide: FC<CarouselSlideProps> = ({
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
       <BlurBlob position={2} size='small' color='tertiary' />
     </SlideParent>
   );

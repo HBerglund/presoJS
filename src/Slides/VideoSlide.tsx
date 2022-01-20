@@ -8,7 +8,7 @@ type Props = {
   title?: string;
   subTitle?: string;
   url: string;
-  size?: 'large' | 'small';
+  size?: 'full' | 'large' | 'small';
 };
 
 const VideoSlide: FC<Props> = ({ alignXY, title, subTitle, url, size }) => {
@@ -30,6 +30,8 @@ const VideoSlide: FC<Props> = ({ alignXY, title, subTitle, url, size }) => {
   };
   const getWidth = () => {
     switch (size) {
+      case 'full':
+        return '100%';
       case 'large':
         return '80%';
       case 'small':

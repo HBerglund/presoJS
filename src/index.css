@@ -4,6 +4,7 @@
 
 * {
   -ms-overflow-style: none;
+  cursor: default;
 }
 ::-webkit-scrollbar {
   display: none;
