@@ -57,7 +57,30 @@ const carouselCards: CarouselSlideType[] = [
 
 export const slides: SlideType[] = [
   {
-    component: <CodeSlide />,
+    component: (
+      <CodeSlide
+        code={`const childAnimation = {
+          hidden: getAnimation() || {},
+          visible: (i: number) => ({
+            x: 0,
+            y: 0,
+            opacity: 1,
+            transition: {
+              duration: i < 10 ? 0.7 + i * 0.01 : 1,
+              ease:
+                animation === 'top' || animation === 'bottom'
+                  ? [0.2, 0.9, 0.6, 1]
+                  : [0.7, 0.4, 0.3, 0.8],
+            },
+          }),
+        };`}
+        highlightedRows={[
+          { startRow: 0, endRow: 4 },
+          { startRow: 4, endRow: 10 },
+          { startRow: 10, endRow: 14 },
+        ]}
+      />
+    ),
     id: 1,
   },
   {
