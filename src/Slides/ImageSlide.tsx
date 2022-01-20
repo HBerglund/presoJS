@@ -11,6 +11,11 @@ type ImageSlideProps = {
   imageUrls: string[];
 };
 
+/**
+ * @property {string} title - Title
+ * @property {string} subTitle - Sub title
+ * @property {string} imageUrl - Url address for the image
+ */
 const ImageSlide: FC<ImageSlideProps> = ({
   title,
   subTitle,

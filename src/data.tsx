@@ -67,7 +67,7 @@ export const slides: SlideType[] = [
         chapter={1}
         title='This is how you'
         subTitle='Create a chapter'
-        image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
+        imageUrl='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
       />
     ),
     id: 2,
@@ -114,7 +114,7 @@ export const slides: SlideType[] = [
         chapter={2}
         title='This is how you'
         subTitle='Create a chapter'
-        image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
+        imageUrl='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
       />
     ),
     id: 6,
@@ -156,7 +156,7 @@ export const slides: SlideType[] = [
         chapter={3}
         title='This is how you'
         subTitle='Create a chapter'
-        image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
+        imageUrl='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
       />
     ),
     id: 9,
@@ -220,7 +220,7 @@ export const slides: SlideType[] = [
         chapter={3}
         title='This is how you'
         subTitle='Create a chapter'
-        image='https://media.istockphoto.com/photos/chapter-one-picture-id1302839734'
+        imageUrl='https://media.istockphoto.com/photos/chapter-one-picture-id1302839734'
       />
     ),
     id: 15,

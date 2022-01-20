@@ -11,6 +11,13 @@ type CarouselSlideProps = {
   disableAnimations?: boolean;
 };
 
+/**
+ * @property {string} content - Content
+ * @property {string} name - Author of the content
+ * @property {string} role - Role of the author
+ * @property {string} imageUrl - Url address for the image
+ * @property {string} disableAnimations - If true, no animations are shown
+ */
 const CarouselSlideCard: FC<CarouselSlideProps> = ({
   content,
   name,

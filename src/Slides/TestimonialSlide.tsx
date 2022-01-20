@@ -15,6 +15,14 @@ type TestimonialSlideProps = {
   disableAnimations?: boolean;
 };
 
+/**
+ * @property {string} preHeading - Pre heading
+ * @property {string} quote - Quote
+ * @property {string} name - Author of the quote
+ * @property {string} role - Role of the author
+ * @property {string} imageUrl - Url address for the image
+ * @property {string} disableAnimations - If true, no animations are shown
+ */
 const TestimonialSlide: FC<TestimonialSlideProps> = ({
   preHeading,
   quote,

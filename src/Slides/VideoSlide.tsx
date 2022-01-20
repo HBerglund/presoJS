@@ -11,6 +11,13 @@ type Props = {
   size?: 'full' | 'large' | 'small';
 };
 
+/**
+ * @property {string} alignYX - Position ('left' | 'center')
+ * @property {string} title - Title
+ * @property {string} subTitle - Sub title
+ * @property {string} url - Url address for the image
+ * @property {string} size - Size ('full' | 'large' | 'small')
+ */
 const VideoSlide: FC<Props> = ({ alignXY, title, subTitle, url, size }) => {
   useEffect(() => {
     getAlignment();

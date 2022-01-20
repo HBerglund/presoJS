@@ -9,6 +9,11 @@ interface BulletSlideProps {
   bullets: string[];
 }
 
+/**
+ * @property {string} title - Title
+ * @property {string} subTitle - Sub title
+ * @property {string} bullets - Array of strings
+ */
 const BulletSlide = ({ title, subTitle, bullets }: BulletSlideProps) => {
   const [visibleBullets, setVisibleBullets] = useState<string[]>([]);
   const [nextBullet, setNextBullet] = useState(0);

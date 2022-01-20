@@ -13,6 +13,14 @@ interface TextSlideProps {
   disableAnimations?: boolean;
 }
 
+/**
+ * @property {string} alignYX - Position ('topLeft' | 'topCenter' | 'centerCenter')
+ * @property {string} title - title
+ * @property {string} subTitle - Sub title
+ * @property {string} preTitle - Pre title
+ * @property {string} paragraph - Paragraph
+ * @property {string} disableAnimations - If true, no animations are shown
+ */
 const TextSlide = ({
   alignYX,
   title,

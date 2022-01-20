@@ -12,16 +12,24 @@ type ChapterSlideProps = {
   chapter: number;
   title: string;
   subTitle: string;
-  image: string;
+  imageUrl: string;
   disableAnimations?: boolean;
 };
 
+/**
+ * @property {string} alignXY - Position ('left' | 'center')
+ * @property {string} chapter - No. of chapter
+ * @property {string} title - Title
+ * @property {string} subTitle - Sub title
+ * @property {string} imageUrl - Url address for the image
+ * @property {string} disableAnimations - If true, no animations are shown
+ */
 const ChapterSlide: FC<ChapterSlideProps> = ({
   alignXY,
   chapter,
   title,
   subTitle,
-  image,
+  imageUrl,
   disableAnimations,
 }: ChapterSlideProps) => {
   const presentationContext = useContext(PresentationContext);
@@ -126,12 +134,12 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
           </div>
           {alignXY === 'left' && (
             <motion.div
-              key={image}
+              key={imageUrl}
               variants={chapterImageAnimation}
               initial='hidden'
               animate='visible'
             >
-              <Image imageUrl={image} border size='lg' />
+              <Image imageUrl={imageUrl} border size='lg' />
             </motion.div>
           )}
         </div>
