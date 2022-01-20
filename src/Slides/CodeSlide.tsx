@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
@@ -35,26 +36,86 @@ function CodeSlide() {
       case 'opacity-right':
         return { x: '15%', y: '50%', opacity: 0 };
       default:
-        return '';
+        return ';
     }
   };`;
 
-  const snippets = [first, second, third];
+  const snippets = [second, third];
+
+  const [codeChildren, setCodeChildren] = useState<Element[]>();
+
+  // Array som innehåller index för alla "linenumber" spans
+  const [lineIndexes, setLineIndexes] = useState<number[]>([]);
+
+  // Array som innehåller arrayer med index
+  const [rows, setRows] = useState<Row[]>([]);
+
+  // state för vad som är highlightat just nu
+  const [highlightedRows, setHighlightedRows] = useState<HighlightedRows>({
+    startRow: 2,
+    endRow: 8,
+  });
+
+  useEffect(() => {
+    const codeParent: HTMLElement | null = document.querySelector('code');
+    if (codeParent?.children) {
+      setCodeChildren(Array.from(codeParent.children));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (codeChildren) {
+      for (let i = 0; i < codeChildren.length; i++) {
+        if (codeChildren[i].classList.contains('linenumber')) {
+          setLineIndexes((prev) => [...prev, i]);
+        }
+        codeChildren[i].classList.add('opacity-20');
+      }
+    }
+  }, [codeChildren]);
+
+  useEffect(() => {
+    for (let i = 0; i < lineIndexes.length; i++) {
+      setRows((prev) => [
+        ...prev,
+        {
+          id: i + 1,
+          startIndex: lineIndexes[i],
+          endIndex:
+            i === lineIndexes.length - 1 ? lineIndexes[i] : lineIndexes[i + 1],
+        },
+      ]);
+    }
+  }, [lineIndexes]);
+
+  console.log(rows);
+
+  useEffect(() => {
+    if (codeChildren && highlightedRows && rows.length) {
+      const start = rows[highlightedRows.startRow].startIndex;
+      const end = rows[highlightedRows.endRow].endIndex;
+      for (let i = start; i < end; i++) {
+        codeChildren[i].classList.remove('opacity-20');
+      }
+    }
+  }, [codeChildren, highlightedRows, rows]);
 
   return (
     <SlideParent>
       <div>
-        {snippets.map((snippet) => (
-          <div className='mb-4'>
-            <SyntaxHighlighter
-              showLineNumbers
-              language='javascript'
-              style={vs2015}
-            >
-              {snippet}
-            </SyntaxHighlighter>
-          </div>
-        ))}
+        {snippets.map((snippet, i) => {
+          return (
+            <div className='mb-4' key={i}>
+              <SyntaxHighlighter
+                showLineNumbers
+                language='javascript'
+                style={vs2015}
+              >
+                {snippet}
+              </SyntaxHighlighter>
+            </div>
+          );
+        })}
         ;
       </div>
     </SlideParent>
@@ -62,3 +123,14 @@ function CodeSlide() {
 }
 
 export default CodeSlide;
+
+type Row = {
+  id: number;
+  startIndex: number;
+  endIndex: number;
+};
+
+type HighlightedRows = {
+  startRow: number;
+  endRow: number;
+};
