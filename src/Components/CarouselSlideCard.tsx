@@ -12,11 +12,11 @@ type CarouselSlideProps = {
 };
 
 /**
- * @property {string} content - Content
- * @property {string} name - Author of the content
- * @property {string} role - Role of the author
- * @property {string} imageUrl - Url address for the image
- * @property {string} disableAnimations - If true, no animations are shown
+ * @property {string} content - Text inside the card displayed text-xs and text-textPrimary color.
+ * @property {string} name - Author of the content displayed text-xs and gradient color.
+ * @property {string} role - Role of the author displayed text-xs and text-textSecondary.
+ * @property {string} imageUrl - Url address for the image.
+ * @property {string} disableAnimations - If true, no animations are shown for any text.
  */
 const CarouselSlideCard: FC<CarouselSlideProps> = ({
   content,

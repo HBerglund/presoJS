@@ -19,6 +19,10 @@ export type CarouselSlideType = {
   id: number;
 };
 
+/**
+ * @property {React.ReactNode} component - Component slide to be rendered.
+ * @property {number} id - Unique id of component.
+ */
 const carouselCards: CarouselSlideType[] = [
   {
     component: (
@@ -55,6 +59,11 @@ const carouselCards: CarouselSlideType[] = [
   },
 ];
 
+/**
+ * @property {React.ReactNode} component - Component to be rendered.
+ * @property {number} id - Unique id of component.
+ * @property {string} chapter - Chapter wich displayed in progress bar.
+ */
 export const slides: SlideType[] = [
   {
     component: <CodeSlide />,

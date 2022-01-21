@@ -16,12 +16,12 @@ type TestimonialSlideProps = {
 };
 
 /**
- * @property {string} preHeading - Pre heading
- * @property {string} quote - Quote
- * @property {string} name - Author of the quote
- * @property {string} role - Role of the author
- * @property {string} imageUrl - Url address for the image
- * @property {string} disableAnimations - If true, no animations are shown
+ * @property {string} preHeading - Pre heading displayed text-xs and text-textPrimary color.
+ * @property {string} quote - Quote displayed text-sm and text-textPrimary color.
+ * @property {string} name - Author of the quote displayed text-xs and gradient color.
+ * @property {string} role - Role of the author displayed text-xs and text-textSecondary color.
+ * @property {string} imageUrl - Url address for the image.
+ * @property {string} disableAnimations - If true, no text animations are shown for text.
  */
 const TestimonialSlide: FC<TestimonialSlideProps> = ({
   preHeading,

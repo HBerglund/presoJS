@@ -14,12 +14,12 @@ interface TextSlideProps {
 }
 
 /**
- * @property {string} alignYX - Position ('topLeft' | 'topCenter' | 'centerCenter')
- * @property {string} title - title
- * @property {string} subTitle - Sub title
- * @property {string} preTitle - Pre title
- * @property {string} paragraph - Paragraph
- * @property {string} disableAnimations - If true, no animations are shown
+ * @property {string} alignYX - Position of content ('topLeft' | 'topCenter' | 'centerCenter')
+ * @property {string} title - Title displayed with text-xl and text-textPrimary color.
+ * @property {string} subTitle - Sub title displayed with text-sm and text-primary color.
+ * @property {string} preTitle - Pre title displayed with text-xs and text-textPrimary color.
+ * @property {string} paragraph - Paragraph displayed with text-sm and text-textPrimary color.
+ * @property {string} disableAnimations - If true, no text animations are shown for text.
  */
 const TextSlide = ({
   alignYX,

@@ -17,12 +17,12 @@ type ChapterSlideProps = {
 };
 
 /**
- * @property {string} alignXY - Position ('left' | 'center')
- * @property {string} chapter - No. of chapter
- * @property {string} title - Title
- * @property {string} subTitle - Sub title
- * @property {string} imageUrl - Url address for the image
- * @property {string} disableAnimations - If true, no animations are shown
+ * @property {string} alignXY - Position of content ('left' | 'center').
+ * @property {string} chapter - Number icon to show current chapter.
+ * @property {string} title - Title displayed text-lg and text-textPrimary color.
+ * @property {string} subTitle - Sub title displayed text-lg and text-textPrimary color.
+ * @property {string} imageUrl - Url address for the image.
+ * @property {string} disableAnimations - If true, no text animations are shown for any text.
  */
 const ChapterSlide: FC<ChapterSlideProps> = ({
   alignXY,

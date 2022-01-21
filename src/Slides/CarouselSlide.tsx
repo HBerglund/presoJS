@@ -12,7 +12,7 @@ type CarouselSlideProps = {
 };
 
 /**
- * @property {CarouselSlideType[]} carouselCards - Array of CarouselSlideCard
+ * @property {array} carouselCards - Array of CarouselSlideCard.
  */
 const CarouselSlide: FC<CarouselSlideProps> = ({
   carouselCards,
