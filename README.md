@@ -14,15 +14,29 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## tailwind.config.js
 
-Here you can change:
+Here you can change presoJS theme:
 
-- Font sizes
-- Spacing
-- Colors
+- fontSize
+- spacing
+- blur
+- borderRadius
+- backgroundImage
+- colors
+- width
 
 ## data.tsx
 
 The file containing your presentation slides.
+
+In data.tsx, insert your preferable slide components inside the slides array, as shown in the example below:
+
+{
+component: <ExampleSlide />,
+id: 1,
+chapter: 'Chapter 1
+},
+
+For each component slide, you can read the jsDoc comments to see what props you need/can add for the specific component by hover any <ExampleSlide>.
 
 ## Components
 

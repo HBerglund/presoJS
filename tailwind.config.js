@@ -14,13 +14,14 @@ module.exports = {
         144: '36rem',
       },
       blur: {
-        '4xl': '100px'
+        '4xl': '100px',
       },
       borderRadius: {
         '4xl': '2rem',
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+        'gradient-radial':
+          'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
       },
       colors: {
         background: '#000',
