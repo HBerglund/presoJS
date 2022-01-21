@@ -88,7 +88,7 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
                       >
                         <span
                           className={classNames(
-                            'text-textPrimary serifHeading text-center text-[26px] leading-none mt-1 mr-[1px]'
+                            'text-textPrimary serifHeading text-center text-[26px] leading-none mt-1 mb-[10px] mr-[1px]'
                           )}
                         >
                           {chapter}
