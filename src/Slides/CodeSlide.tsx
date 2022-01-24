@@ -47,7 +47,6 @@ const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
     const element = document.getElementById(`${currentlyHighlighted.startRow}`);
     element?.scrollIntoView({
       block: 'start',
-      behavior: 'smooth',
     });
   }, [currentlyHighlighted]);
 
@@ -182,7 +181,7 @@ const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
             <div
               style={{ borderRadius: '0 32px 32px 32px' }}
               className={classNames(
-                'absolute right-0 w-80 bg-[#1E1E1E] p-6 border-2 border-white'
+                'absolute right-0 top-1/4 w-80 bg-[#1E1E1E] p-6 border-2 border-white'
               )}
             >
               <AnimatedText className={classNames('text-white text-xxs')}>

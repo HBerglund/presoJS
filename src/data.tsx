@@ -173,8 +173,8 @@ export const slides: SlideType[] = [
             id: 3,
           },
           {
-            startRow: 74,
-            endRow: 89,
+            startRow: 37,
+            endRow: 98,
             text: 'hejsan oscar hur är läget?',
             id: 4,
           },
