@@ -43,11 +43,13 @@ const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
   const [currentlyHighlighted, setCurrentlyHighlighted] =
     useState<CurrentlyHighlighted>(highlightedRows[0]);
 
-  console.log(`currently highlighted ID: ${currentlyHighlighted.id}`);
-  console.log(`highlights length: ${highlightedRows.length}`);
-
-  // console.log(`rows: ${rows.length}`);
-  // console.log(`lineIndex: ${lineIndexes.length}`);
+  useEffect(() => {
+    const element = document.getElementById(`${currentlyHighlighted.startRow}`);
+    element?.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+    });
+  }, [currentlyHighlighted]);
 
   const changeHighlight = useCallback(
     (dir: string) => {
@@ -66,7 +68,7 @@ const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
         );
       }
     },
-    [currentlyHighlighted.id, highlightedRows]
+    [currentlyHighlighted, highlightedRows]
   );
 
   const keyPress = useCallback(
@@ -108,10 +110,13 @@ const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
 
   // Populate array with all element indexes starting on a new row
   useEffect(() => {
+    let countRows: number = 0;
     if (codeChildren) {
       for (let i = 0; i < codeChildren.length; i++) {
         if (codeChildren[i].classList.contains('linenumber')) {
+          countRows++;
           setLineIndexes((prev) => [...prev, i]);
+          codeChildren[i].setAttribute(`id`, `${countRows}`);
         }
         codeChildren[i].classList.add(
           'opacity-20',

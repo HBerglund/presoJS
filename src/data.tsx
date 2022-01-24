@@ -108,6 +108,54 @@ export const slides: SlideType[] = [
             }
           }
         }, [codeChildren, currentlyHighlighted, rows]);
+        useEffect(() => {
+          const codeParent: HTMLElement | null = document.querySelector('code');
+          if (codeParent?.children) {
+            setCodeChildren(Array.from(codeParent.children));
+          }
+        }, []);
+      
+        // Populate array with all element indexes starting on a new row
+        useEffect(() => {
+          if (codeChildren) {
+            for (let i = 0; i < codeChildren.length; i++) {
+              if (codeChildren[i].classList.contains('linenumber')) {
+                setLineIndexes((prev) => [...prev, i]);
+              }
+              codeChildren[i].classList.add(
+                'opacity-20',
+                'transition-all',
+                'text-mini'
+              );
+            }
+          }
+        }, [codeChildren]);
+      
+        // Create all rows and set state rows
+        useEffect(() => {
+          for (let i = 0; i < lineIndexes.length; i++) {
+            setRows((prev) => [
+              ...prev,
+              {
+                id: i + 1,
+                startIndex: lineIndexes[i],
+                endIndex:
+                  i === lineIndexes.length - 1 ? lineIndexes[i] : lineIndexes[i + 1],
+              },
+            ]);
+          }
+        }, [lineIndexes]);
+      
+        // Styling highlighted snippet
+        useEffect(() => {
+          if (codeChildren && currentlyHighlighted && rows.length) {
+            const start = rows[currentlyHighlighted.startRow].startIndex;
+            const end = rows[currentlyHighlighted.endRow].endIndex;
+            for (let i = start; i < end; i++) {
+              codeChildren[i].classList.remove('opacity-20', 'text-mini');
+            }
+          }
+        }, [codeChildren, currentlyHighlighted, rows]);
       
 `}
         highlightedRows={[
@@ -119,10 +167,16 @@ export const slides: SlideType[] = [
             id: 2,
           },
           {
-            startRow: 11,
-            endRow: 13,
+            startRow: 35,
+            endRow: 39,
             text: 'hejsan oscar hur är läget?',
             id: 3,
+          },
+          {
+            startRow: 74,
+            endRow: 89,
+            text: 'hejsan oscar hur är läget?',
+            id: 4,
           },
         ]}
       />
