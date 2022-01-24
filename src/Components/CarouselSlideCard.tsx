@@ -11,6 +11,13 @@ type CarouselSlideProps = {
   disableAnimations?: boolean;
 };
 
+/**
+ * @property {string} content - Text inside the card displayed text-xs and text-textPrimary color.
+ * @property {string} name - Author of the content displayed text-xs and gradient color.
+ * @property {string} role - Role of the author displayed text-xs and text-textSecondary.
+ * @property {string} imageUrl - Url address for the image.
+ * @property {string} disableAnimations - If true, no animations are shown for any text.
+ */
 const CarouselSlideCard: FC<CarouselSlideProps> = ({
   content,
   name,
@@ -52,9 +59,9 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
   };
 
   return (
-    <div className='bg-gradient-to-r from-black to-transparent p-16 rounded-3xl border-2'>
+    <div className=' h-96 bg-gradient-to-r from-gray-900 to-transparent px-12 py-10 rounded-3xl border-2'>
       <motion.div
-        className={classNames('flex flex-col')}
+        className={classNames('h-full flex flex-col justify-between')}
         variants={cardTextAnimation}
         initial='hidden'
         animate='visible'
@@ -69,31 +76,32 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
             {content}
           </AnimatedText>
         )}
-        {name && (
-          <motion.span
-            className={classNames(
-              'gradientMask from-primary to-secondary sansHeading text-xs mt-8'
-            )}
-            variants={cardNameAnimation}
-            initial='hidden'
-            animate='visible'
-          >
-            {name}
-          </motion.span>
-        )}
-        {role && (
-          <motion.span
-            className={classNames(
-              'text-textSecondary sansHeading text-xs mt-2'
-            )}
-            variants={cardNameAnimation}
-            initial='hidden'
-            animate='visible'
-          >
-            {role}
-          </motion.span>
-        )}
+        <div className={classNames('flex flex-col')}>
+          {name && (
+            <motion.span
+              className={classNames(
+                'gradientMask from-primary to-secondary sansHeading capitalize text-sm'
+              )}
+              variants={cardNameAnimation}
+              initial='hidden'
+              animate='visible'
+            >
+              {name}
+            </motion.span>
+          )}
+          {role && (
+            <motion.span
+              className={classNames('text-gray-500  text-xs sansHeading')}
+              variants={cardNameAnimation}
+              initial='hidden'
+              animate='visible'
+            >
+              {role}
+            </motion.span>
+          )}
+        </div>
       </motion.div>
+
       {imageUrl && (
         <div className={classNames('fixed')}>
           <motion.div

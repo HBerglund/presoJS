@@ -1,43 +1,87 @@
-# Getting Started with Create React App
+# Getting Started PresoJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To install all dependencies, in the project directory, run:
 
-## Available Scripts
+### `npm i`
 
-In the project directory, you can run:
+Run the app in the development mode:
 
-### `yarn start`
+### `npm start`
 
-Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Basic Usage
 
-### `yarn test`
+## tailwind.config.js
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Change the presoJS theme to your preferable colors:
 
-### `yarn build`
+- background
+- primary
+- secondary
+- tertiary
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Change your text colors:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- textPrimary
+- textSecondary
+- textAlternative
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## data.tsx
 
-### `yarn eject`
+The file contain your presentation slides.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+In data.tsx, insert your preferable slide components inside the slides array, as shown in the example below:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+slides = [
+{
+component: <ExampleSlide />,
+id: 1,
+chapter: 'Chapter 1
+},
+]
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+For each component slide, you can read the jsDoc comments to see what props you need/can add for the specific component by hovering any <ExampleSlide>.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+NOTE: Each component must have a unique id.
+
+## Components
+
+### ChapterSlide
+
+Group your presentation into chapters for your audience's convenience. Add titles and an image for visual effect.
+
+### TextSlide
+
+Use text content to share a visual form of your message to your audience.
+
+### BulletSlide
+
+Create bullet points to draw attention to important information and communicate more efficiently with your audience.
+
+### ImageSlide
+
+Add up to four images, with or without titles, to create an engaging presentation.
+
+### VideoSlide
+
+Videos capture your audience's attention. Choose between different frame sizes, with or without titles.
+
+### CodeSlide
+
+Present snippets of code in an easy-to-follow stream of highlighted lines of code.
+
+### CarouselSlide
+
+Use CarouselSlideCard to create a carousel of slides. CarouselSlide is used as any other slide component inside the slides array in data.tsx.
+
+## CarouselSlideCard
+
+Use CarouselSlideCard to create a carousel of slides. Insert CarouselSlideCard inside the carouselCards array in data.tsx.
+
+### TestimonialSlide
+
+Motivate your audience and introduce the topic you're going to cover by using quotes by others to add credibility.
 
 ## Learn More
 
