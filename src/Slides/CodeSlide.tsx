@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useState } from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -26,6 +25,7 @@ type CurrentlyHighlighted = {
   startRow: number;
   endRow: number;
   text?: string;
+  id: number;
 };
 
 const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
@@ -39,44 +39,55 @@ const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
   // Array som innehåller arrayer med index
   const [rows, setRows] = useState<Row[]>([]);
 
-  // State för alla highlights
-  const highlights: CurrentlyHighlighted[] = highlightedRows;
-
   // state för vad som är highlightat just nu
   const [currentlyHighlighted, setCurrentlyHighlighted] =
-    useState<CurrentlyHighlighted>(highlights[0]);
+    useState<CurrentlyHighlighted>(highlightedRows[0]);
 
-  console.log(currentlyHighlighted.text);
+  console.log(`currently highlighted ID: ${currentlyHighlighted.id}`);
+  console.log(`highlights length: ${highlightedRows.length}`);
 
-  const keyPress = useCallback((e: KeyboardEvent) => {
-    switch (e.key) {
-      case 'ArrowUp':
-        changeHighlight('up');
-        break;
-      case 'ArrowDown':
-        changeHighlight('down');
-        break;
-    }
-    return;
-  }, []);
+  // console.log(`rows: ${rows.length}`);
+  // console.log(`lineIndex: ${lineIndexes.length}`);
+
+  const changeHighlight = useCallback(
+    (dir: string) => {
+      if (dir === 'up') {
+        if (currentlyHighlighted.id === 1) return;
+        setCurrentlyHighlighted(
+          (prev: CurrentlyHighlighted) =>
+            highlightedRows[highlightedRows.indexOf(prev) - 1]
+        );
+      }
+      if (dir === 'down') {
+        if (currentlyHighlighted.id === highlightedRows.length) return;
+        setCurrentlyHighlighted(
+          (prev: CurrentlyHighlighted) =>
+            highlightedRows[highlightedRows.indexOf(prev) + 1]
+        );
+      }
+    },
+    [currentlyHighlighted.id, highlightedRows]
+  );
+
+  const keyPress = useCallback(
+    (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'ArrowUp':
+          changeHighlight('up');
+          break;
+        case 'ArrowDown':
+          changeHighlight('down');
+          break;
+      }
+      return;
+    },
+    [changeHighlight]
+  );
 
   useEffect(() => {
     window.addEventListener('keyup', keyPress);
     return () => window.removeEventListener('keyup', keyPress);
   }, [keyPress]);
-
-  const changeHighlight = (dir: string) => {
-    if (dir === 'up') {
-      setCurrentlyHighlighted(
-        (prev: CurrentlyHighlighted) => highlights[highlights.indexOf(prev) - 1]
-      );
-    }
-    if (dir === 'down') {
-      setCurrentlyHighlighted(
-        (prev: CurrentlyHighlighted) => highlights[highlights.indexOf(prev) + 1]
-      );
-    }
-  };
 
   // Set styling for all elements everytime we change highlighted snippet
   useEffect(() => {
@@ -85,7 +96,7 @@ const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
         child.classList.add('opacity-20', 'transition-all', 'text-mini');
       }
     }
-  }, [currentlyHighlighted]);
+  }, [currentlyHighlighted, codeChildren]);
 
   // Populate an array with all elements in state
   useEffect(() => {
