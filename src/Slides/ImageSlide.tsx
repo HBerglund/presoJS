@@ -1,9 +1,10 @@
 import React, { FC, Fragment, useContext } from 'react';
 import { PresentationContext } from '../Context/PresentationContext';
 import classNames from 'classnames';
-import { motion } from 'framer-motion';
+import { AnimateSharedLayout, motion } from 'framer-motion';
 import SlideParent from '../Components/SlideParent';
 import BlurBlob from '../Components/BlurBlob';
+import AnimatedText from '../Components/AnimatedText';
 
 type ImageSlideProps = {
   title?: string;
@@ -39,6 +40,7 @@ const ImageSlide: FC<ImageSlideProps> = ({
       x: '0',
       transition: {
         duration: 1,
+        ease: 'easeOut',
       },
     },
     hidden: {
@@ -53,24 +55,32 @@ const ImageSlide: FC<ImageSlideProps> = ({
         <div
           className={classNames('w-full h-full flex flex-col justify-between')}
         >
-          <div className={classNames('flex flex-col')}>
+          <div className={classNames('flex flex-col items-center')}>
             {subTitle && (
-              <span
+              <AnimatedText
+                animation='bottom'
+                staggerChildren
+                splitOn='words'
+                delay={0.5}
                 className={classNames(
                   'text-textPrimary serifHeading text-xs text-center w-full'
                 )}
               >
                 {subTitle}
-              </span>
+              </AnimatedText>
             )}
             {title && (
-              <span
+              <AnimatedText
+                animation='bottom'
+                splitOn='chars'
+                staggerChildren
+                delay={0.6}
                 className={classNames(
                   'text-center sansHeading text-textPrimary text-lg w-full'
                 )}
               >
                 {title}
-              </span>
+              </AnimatedText>
             )}
           </div>
           <div className={classNames('flex flex-row')}>

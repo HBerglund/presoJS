@@ -52,8 +52,8 @@ const BlurBlob = ({ position, color, size }: BlurBlobProps) => {
       }}
     >
       <motion.div
-        initial={{ opacity: 0.5, scale: 1, y: '-10%', x: '-10%' }}
-        animate={{ opacity: 0.3, scale: 0.8, y: '20%', x: '10%' }}
+        initial={{ opacity: 0.4, scale: 1, y: '-10%', x: '-10%' }}
+        animate={{ opacity: 0.2, scale: 0.8, y: '20%', x: '10%' }}
         transition={{
           duration: 7,
           delay: 3,
@@ -61,10 +61,10 @@ const BlurBlob = ({ position, color, size }: BlurBlobProps) => {
           repeat: Infinity,
         }}
         className={classNames(
+          'fixed bg-gradient-to-r to-tertiary z-0 blur-4xl rounded-full skew-y-12',
           getSize(),
           getPosition(),
-          getColor(),
-          'fixed bg-gradient-radial z-0 blur-4xl rounded-full skew-y-12'
+          getColor()
         )}
       ></motion.div>
     </motion.div>

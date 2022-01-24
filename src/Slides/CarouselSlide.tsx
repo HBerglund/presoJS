@@ -1,6 +1,6 @@
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import React, { FC, Fragment, useCallback, useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { CarouselSlideType } from '../data';
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg';
 import { ReactComponent as ArrowRight } from '../assets/arrow-right.svg';
@@ -15,6 +15,8 @@ const CarouselSlide: FC<CarouselSlideProps> = ({
   carouselCards,
 }: CarouselSlideProps) => {
   const [current, setCurrent] = useState<number>(0);
+
+  const cardContentAnimation = useAnimation();
 
   const keyPress = useCallback((e: KeyboardEvent) => {
     switch (e.key) {
@@ -35,6 +37,12 @@ const CarouselSlide: FC<CarouselSlideProps> = ({
   }, [keyPress]);
 
   const moveForward = () => {
+    cardContentAnimation.start({
+      x: '-100%',
+      transition: {
+        duration: 1,
+      },
+    });
     setCurrent((prev) => {
       if (prev !== carouselCards.length - 1) {
         return prev + 1;
@@ -44,6 +52,12 @@ const CarouselSlide: FC<CarouselSlideProps> = ({
   };
 
   const moveBackward = () => {
+    cardContentAnimation.start({
+      x: '100%',
+      transition: {
+        duration: 1,
+      },
+    });
     setCurrent((prev) => {
       if (prev !== 0) {
         return prev - 1;
@@ -65,70 +79,79 @@ const CarouselSlide: FC<CarouselSlideProps> = ({
   };
 
   return (
-    <SlideParent>
-      <div
-        className={classNames('w-full h-full flex justify-center items-center')}
-      >
-        <div>
-          <div className={classNames('flex justify-center items-center')}>
-            <div
-              className={classNames(
-                current === 0
-                  ? 'w-12 h-12'
-                  : 'w-12 h-12 flex justify-center border rounded-full'
-              )}
-            >
-              <button
-                onClick={moveBackward}
+    <Fragment>
+      <SlideParent>
+        <div
+          className={classNames(
+            'w-full h-full flex justify-center items-center'
+          )}
+        >
+          <div>
+            <div className={classNames('flex justify-center items-center')}>
+              <motion.div
                 className={classNames(
-                  'flex items-center',
-                  current === 0 ? 'invisible' : 'visible'
+                  current === 0
+                    ? 'w-16 h-16'
+                    : 'w-16 h-16 flex justify-center border rounded-full'
                 )}
               >
-                <ArrowLeft />
-              </button>
-            </div>
-            <motion.div
-              className={classNames('w-full h-full mx-20')}
-              style={{ width: '800px', height: '400px' }}
-              key={carouselCards[current].id}
-              variants={carouselCardAnimation}
-              initial='hidden'
-              animate='visible'
-            >
-              {carouselCards[current].component}
-            </motion.div>
-            <div
-              className={classNames(
-                current === carouselCards.length - 1
-                  ? 'w-12 h-12'
-                  : 'w-12 h-12 flex justify-center border rounded-full'
-              )}
-            >
-              <button
-                onClick={moveForward}
+                <button
+                  onClick={moveBackward}
+                  className={classNames(
+                    'flex items-center',
+                    current === 0 ? 'invisible' : 'visible'
+                  )}
+                >
+                  <ArrowLeft />
+                </button>
+              </motion.div>
+              <motion.div
+                className={classNames('w-full h-full mx-20')}
+                style={{ width: '800px', height: '400px' }}
+                key={carouselCards[current].id}
+                variants={carouselCardAnimation}
+                initial='hidden'
+                animate={cardContentAnimation}
+              >
+                {carouselCards[current].component}
+              </motion.div>
+              <motion.div
                 className={classNames(
-                  current === carouselCards.length - 1 ? 'invisible' : 'visible'
+                  current === carouselCards.length - 1
+                    ? 'w-16 h-16'
+                    : 'w-16 h-16 flex justify-center border rounded-full'
                 )}
               >
-                <ArrowRight />
-              </button>
+                <button
+                  onClick={moveForward}
+                  className={classNames(
+                    current === carouselCards.length - 1
+                      ? 'invisible'
+                      : 'visible'
+                  )}
+                >
+                  <ArrowRight />
+                </button>
+              </motion.div>
             </div>
-          </div>
-          <div className={classNames('text-primary flex justify-center mt-4')}>
-            {carouselCards.map((card) => (
-              <div
-                className={classNames(
-                  fillIfActive(card),
-                  'w-3 h-3 border rounded-full mx-2'
-                )}
-              ></div>
-            ))}
+            <div
+              className={classNames('text-primary flex justify-center mt-12')}
+            >
+              {carouselCards.map((card) => (
+                <div
+                  className={classNames(
+                    fillIfActive(card),
+                    'w-3 h-3 border rounded-full mx-2'
+                  )}
+                ></div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </SlideParent>
       <BlurBlob position={2} size='small' color='tertiary' />
-    </SlideParent>
+      <BlurBlob position={4} size='large' color='primary' />
+    </Fragment>
   );
 };
 

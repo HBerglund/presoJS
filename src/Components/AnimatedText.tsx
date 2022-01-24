@@ -90,12 +90,12 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
     >
       {elements.map((el, i) => (
         <div
+          key={i}
           style={
             animation === 'top' || animation === 'bottom'
               ? { overflow: 'hidden' }
               : {}
           }
-          className='pt-1'
         >
           <motion.span
             key={i}
