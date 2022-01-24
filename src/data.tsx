@@ -59,25 +59,125 @@ export const slides: SlideType[] = [
   {
     component: (
       <CodeSlide
-        code={`const childAnimation = {
-          hidden: getAnimation() || {},
-          visible: (i: number) => ({
-            x: 0,
-            y: 0,
-            opacity: 1,
-            transition: {
-              duration: i < 10 ? 0.7 + i * 0.01 : 1,
-              ease:
-                animation === 'top' || animation === 'bottom'
-                  ? [0.2, 0.9, 0.6, 1]
-                  : [0.7, 0.4, 0.3, 0.8],
-            },
-          }),
-        };`}
+        code={`     // Populate an array with all elements in state
+        useEffect(() => {
+          const codeParent: HTMLElement | null = document.querySelector('code');
+          if (codeParent?.children) {
+            setCodeChildren(Array.from(codeParent.children));
+          }
+        }, []);
+      
+        // Populate array with all element indexes starting on a new row
+        useEffect(() => {
+          if (codeChildren) {
+            for (let i = 0; i < codeChildren.length; i++) {
+              if (codeChildren[i].classList.contains('linenumber')) {
+                setLineIndexes((prev) => [...prev, i]);
+              }
+              codeChildren[i].classList.add(
+                'opacity-20',
+                'transition-all',
+                'text-mini'
+              );
+            }
+          }
+        }, [codeChildren]);
+      
+        // Create all rows and set state rows
+        useEffect(() => {
+          for (let i = 0; i < lineIndexes.length; i++) {
+            setRows((prev) => [
+              ...prev,
+              {
+                id: i + 1,
+                startIndex: lineIndexes[i],
+                endIndex:
+                  i === lineIndexes.length - 1 ? lineIndexes[i] : lineIndexes[i + 1],
+              },
+            ]);
+          }
+        }, [lineIndexes]);
+      
+        // Styling highlighted snippet
+        useEffect(() => {
+          if (codeChildren && currentlyHighlighted && rows.length) {
+            const start = rows[currentlyHighlighted.startRow].startIndex;
+            const end = rows[currentlyHighlighted.endRow].endIndex;
+            for (let i = start; i < end; i++) {
+              codeChildren[i].classList.remove('opacity-20', 'text-mini');
+            }
+          }
+        }, [codeChildren, currentlyHighlighted, rows]);
+        useEffect(() => {
+          const codeParent: HTMLElement | null = document.querySelector('code');
+          if (codeParent?.children) {
+            setCodeChildren(Array.from(codeParent.children));
+          }
+        }, []);
+      
+        // Populate array with all element indexes starting on a new row
+        useEffect(() => {
+          if (codeChildren) {
+            for (let i = 0; i < codeChildren.length; i++) {
+              if (codeChildren[i].classList.contains('linenumber')) {
+                setLineIndexes((prev) => [...prev, i]);
+              }
+              codeChildren[i].classList.add(
+                'opacity-20',
+                'transition-all',
+                'text-mini'
+              );
+            }
+          }
+        }, [codeChildren]);
+      
+        // Create all rows and set state rows
+        useEffect(() => {
+          for (let i = 0; i < lineIndexes.length; i++) {
+            setRows((prev) => [
+              ...prev,
+              {
+                id: i + 1,
+                startIndex: lineIndexes[i],
+                endIndex:
+                  i === lineIndexes.length - 1 ? lineIndexes[i] : lineIndexes[i + 1],
+              },
+            ]);
+          }
+        }, [lineIndexes]);
+      
+        // Styling highlighted snippet
+        useEffect(() => {
+          if (codeChildren && currentlyHighlighted && rows.length) {
+            const start = rows[currentlyHighlighted.startRow].startIndex;
+            const end = rows[currentlyHighlighted.endRow].endIndex;
+            for (let i = start; i < end; i++) {
+              codeChildren[i].classList.remove('opacity-20', 'text-mini');
+            }
+          }
+        }, [codeChildren, currentlyHighlighted, rows]);
+      
+`}
         highlightedRows={[
-          { startRow: 0, endRow: 4 },
-          { startRow: 4, endRow: 10 },
-          { startRow: 10, endRow: 14 },
+          { startRow: 0, endRow: 4, text: 'fin kod hej hej', id: 1 },
+          {
+            startRow: 5,
+            endRow: 10,
+            text: 'hejsan oscar hur är läget?',
+            id: 2,
+          },
+          {
+            startRow: 35,
+            endRow: 39,
+            text: 'hejsan oscar hur är läget?',
+            id: 3,
+          },
+          {
+            startRow: 37,
+            endRow: 98,
+            text: 'hejsan oscar hur är läget?',
+            id: 4,
+          },
         ]}
       />
     ),
