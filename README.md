@@ -14,49 +14,74 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## tailwind.config.js
 
-Here you can change presoJS theme:
+Change the presoJS theme to your preferable colors:
 
-- fontSize
-- spacing
-- blur
-- borderRadius
-- backgroundImage
-- colors
-- width
+- background
+- primary
+- secondary
+- tertiary
+
+Change your text colors:
+
+- textPrimary
+- textSecondary
+- textAlternative
 
 ## data.tsx
 
-The file containing your presentation slides.
+The file contain your presentation slides.
 
 In data.tsx, insert your preferable slide components inside the slides array, as shown in the example below:
 
+slides = [
 {
 component: <ExampleSlide />,
 id: 1,
 chapter: 'Chapter 1
 },
+]
 
-For each component slide, you can read the jsDoc comments to see what props you need/can add for the specific component by hover any <ExampleSlide>.
+For each component slide, you can read the jsDoc comments to see what props you need/can add for the specific component by hovering any <ExampleSlide>.
+
+NOTE: Each component must have a unique id.
 
 ## Components
 
 ### ChapterSlide
 
+Group your presentation into chapters for your audience's convenience. Add titles and an image for visual effect.
+
 ### TextSlide
+
+Use text content to share a visual form of your message to your audience.
 
 ### BulletSlide
 
+Create bullet points to draw attention to important information and communicate more efficiently with your audience.
+
 ### ImageSlide
+
+Add up to four images, with or without titles, to create an engaging presentation.
 
 ### VideoSlide
 
+Videos capture your audience's attention. Choose between different frame sizes, with or without titles.
+
 ### CodeSlide
+
+Present snippets of code in an easy-to-follow stream of highlighted lines of code.
 
 ### CarouselSlide
 
+Use CarouselSlideCard to create a carousel of slides. CarouselSlide is used as any other slide component inside the slides array in data.tsx.
+
 ## CarouselSlideCard
 
+Use CarouselSlideCard to create a carousel of slides. Insert CarouselSlideCard inside the carouselCards array in data.tsx.
+
 ### TestimonialSlide
+
+Motivate your audience and introduce the topic you're going to cover by using quotes by others to add credibility.
 
 ## Learn More
 

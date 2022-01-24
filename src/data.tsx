@@ -60,9 +60,9 @@ const carouselCards: CarouselSlideType[] = [
 ];
 
 /**
- * @property {React.ReactNode} component - Component to be rendered.
+ * @property {React.ReactNode} component - Slide component to be rendered.
  * @property {number} id - Unique id of component.
- * @property {string} chapter - Chapter wich displayed in progress bar.
+ * @property {string} chapter - Chapter wich displayed in progress bar (optional).
  */
 export const slides: SlideType[] = [
   {

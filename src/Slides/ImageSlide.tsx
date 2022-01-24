@@ -14,7 +14,7 @@ type ImageSlideProps = {
 /**
  * @property {string} title - Title displayed text-lg and text-textPrimary color.
  * @property {string} subTitle - Sub title displayed text-xs and text-textPrimary color.
- * @property {array} imageUrls - Url addresses for the images.
+ * @property {array} imageUrls - Url addresses for the images (1-4).
  */
 const ImageSlide: FC<ImageSlideProps> = ({
   title,
