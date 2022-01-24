@@ -19,11 +19,15 @@ export type CarouselSlideType = {
   id: number;
 };
 
+/**
+ * @property {React.ReactNode} component - Component slide to be rendered.
+ * @property {number} id - Unique id of component.
+ */
 const carouselCards: CarouselSlideType[] = [
   {
     component: (
       <CarouselSlideCard
-        content='"While initial client leads are the hardest to get, all my subsequent leads came from existing client referrals. Do good work and build relationships."'
+        content='"While initial client leads are the hardest to get, all my subsequent leads came from existing client referrals. Do good work and build relationships. Do good work and build relationships. Do good work. Do good."'
         name='Oscar Andersson'
         role='Gardener'
         imageUrl='https://media.istockphoto.com/photos/pleasant-young-indian-woman-freelancer-consult-client-via-video-call-picture-id1300972573'
@@ -34,7 +38,7 @@ const carouselCards: CarouselSlideType[] = [
   {
     component: (
       <CarouselSlideCard
-        content='"What I am primarily looking for with new projects is a fit on both a visual and aesthetic level as well as on a personal level with the client."'
+        content='"While initial client leads are the hardest to get, all my subsequent leads came from existing client referrals."'
         name='Victor Wikström'
         role='Spiritual leader'
         imageUrl='https://media.istockphoto.com/photos/millennial-male-team-leader-organize-virtual-workshop-with-employees-picture-id1300972574'
@@ -55,6 +59,11 @@ const carouselCards: CarouselSlideType[] = [
   },
 ];
 
+/**
+ * @property {React.ReactNode} component - Slide component to be rendered.
+ * @property {number} id - Unique id of component.
+ * @property {string} chapter - Chapter wich displayed in progress bar (optional).
+ */
 export const slides: SlideType[] = [
   {
     component: (
@@ -190,7 +199,7 @@ export const slides: SlideType[] = [
         chapter={1}
         title='This is how you'
         subTitle='Create a chapter'
-        image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
+        imageUrl='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
       />
     ),
     id: 2,
@@ -237,7 +246,7 @@ export const slides: SlideType[] = [
         chapter={2}
         title='This is how you'
         subTitle='Create a chapter'
-        image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
+        imageUrl='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
       />
     ),
     id: 6,
@@ -279,7 +288,7 @@ export const slides: SlideType[] = [
         chapter={3}
         title='This is how you'
         subTitle='Create a chapter'
-        image='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
+        imageUrl='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
       />
     ),
     id: 9,
@@ -343,7 +352,7 @@ export const slides: SlideType[] = [
         chapter={3}
         title='This is how you'
         subTitle='Create a chapter'
-        image='https://media.istockphoto.com/photos/chapter-one-picture-id1302839734'
+        imageUrl='https://media.istockphoto.com/photos/chapter-one-picture-id1302839734'
       />
     ),
     id: 15,

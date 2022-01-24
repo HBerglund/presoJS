@@ -15,6 +15,14 @@ type TestimonialSlideProps = {
   disableAnimations?: boolean;
 };
 
+/**
+ * @property {string} preHeading - Pre heading displayed text-xs and text-textPrimary color.
+ * @property {string} quote - Quote displayed text-sm and text-textPrimary color.
+ * @property {string} name - Author of the quote displayed text-xs and gradient color.
+ * @property {string} role - Role of the author displayed text-xs and text-textSecondary color.
+ * @property {string} imageUrl - Url address for the image.
+ * @property {string} disableAnimations - If true, no text animations are shown for text.
+ */
 const TestimonialSlide: FC<TestimonialSlideProps> = ({
   preHeading,
   quote,

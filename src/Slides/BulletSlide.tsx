@@ -9,6 +9,11 @@ interface BulletSlideProps {
   bullets: string[];
 }
 
+/**
+ * @property {string} title - Title displayed with text-xl and text-textPrimary color.
+ * @property {string} subTitle - Sub title displayed with text-xs and text-textPrimary color.
+ * @property {array} bullets - String array containing bullet points.
+ */
 const BulletSlide = ({ title, subTitle, bullets }: BulletSlideProps) => {
   const [visibleBullets, setVisibleBullets] = useState<string[]>([]);
   const [nextBullet, setNextBullet] = useState(0);
