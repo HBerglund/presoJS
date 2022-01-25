@@ -28,6 +28,12 @@ type CurrentlyHighlighted = {
   id: number;
 };
 
+/**
+ * @property {string} heading - Heading displayed with text-md and text-textPrimary color (optional).
+ * @property {string} preHeading - Pre heading displayed with text-xs and text-textPrimary color (optional).
+ * @property {string} code - String of code you want to highligt from.
+ * @property {array} highlightedRows - Array of objects each containing startRow, endRow, text and id.
+ */
 const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
   SyntaxHighlighter.registerLanguage('jsx', jsx);
 

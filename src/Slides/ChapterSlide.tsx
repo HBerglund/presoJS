@@ -8,21 +8,21 @@ import AnimatedText from '../Components/AnimatedText';
 import BlurBlob from '../Components/BlurBlob';
 
 type ChapterSlideProps = {
-  alignXY: 'left' | 'center';
+  alignXY?: 'left' | 'center';
   chapter: number;
-  title: string;
-  subTitle: string;
-  imageUrl: string;
+  title?: string;
+  subTitle?: string;
+  imageUrl?: string;
   disableAnimations?: boolean;
 };
 
 /**
- * @property {string} alignXY - Position of content ('left' | 'center').
+ * @property {string} alignXY - Position of content ('left' | 'center') (optional).
  * @property {string} chapter - Number icon to show current chapter.
- * @property {string} title - Title displayed text-lg and text-textPrimary color.
- * @property {string} subTitle - Sub title displayed text-lg and text-textPrimary color.
- * @property {string} imageUrl - Url address for the image.
- * @property {string} disableAnimations - If true, no text animations are shown for any text.
+ * @property {string} title - Title displayed text-lg and text-textPrimary color (optional).
+ * @property {string} subTitle - Sub title displayed text-lg and text-textPrimary color (optional).
+ * @property {string} imageUrl - Url address for the image (optional).
+ * @property {string} disableAnimations - If true, no text animations are shown for any text (optional).
  */
 const ChapterSlide: FC<ChapterSlideProps> = ({
   alignXY,
@@ -139,7 +139,7 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
               initial='hidden'
               animate='visible'
             >
-              <Image imageUrl={imageUrl} border size='lg' />
+              {imageUrl && <Image imageUrl={imageUrl} border size='lg' />}
             </motion.div>
           )}
         </div>
