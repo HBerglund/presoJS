@@ -73,18 +73,17 @@ Present snippets of code in an easy-to-follow stream of highlighted lines of cod
 
 ### CarouselSlide
 
-Use CarouselSlideCard to create a carousel of slides. CarouselSlide is used as any other slide component inside the slides array in data.tsx.
+Use CarouselSlideCard to create a carousel of cards. Each CarouselSlide component takes an array of CarouselSlideCard as props. 
 
 ## CarouselSlideCard
 
-Use CarouselSlideCard to create a carousel of slides. Insert CarouselSlideCard inside the carouselCards array in data.tsx.
+Text content to use as a card inside CarouselSlide. Properties includes content, name, role, image etc. 
 
 ### TestimonialSlide
 
 Motivate your audience and introduce the topic you're going to cover by using quotes by others to add credibility.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Links
+  
+Example presentation using presoJS https://nostalgic-almeida-4e04ea.netlify.app/.
+  
