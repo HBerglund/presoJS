@@ -66,41 +66,106 @@ const carouselCards: CarouselSlideType[] = [
  */
 export const slides: SlideType[] = [
   {
-    component: <TextSlide />,
+    component: (
+      <TextSlide
+        alignYX='centerCenter'
+        title='presoJS'
+        paragraph='Oscar Andersson, Herman Berglund, Victor Wikström, klass FED20G'
+      />
+    ),
     id: 100,
   },
   {
-    component: <ChapterSlide chapter={1} />,
+    component: (
+      <ChapterSlide
+        chapter={1}
+        alignXY='center'
+        title='Introduktion'
+        subTitle=''
+        imageUrl='#'
+      />
+    ),
     id: 101,
     chapter: 'Chapter 1',
   },
   {
-    component: <BulletSlide title='Introduktion och mål' />,
+    component: (
+      <BulletSlide
+        title='Introduktion och mål'
+        subTitle=''
+        bullets={[
+          'Skapa ett webbaserat presentationsverktyg',
+          'Personer med förkunskaper inom React',
+          'Presentationer med design och funtionalitet',
+        ]}
+      />
+    ),
     id: 102,
     chapter: 'Chapter 1',
   },
   {
-    component: <BulletSlide title='Syfte' />,
+    component: (
+      <BulletSlide
+        title='Syfte'
+        subTitle=''
+        bullets={[
+          'Få erfarenhet av att skapa komponentbibliotek',
+          'Utveckla våra kunskaper av att jobba med animationsbibliotek',
+          'Utveckla våra kunskaper av att planera, designa och bygga en användbar webbapplikation',
+        ]}
+      />
+    ),
     id: 103,
     chapter: 'Chapter 1',
   },
   {
-    component: <TextSlide title='Målgrupp' />,
+    component: (
+      <TextSlide
+        title='Målgrupp'
+        subTitle='Vilka använder presoJS?'
+        paragraph='Den primära målgruppen för verktyget är utvecklare eller personer med viss förkunskap inom ett ramverk för webbutveckling, såsom React. Verktyget kan exempelvis användas av personer som vill kunna visa upp kod och annan information från exempelvis ett genomfört projekt eller en idé för ett nytt projekt.'
+      />
+    ),
     id: 104,
     chapter: 'Chapter 1',
   },
   {
-    component: <TestimonialSlide preHeading='MIA OCH JOHN' />,
+    component: (
+      <TestimonialSlide
+        preHeading='Vad säger våra användare om oss?'
+        quote='"Finally! A presentation tool with sleek design for us programmers. What a treat!"'
+        name='Filet MiJohn'
+        role='Students'
+        imageUrl='#'
+      />
+    ),
     id: 105,
     chapter: 'Chapter 1',
   },
   {
-    component: <ChapterSlide chapter={2} />,
+    component: (
+      <ChapterSlide
+        chapter={2}
+        alignXY='left'
+        title='Planering'
+        subTitle=''
+        imageUrl='#'
+      />
+    ),
     id: 106,
     chapter: 'Chapter 2',
   },
   {
-    component: <ImageSlide title='Projektplanering' />,
+    component: (
+      <ImageSlide
+        title='Projektplanering'
+        subTitle='Bilder från trello etc.'
+        imageUrls={[
+          'https://images.pexels.com/photos/6632859/pexels-photo-6632859.jpeg',
+          'https://images.pexels.com/photos/6632859/pexels-photo-6632859.jpeg',
+        ]}
+      />
+    ),
     id: 107,
     chapter: 'Chapter 2',
   },
