@@ -33,7 +33,7 @@ const carouselCards: CarouselSlideType[] = [
         imageUrl='https://media.istockphoto.com/photos/pleasant-young-indian-woman-freelancer-consult-client-via-video-call-picture-id1300972573'
       />
     ),
-    id: 100,
+    id: 200,
   },
   {
     component: (
@@ -44,7 +44,7 @@ const carouselCards: CarouselSlideType[] = [
         imageUrl='https://media.istockphoto.com/photos/millennial-male-team-leader-organize-virtual-workshop-with-employees-picture-id1300972574'
       />
     ),
-    id: 101,
+    id: 201,
   },
   {
     component: (
@@ -55,7 +55,7 @@ const carouselCards: CarouselSlideType[] = [
         imageUrl='https://media.istockphoto.com/photos/one-beautiful-woman-looking-at-the-camera-in-profile-picture-id1303539316'
       />
     ),
-    id: 102,
+    id: 202,
   },
 ];
 
@@ -66,349 +66,102 @@ const carouselCards: CarouselSlideType[] = [
  */
 export const slides: SlideType[] = [
   {
-    component: (
-      <CodeSlide
-        code={`     // Populate an array with all elements in state
-        useEffect(() => {
-          const codeParent: HTMLElement | null = document.querySelector('code');
-          if (codeParent?.children) {
-            setCodeChildren(Array.from(codeParent.children));
-          }
-        }, []);
-      
-        // Populate array with all element indexes starting on a new row
-        useEffect(() => {
-          if (codeChildren) {
-            for (let i = 0; i < codeChildren.length; i++) {
-              if (codeChildren[i].classList.contains('linenumber')) {
-                setLineIndexes((prev) => [...prev, i]);
-              }
-              codeChildren[i].classList.add(
-                'opacity-20',
-                'transition-all',
-                'text-mini'
-              );
-            }
-          }
-        }, [codeChildren]);
-      
-        // Create all rows and set state rows
-        useEffect(() => {
-          for (let i = 0; i < lineIndexes.length; i++) {
-            setRows((prev) => [
-              ...prev,
-              {
-                id: i + 1,
-                startIndex: lineIndexes[i],
-                endIndex:
-                  i === lineIndexes.length - 1 ? lineIndexes[i] : lineIndexes[i + 1],
-              },
-            ]);
-          }
-        }, [lineIndexes]);
-      
-        // Styling highlighted snippet
-        useEffect(() => {
-          if (codeChildren && currentlyHighlighted && rows.length) {
-            const start = rows[currentlyHighlighted.startRow].startIndex;
-            const end = rows[currentlyHighlighted.endRow].endIndex;
-            for (let i = start; i < end; i++) {
-              codeChildren[i].classList.remove('opacity-20', 'text-mini');
-            }
-          }
-        }, [codeChildren, currentlyHighlighted, rows]);
-        useEffect(() => {
-          const codeParent: HTMLElement | null = document.querySelector('code');
-          if (codeParent?.children) {
-            setCodeChildren(Array.from(codeParent.children));
-          }
-        }, []);
-      
-        // Populate array with all element indexes starting on a new row
-        useEffect(() => {
-          if (codeChildren) {
-            for (let i = 0; i < codeChildren.length; i++) {
-              if (codeChildren[i].classList.contains('linenumber')) {
-                setLineIndexes((prev) => [...prev, i]);
-              }
-              codeChildren[i].classList.add(
-                'opacity-20',
-                'transition-all',
-                'text-mini'
-              );
-            }
-          }
-        }, [codeChildren]);
-      
-        // Create all rows and set state rows
-        useEffect(() => {
-          for (let i = 0; i < lineIndexes.length; i++) {
-            setRows((prev) => [
-              ...prev,
-              {
-                id: i + 1,
-                startIndex: lineIndexes[i],
-                endIndex:
-                  i === lineIndexes.length - 1 ? lineIndexes[i] : lineIndexes[i + 1],
-              },
-            ]);
-          }
-        }, [lineIndexes]);
-      
-        // Styling highlighted snippet
-        useEffect(() => {
-          if (codeChildren && currentlyHighlighted && rows.length) {
-            const start = rows[currentlyHighlighted.startRow].startIndex;
-            const end = rows[currentlyHighlighted.endRow].endIndex;
-            for (let i = start; i < end; i++) {
-              codeChildren[i].classList.remove('opacity-20', 'text-mini');
-            }
-          }
-        }, [codeChildren, currentlyHighlighted, rows]);
-      
-`}
-        highlightedRows={[
-          { startRow: 0, endRow: 4, text: 'fin kod hej hej', id: 1 },
-          {
-            startRow: 5,
-            endRow: 10,
-            text: 'hejsan oscar hur är läget?',
-            id: 2,
-          },
-          {
-            startRow: 35,
-            endRow: 39,
-            text: 'hejsan oscar hur är läget?',
-            id: 3,
-          },
-          {
-            startRow: 37,
-            endRow: 98,
-            text: 'hejsan oscar hur är läget?',
-            id: 4,
-          },
-        ]}
-      />
-    ),
-    id: 1,
+    component: <TextSlide />,
+    id: 100,
   },
   {
-    component: (
-      <ChapterSlide
-        alignXY='left'
-        chapter={1}
-        title='This is how you'
-        subTitle='Create a chapter'
-        imageUrl='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
-      />
-    ),
-    id: 2,
+    component: <ChapterSlide chapter={1} />,
+    id: 101,
     chapter: 'Chapter 1',
   },
   {
-    component: (
-      <TextSlide
-        title='Herman Berglund'
-        preTitle='Testing out the preheading'
-        subTitle='framer-motion showcase'
-        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.'
-      />
-    ),
-    id: 3,
+    component: <BulletSlide title='Introduktion och mål' />,
+    id: 102,
     chapter: 'Chapter 1',
   },
   {
-    component: (
-      <TextSlide
-        title='Victor Wikström'
-        subTitle='framer-motion showcase'
-        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.'
-      />
-    ),
-    id: 4,
+    component: <BulletSlide title='Syfte' />,
+    id: 103,
     chapter: 'Chapter 1',
   },
   {
-    component: (
-      <TextSlide
-        title='Oscar Andersson'
-        subTitle='framer-motion showcase'
-        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.'
-      />
-    ),
-    id: 5,
+    component: <TextSlide title='Målgrupp' />,
+    id: 104,
     chapter: 'Chapter 1',
   },
   {
-    component: (
-      <ChapterSlide
-        alignXY='center'
-        chapter={2}
-        title='This is how you'
-        subTitle='Create a chapter'
-        imageUrl='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
-      />
-    ),
-    id: 6,
+    component: <TestimonialSlide preHeading='MIA OCH JOHN' />,
+    id: 105,
+    chapter: 'Chapter 1',
+  },
+  {
+    component: <ChapterSlide chapter={2} />,
+    id: 106,
     chapter: 'Chapter 2',
   },
   {
-    component: (
-      <ImageSlide
-        title='The heart of Asia'
-        subTitle='Visit Malaysia'
-        imageUrls={[
-          'https://images.unsplash.com/photo-1626308888778-2b77082d53b6?ixlib=rb-1.2.1',
-          'https://images.unsplash.com/photo-1592723905426-1181bf431d3a?ixlib=rb-1.2.1',
-        ]}
-      />
-    ),
-    id: 7,
+    component: <ImageSlide title='Projektplanering' />,
+    id: 107,
     chapter: 'Chapter 2',
   },
   {
-    component: (
-      <BulletSlide
-        subTitle='This is a'
-        title='Bullet Slide Example'
-        bullets={[
-          'Millenials don’t freelance for the money; they’re doing it for autonomy and freedom',
-          'Millenials are increasingly beginning to focus their energy on projects that they personally stand by.',
-          'Millenials are taking charge of their own education, and are constantly learning new skills in order to advance their careers',
-        ]}
-      />
-    ),
-    id: 8,
-    chapter: 'Chapter 2',
-  },
-  {
-    component: (
-      <ChapterSlide
-        alignXY='left'
-        chapter={3}
-        title='This is how you'
-        subTitle='Create a chapter'
-        imageUrl='https://images.unsplash.com/photo-1620180008008-d7169268f608?ixlib=rb-1.2.1'
-      />
-    ),
-    id: 9,
+    component: <ChapterSlide chapter={3} />,
+    id: 108,
     chapter: 'Chapter 3',
   },
   {
-    component: <CarouselSlide carouselCards={carouselCards} />,
-    id: 10,
+    component: <BulletSlide title='Design' />,
+    id: 109,
     chapter: 'Chapter 3',
   },
   {
-    component: (
-      <TextSlide
-        title='Media content'
-        subTitle='framer-motion showcase'
-        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-      />
-    ),
-    id: 11,
+    component: <ImageSlide title='Wireframes' />,
+    id: 110,
     chapter: 'Chapter 3',
   },
   {
-    component: (
-      <VideoSlide
-        url='https://www.youtube.com/embed/Kuwk1fkP4vA'
-        size='large'
-      />
-    ),
-    id: 12,
-    chapter: 'Chapter 3',
+    component: <ChapterSlide chapter={4} />,
+    id: 111,
+    chapter: 'Chapter 4',
   },
   {
-    component: (
-      <VideoSlide
-        alignXY='center'
-        subTitle='Small video slide'
-        url='https://www.youtube.com/embed/8C3j42KKrWM'
-        size='small'
-      />
-    ),
-    id: 13,
-    chapter: 'Chapter 3',
+    component: <CodeSlide heading='Data-filen' />,
+    id: 112,
+    chapter: 'Chapter 4',
   },
   {
-    component: (
-      <VideoSlide
-        alignXY='left'
-        title='With title'
-        subTitle='Small video slide'
-        url='https://www.youtube.com/embed/8C3j42KKrWM'
-        size='small'
-      />
-    ),
-    id: 14,
-    chapter: 'Chapter 3',
+    component: <CodeSlide heading='Tailwind-filen' />,
+    id: 113,
+    chapter: 'Chapter 4',
   },
   {
-    component: (
-      <ChapterSlide
-        alignXY='center'
-        chapter={3}
-        title='This is how you'
-        subTitle='Create a chapter'
-        imageUrl='https://media.istockphoto.com/photos/chapter-one-picture-id1302839734'
-      />
-    ),
-    id: 15,
-    chapter: 'Chapter 3',
+    component: <CodeSlide heading='Kod-filen' />,
+    id: 114,
+    chapter: 'Chapter 4',
   },
   {
-    component: (
-      <TestimonialSlide
-        preHeading='From the experts'
-        quote='"Consectetur adipisicing duis commodo reprehenderit. Eiusmod sint ut quis elit aute dolore cillum anim deserunt."'
-        name='Oscar Andersson'
-        role='Web developer, Coding Coders'
-        imageUrl='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1'
-      />
-    ),
-    id: 16,
-    chapter: 'Chapter 3',
+    component: <CodeSlide heading='AnimatedText komponent' />,
+    id: 115,
+    chapter: 'Chapter 4',
   },
   {
-    component: (
-      <ImageSlide
-        title='Image Slide'
-        subTitle='Two images'
-        imageUrls={[
-          'https://images.unsplash.com/photo-1626308888778-2b77082d53b6?ixlib=rb-1.2.1',
-          'https://images.unsplash.com/photo-1592723905426-1181bf431d3a?ixlib=rb-1.2.1',
-        ]}
-      />
-    ),
-    id: 17,
-    chapter: 'Chapter 3',
+    component: <ChapterSlide chapter={5} />,
+    id: 116,
+    chapter: 'Chapter 5',
   },
   {
-    component: (
-      <ImageSlide
-        title='Image Slide'
-        subTitle='Four images'
-        imageUrls={[
-          'https://images.unsplash.com/photo-1626308888778-2b77082d53b6?ixlib=rb-1.2.1',
-          'https://images.unsplash.com/photo-1592723905426-1181bf431d3a?ixlib=rb-1.2.1',
-          'https://images.unsplash.com/photo-1580496297468-1e05179cfd81?ixlib=rb-1.2.1',
-          'https://images.unsplash.com/photo-1565197239446-a89a684c2651?ixlib=rb-1.2.1',
-        ]}
-      />
-    ),
-    id: 18,
-    chapter: 'Chapter 3',
+    // utmaningar karusell
+    component: <CarouselSlide />,
+    id: 117,
+    chapter: 'Chapter 5',
   },
   {
-    component: (
-      <TextSlide
-        title='The end'
-        subTitle='This is the end of the presentation'
-        paragraph='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-      />
-    ),
-    id: 19,
+    component: <BulletSlide title='Lärdomar' />,
+    id: 118,
+    chapter: 'Chapter 5',
+  },
+  {
+    component: <TextSlide title='Tack för oss!' />,
+    id: 119,
   },
 ];
