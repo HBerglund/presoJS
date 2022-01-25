@@ -36,9 +36,8 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
     visible: {
       opacity: 1,
       transition: { duration: 1 },
-      scale: 1,
     },
-    hidden: { opacity: 0, scale: 0.25 },
+    hidden: { opacity: 0 },
   };
   const cardImageFrameAnimation = {
     visible: {
@@ -72,7 +71,6 @@ const CarouselSlideCard: FC<CarouselSlideProps> = ({
             disableAnimations={disableAnimations}
             className='text-textPrimary sansBody text-xs'
             splitOn='words'
-            staggerChildren
             animation='bottom'
           >
             {content}

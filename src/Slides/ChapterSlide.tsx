@@ -96,7 +96,7 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
                       >
                         <span
                           className={classNames(
-                            'text-textPrimary serifHeading text-center text-[26px] leading-none mt-1 mb-[10px] mr-[1px]'
+                            'text-textPrimary serifHeading text-center text-xs leading-none mt-1 mb-[10px] mr-[1px]'
                           )}
                         >
                           {chapter}
@@ -111,9 +111,9 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
               <AnimatedText
                 disableAnimations={disableAnimations}
                 className='text-textPrimary text-lg serifHeading'
-                splitOn='chars'
+                splitOn='words'
                 staggerChildren
-                animation='opacity-left'
+                animation='bottom'
                 delay={0.5}
               >
                 {title}
@@ -123,9 +123,9 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
               <AnimatedText
                 disableAnimations={disableAnimations}
                 className='text-textPrimary text-lg sansHeading'
-                splitOn='words'
+                splitOn='chars'
                 staggerChildren
-                animation='top'
+                animation='bottom'
                 delay={0.75}
               >
                 {subTitle}

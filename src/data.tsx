@@ -272,9 +272,9 @@ export const slides: SlideType[] = [
         subTitle='This is a'
         title='Bullet Slide Example'
         bullets={[
-          'This is the first bullet',
-          'This is the second bullet',
-          'This is the third bullet',
+          'Millenials don’t freelance for the money; they’re doing it for autonomy and freedom',
+          'Millenials are increasingly beginning to focus their energy on projects that they personally stand by.',
+          'Millenials are taking charge of their own education, and are constantly learning new skills in order to advance their careers',
         ]}
       />
     ),
