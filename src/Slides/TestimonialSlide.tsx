@@ -7,20 +7,20 @@ import SlideParent from '../Components/SlideParent';
 import Image from '../Components/Image';
 
 type TestimonialSlideProps = {
-  preHeading: string;
-  quote: string;
-  name: string;
-  role: string;
-  imageUrl: string;
+  preHeading?: string;
+  quote?: string;
+  name?: string;
+  role?: string;
+  imageUrl?: string;
   disableAnimations?: boolean;
 };
 
 /**
- * @property {string} preHeading - Pre heading displayed text-xs and text-textPrimary color.
- * @property {string} quote - Quote displayed text-sm and text-textPrimary color.
- * @property {string} name - Author of the quote displayed text-xs and gradient color.
- * @property {string} role - Role of the author displayed text-xs and text-textSecondary color.
- * @property {string} imageUrl - Url address for the image.
+ * @property {string} preHeading - Pre heading displayed text-xs and text-textPrimary color (optional).
+ * @property {string} quote - Quote displayed text-sm and text-textPrimary color (optional).
+ * @property {string} name - Author of the quote displayed text-xs and gradient color (optional).
+ * @property {string} role - Role of the author displayed text-xs and text-textSecondary color (optional).
+ * @property {string} imageUrl - Url address for the image (optional).
  * @property {string} disableAnimations - If true, no text animations are shown for text.
  */
 const TestimonialSlide: FC<TestimonialSlideProps> = ({
