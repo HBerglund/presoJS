@@ -17,9 +17,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 Use the left and right arrows on your keyboard to navigate through the presentation.
 
 Some slides includes navigation of its own:
-- BulletSlide: Use enter to navigate trough the bullet points.
-- CodeSlide: Use up and down arrow to navigate through your code snippets. 
-- CarouselSlideCard: Use "a" and "d" or the click the arrow icons to navigate through the carousel.
+- BulletSlide: Use "Enter" to navigate trough the bullet points.
+- CodeSlide: Use "Up" and "Down" arrow to navigate through your code snippets. 
+- CarouselSlideCard: Use "A" and "D" or the click the arrow icons to navigate through the carousel.
 
 ## tailwind.config.js
 
