@@ -69,8 +69,9 @@ export const slides: SlideType[] = [
     component: (
       <TextSlide
         alignYX='centerCenter'
-        title='presoJS'
-        paragraph='Oscar Andersson, Herman Berglund, Victor Wikström, klass FED20G'
+        preTitle='Present code & more'
+        title='Preso.js'
+        paragraph='Oscar Andersson, Herman Berglund, Victor Wikström'
       />
     ),
     id: 100,
@@ -81,8 +82,7 @@ export const slides: SlideType[] = [
         chapter={1}
         alignXY='center'
         title='Introduktion'
-        subTitle=''
-        imageUrl='#'
+        subTitle='Vad är preso.js?'
       />
     ),
     id: 101,
@@ -91,12 +91,12 @@ export const slides: SlideType[] = [
   {
     component: (
       <BulletSlide
-        title='Introduktion och mål'
-        subTitle=''
+        title='Presentationsverktyg'
+        subTitle='Introduktion och mål'
         bullets={[
-          'Skapa ett webbaserat presentationsverktyg',
-          'Personer med förkunskaper inom React',
-          'Presentationer med design och funtionalitet',
+          'Webbaserat presentationsverktyg',
+          'Förkunskaper i React',
+          'Eleganta presentationer',
         ]}
       />
     ),
@@ -106,12 +106,12 @@ export const slides: SlideType[] = [
   {
     component: (
       <BulletSlide
-        title='Syfte'
-        subTitle=''
+        title='Genomförande av projektet'
+        subTitle='Syfte'
         bullets={[
-          'Få erfarenhet av att skapa komponentbibliotek',
-          'Utveckla våra kunskaper av att jobba med animationsbibliotek',
-          'Utveckla våra kunskaper av att planera, designa och bygga en användbar webbapplikation',
+          'Komponentbibliotek',
+          'Animationsbibliotek',
+          'Planera, designa och programmera',
         ]}
       />
     ),
@@ -120,10 +120,10 @@ export const slides: SlideType[] = [
   },
   {
     component: (
-      <TextSlide
-        title='Målgrupp'
-        subTitle='Vilka använder presoJS?'
-        paragraph='Den primära målgruppen för verktyget är utvecklare eller personer med viss förkunskap inom ett ramverk för webbutveckling, såsom React. Verktyget kan exempelvis användas av personer som vill kunna visa upp kod och annan information från exempelvis ett genomfört projekt eller en idé för ett nytt projekt.'
+      <BulletSlide
+        title='Vilka använder preso.js?'
+        subTitle='Målgrupp'
+        bullets={['Projektledare', 'Utvecklare', 'Studenter']}
       />
     ),
     id: 104,
@@ -148,8 +148,7 @@ export const slides: SlideType[] = [
         chapter={2}
         alignXY='left'
         title='Planering'
-        subTitle=''
-        imageUrl='#'
+        imageUrl='https://images.unsplash.com/photo-1506784881475-0e408bbca849'
       />
     ),
     id: 106,
@@ -157,8 +156,19 @@ export const slides: SlideType[] = [
   },
   {
     component: (
+      <BulletSlide
+        title='Vårt arbete?'
+        subTitle='Hur har vi planerat'
+        bullets={['SCRUM', 'Sprintar', 'Dagliga möten']}
+      />
+    ),
+    id: 107,
+    chapter: 'Chapter 2',
+  },
+  {
+    component: (
       <ImageSlide
-        title='Projektplanering'
+        title='Planering'
         subTitle='Bilder från trello etc.'
         imageUrls={[
           'https://images.pexels.com/photos/6632859/pexels-photo-6632859.jpeg',
@@ -166,9 +176,10 @@ export const slides: SlideType[] = [
         ]}
       />
     ),
-    id: 107,
+    id: 108,
     chapter: 'Chapter 2',
   },
+
   {
     component: <ChapterSlide chapter={3} />,
     id: 108,
