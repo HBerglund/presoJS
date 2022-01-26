@@ -59,6 +59,41 @@ const carouselCards: CarouselSlideType[] = [
   },
 ];
 
+const challengeCarouselCards: CarouselSlideType[] = [
+  {
+    component: (
+      <CarouselSlideCard
+        content={
+          'Tredjepartsbibliotek med typningar? Nej. Försökte skriva själva med detta var svårt. Använde oss tillslut av en parser och skrev logiken själva!'
+        }
+        name='Code slide'
+        imageUrl='https://i.ibb.co/j87CLRz/Screenshot-2022-01-26-at-10-46-16.png'
+      />
+    ),
+    id: 200,
+  },
+  {
+    component: (
+      <CarouselSlideCard
+        content=' Vilka edge cases finns? Vilka props ska användas? Hur skulle en användare kunna göra "fel"?'
+        name='Intuitivt, dynamiskt & användbart'
+        imageUrl='https://i.ibb.co/KhVJ4TP/Screenshot-2022-01-26-at-11-12-48.png'
+      />
+    ),
+    id: 201,
+  },
+  {
+    component: (
+      <CarouselSlideCard
+        content='Alltid en utmaning?'
+        name='Estimering & user stories'
+        imageUrl='https://i.ibb.co/H2FBbVs/Screenshot-2022-01-26-at-11-16-20.png'
+      />
+    ),
+    id: 202,
+  },
+];
+
 /**
  * @property {React.ReactNode} component - Slide component to be rendered.
  * @property {number} id - Unique id of component.
@@ -105,23 +140,63 @@ export const slides: SlideType[] = [
     chapter: 'Chapter 2',
   },
   {
-    component: <ChapterSlide chapter={3} />,
+    component: (
+      <ChapterSlide
+        chapter={3}
+        title='designprocess'
+        subTitle='mockups & wireframes'
+        alignXY='left'
+        imageUrl='https://images.unsplash.com/photo-1633355444132-695d5876cd00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDg3fHxmaWdtYXxlbnwwfHx8fDE2MzQ3MzUzNjc&ixlib=rb-1.2.1&q=80&w=2000'
+      />
+    ),
     id: 108,
     chapter: 'Chapter 3',
   },
   {
-    component: <BulletSlide title='Design' />,
+    component: (
+      <BulletSlide
+        title='Designprocess'
+        bullets={[
+          'Figma för mockups och visuell design',
+          'Två designsprintar - low fidelity + high fidelity',
+          'Grundtanke: Det ska vara enkelt att få det snyggt',
+        ]}
+      />
+    ),
     id: 109,
     chapter: 'Chapter 3',
   },
   {
-    component: <ImageSlide title='Wireframes' />,
+    component: (
+      <ImageSlide
+        subTitle='Designprocess'
+        title='Carousel Slide'
+        imageUrls={[
+          'https://i.ibb.co/K9JJ6jc/Slider-Lowfi.jpg',
+          'https://i.ibb.co/G74mycd/Slider.jpg',
+        ]}
+      />
+    ),
     id: 110,
     chapter: 'Chapter 3',
   },
   {
-    component: <ChapterSlide chapter={4} />,
+    component: (
+      <ImageSlide
+        subTitle='Designprocess'
+        title='Chapter Slide'
+        imageUrls={[
+          'https://i.ibb.co/XXYf4Pd/Chapter-Lofi.jpg',
+          'https://i.ibb.co/7jLMY56/Chapter-With-Image.jpg',
+        ]}
+      />
+    ),
     id: 111,
+    chapter: 'Chapter 3',
+  },
+  {
+    component: <ChapterSlide chapter={4} />,
+    id: 112,
     chapter: 'Chapter 4',
   },
   {
@@ -145,23 +220,40 @@ export const slides: SlideType[] = [
     chapter: 'Chapter 4',
   },
   {
-    component: <ChapterSlide chapter={5} />,
-    id: 116,
-    chapter: 'Chapter 5',
-  },
-  {
-    // utmaningar karusell
-    component: <CarouselSlide />,
+    component: (
+      <ChapterSlide
+        chapter={5}
+        title='utmaningar & lärdomar'
+        subTitle='detta tar vi med oss'
+        alignXY='center'
+      />
+    ),
     id: 117,
     chapter: 'Chapter 5',
   },
   {
-    component: <BulletSlide title='Lärdomar' />,
+    // utmaningar karusell
+    component: <CarouselSlide carouselCards={challengeCarouselCards} />,
     id: 118,
     chapter: 'Chapter 5',
   },
   {
-    component: <TextSlide title='Tack för oss!' />,
-    id: 119,
+    component: (
+      <BulletSlide
+        title='Vad har vi lärt oss'
+        subTitle='Lärdomar'
+        bullets={[
+          'Bygga dynamiska, användarvänliga komponenter',
+          'Styrkorna hos Tailwind (uppsättning och modifiering av tailwind.config)',
+          'Hur man ska använda och kombinera React hooks (useCallback, useMemo, useEffect)',
+        ]}
+      />
+    ),
+    id: 120,
+    chapter: 'Chapter 5',
+  },
+  {
+    component: <TextSlide title='Tack för oss!' alignYX='centerCenter' />,
+    id: 121,
   },
 ];
