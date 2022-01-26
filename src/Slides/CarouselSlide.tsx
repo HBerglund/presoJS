@@ -6,9 +6,11 @@ import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg';
 import { ReactComponent as ArrowRight } from '../assets/arrow-right.svg';
 import SlideParent from '../Components/SlideParent';
 import BlurBlob from '../Components/BlurBlob';
+import AnimatedText from '../Components/AnimatedText';
 
 type CarouselSlideProps = {
   carouselCards: CarouselSlideType[];
+  title?: string;
 };
 
 /**
@@ -16,6 +18,7 @@ type CarouselSlideProps = {
  */
 const CarouselSlide: FC<CarouselSlideProps> = ({
   carouselCards,
+  title,
 }: CarouselSlideProps) => {
   const [current, setCurrent] = useState<number>(0);
 
@@ -86,9 +89,17 @@ const CarouselSlide: FC<CarouselSlideProps> = ({
       <SlideParent>
         <div
           className={classNames(
-            'w-full h-full flex justify-center items-center'
+            'w-full h-full flex justify-center flex-col items-center'
           )}
         >
+          {title && (
+            <AnimatedText
+              splitOn='words'
+              className='sansHeading text-md text-textPrimary text-center w-full mt-[-64px] mb-16'
+            >
+              {title}
+            </AnimatedText>
+          )}
           <div>
             <div className={classNames('flex justify-center items-center')}>
               <motion.div
