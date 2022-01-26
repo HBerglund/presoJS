@@ -61,7 +61,7 @@ const TextSlide = ({
             <AnimatedText
               disableAnimations={disableAnimations}
               className='sansHeading text-xl text-textPrimary'
-              splitOn='chars'
+              splitOn='words'
               staggerChildren
               animation='bottom'
               delay={0.25}

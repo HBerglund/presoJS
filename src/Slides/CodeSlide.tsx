@@ -23,17 +23,16 @@ type Row = {
 type CurrentlyHighlighted = {
   startRow: number;
   endRow: number;
-  text?: string;
   id: number;
 };
 
 const CodeSlide = ({ highlightedRows, code, heading }: CodeSlideProps) => {
-/**
- * @property {string} heading - Heading displayed with text-md and text-textPrimary color (optional).
- * @property {string} preHeading - Pre heading displayed with text-xs and text-textPrimary color (optional).
- * @property {string} code - String of code you want to highligt from.
- * @property {array} highlightedRows - Array of objects each containing startRow, endRow, text and id.
- */
+  /**
+   * @property {string} heading - Heading displayed with text-md and text-textPrimary color (optional).
+   * @property {string} preHeading - Pre heading displayed with text-xs and text-textPrimary color (optional).
+   * @property {string} code - String of code you want to highligt from.
+   * @property {array} highlightedRows - Array of objects each containing startRow, endRow, text and id.
+   */
 
   SyntaxHighlighter.registerLanguage('jsx', jsx);
 
@@ -53,6 +52,7 @@ const CodeSlide = ({ highlightedRows, code, heading }: CodeSlideProps) => {
     const element = document.getElementById(`${currentlyHighlighted.startRow}`);
     element?.scrollIntoView({
       block: 'start',
+      behavior: 'smooth',
     });
   }, [currentlyHighlighted]);
 
@@ -126,7 +126,7 @@ const CodeSlide = ({ highlightedRows, code, heading }: CodeSlideProps) => {
         codeChildren[i].classList.add(
           'opacity-20',
           'transition-all',
-          'text-mini'
+          'text-xxs'
         );
       }
     }
@@ -178,23 +178,11 @@ const CodeSlide = ({ highlightedRows, code, heading }: CodeSlideProps) => {
             language='jsx'
             style={vscDarkPlus}
             className={classNames(
-              'h-5/6 w-2/4 border-2 border-[#C8947D] rounded-lg'
+              'h-5/6 w-8/12 border-2 border-[#C8947D] rounded-lg'
             )}
           >
             {code}
           </SyntaxHighlighter>
-          {currentlyHighlighted.text && (
-            <div
-              style={{ borderRadius: '0 32px 32px 32px' }}
-              className={classNames(
-                'absolute right-0 top-1/4 w-80 bg-[#1E1E1E] p-6 border-2 border-white'
-              )}
-            >
-              <AnimatedText className={classNames('text-white text-xxs')}>
-                {currentlyHighlighted.text}
-              </AnimatedText>
-            </div>
-          )}
         </div>
       </SlideParent>
       <BlurBlob position={2} size='large' color='secondary' />

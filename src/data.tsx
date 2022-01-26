@@ -59,6 +59,41 @@ const carouselCards: CarouselSlideType[] = [
   },
 ];
 
+const challengeCarouselCards: CarouselSlideType[] = [
+  {
+    component: (
+      <CarouselSlideCard
+        content={
+          'Tredjepartsbibliotek med typningar? Nope... 😩 Försökte skriva själva men att parsa var svårt. Använde oss tillslut av en parser och skrev logiken själva! 🦾'
+        }
+        name='Code slide'
+        imageUrl='https://i.ibb.co/j87CLRz/Screenshot-2022-01-26-at-10-46-16.png'
+      />
+    ),
+    id: 200,
+  },
+  {
+    component: (
+      <CarouselSlideCard
+        content=' Vilka edge cases finns? Vilka props ska användas? Hur skulle en användare kunna göra "fel"? 🤔'
+        name='Intuitivt, dynamiskt & användbart'
+        imageUrl='https://i.ibb.co/KhVJ4TP/Screenshot-2022-01-26-at-11-12-48.png'
+      />
+    ),
+    id: 201,
+  },
+  {
+    component: (
+      <CarouselSlideCard
+        content='Alltid en utmaning? 🙀 Svårt att estimera när man bygger ett projekt från skratch. Jobba iterativt!'
+        name='Estimering'
+        imageUrl='https://i.ibb.co/H2FBbVs/Screenshot-2022-01-26-at-11-16-20.png'
+      />
+    ),
+    id: 202,
+  },
+];
+
 /**
  * @property {React.ReactNode} component - Slide component to be rendered.
  * @property {number} id - Unique id of component.
@@ -86,61 +121,61 @@ export const slides: SlideType[] = [
       />
     ),
     id: 101,
-    chapter: 'Chapter 1',
+    chapter: 'Introduktion',
   },
   {
     component: (
       <BulletSlide
-        title='Presentationsverktyg'
-        subTitle='Introduktion och mål'
+        title='Målsättningar'
+        subTitle='Preso.js'
         bullets={[
-          'Webbaserat presentationsverktyg',
-          'Förkunskaper i React',
-          'Eleganta presentationer',
+          'Skapa presentationsverktyg för utvecklare',
+          'Använda verktyget under denna presentation',
+          'Dynamiskt och användbart',
         ]}
       />
     ),
     id: 102,
-    chapter: 'Chapter 1',
+    chapter: 'Introduktion',
   },
   {
     component: (
       <BulletSlide
-        title='Genomförande av projektet'
-        subTitle='Syfte'
+        title='Syfte med projektet'
+        subTitle='Preso.js'
         bullets={[
-          'Komponentbibliotek',
-          'Animationsbibliotek',
-          'Planera, designa och programmera',
+          'Dynamiska komponenter',
+          'Presentera kodfiler',
+          'Animationsbibliotek (Framer Motion / React Spring)',
         ]}
       />
     ),
     id: 103,
-    chapter: 'Chapter 1',
+    chapter: 'Introduktion',
   },
   {
     component: (
       <BulletSlide
         title='Vilka använder preso.js?'
         subTitle='Målgrupp'
-        bullets={['Projektledare', 'Utvecklare', 'Studenter']}
+        bullets={['Vi', 'Utvecklare', 'Ambitiös student i FED21G?']}
       />
     ),
     id: 104,
-    chapter: 'Chapter 1',
+    chapter: 'Introduktion',
   },
   {
     component: (
       <TestimonialSlide
-        preHeading='Vad säger våra användare om oss?'
+        preHeading='Vad säger våra användare?'
         quote='"Finally! A presentation tool with sleek design for us programmers. What a treat!"'
-        name='Filet MiJohn'
-        role='Students'
-        imageUrl='#'
+        name='Mia Herman & John Rybo'
+        role='Founders, Filet MiJohn'
+        imageUrl='https://i.ibb.co/wQ5T4WC/Microsoft-Teams-image-1.png'
       />
     ),
     id: 105,
-    chapter: 'Chapter 1',
+    chapter: 'Introduktion',
   },
   {
     component: (
@@ -152,48 +187,75 @@ export const slides: SlideType[] = [
       />
     ),
     id: 106,
-    chapter: 'Chapter 2',
+    chapter: 'Planering',
   },
   {
     component: (
       <BulletSlide
-        title='Vårt arbete?'
-        subTitle='Hur har vi planerat'
-        bullets={['SCRUM', 'Sprintar', 'Dagliga möten']}
+        title='PLanering & metodik'
+        subTitle='Planering'
+        bullets={['SCRUM', 'Planning poker', 'Dagliga möten']}
       />
     ),
     id: 107,
-    chapter: 'Chapter 2',
+    chapter: 'Planering',
+  },
+  {
+    component: (
+      <ChapterSlide
+        chapter={3}
+        title='designprocess'
+        subTitle='mockups & wireframes'
+        alignXY='left'
+        imageUrl='https://images.unsplash.com/photo-1633355444132-695d5876cd00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDg3fHxmaWdtYXxlbnwwfHx8fDE2MzQ3MzUzNjc&ixlib=rb-1.2.1&q=80&w=2000'
+      />
+    ),
+    id: 109,
+    chapter: 'Designprocess',
+  },
+
+  {
+    component: (
+      <BulletSlide
+        subTitle='Designprocess'
+        title='Utförande'
+        bullets={[
+          'Figma',
+          'Två designsprintar',
+          'Modernt, trovärdigt och snyggt',
+        ]}
+      />
+    ),
+    id: 110,
+    chapter: 'Designprocess',
   },
   {
     component: (
       <ImageSlide
-        title='Planering'
-        subTitle='Bilder från trello etc.'
+        subTitle='Designprocess'
+        title='Carousel Slide'
         imageUrls={[
-          'https://images.pexels.com/photos/6632859/pexels-photo-6632859.jpeg',
-          'https://images.pexels.com/photos/6632859/pexels-photo-6632859.jpeg',
+          'https://i.ibb.co/K9JJ6jc/Slider-Lowfi.jpg',
+          'https://i.ibb.co/G74mycd/Slider.jpg',
         ]}
       />
     ),
-    id: 108,
-    chapter: 'Chapter 2',
-  },
-
-  {
-    component: <ChapterSlide chapter={3} />,
-    id: 109,
-    chapter: 'Chapter 3',
+    id: 111,
+    chapter: 'Designprocess',
   },
   {
-    component: <BulletSlide title='Design' />,
-    id: 110,
-    chapter: 'Chapter 3',
-  },
-  {
-    component: <ImageSlide title='Wireframes' />,
-    id: 110,
-    chapter: 'Chapter 3',
+    component: (
+      <ImageSlide
+        subTitle='Designprocess'
+        title='Chapter Slide'
+        imageUrls={[
+          'https://i.ibb.co/XXYf4Pd/Chapter-Lofi.jpg',
+          'https://i.ibb.co/7jLMY56/Chapter-With-Image.jpg',
+        ]}
+      />
+    ),
+    id: 112,
+    chapter: 'Designprocess',
   },
   {
     component: (
@@ -205,38 +267,58 @@ export const slides: SlideType[] = [
         imageUrl='https://images.unsplash.com/photo-1579403124614-197f69d8187b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'
       />
     ),
-    id: 111,
-    chapter: 'Chapter 4',
+    id: 113,
+    chapter: 'Programmering',
   },
   {
     component: (
       <CodeSlide
-        heading='Datafilen'
+        heading='data.tsx'
         highlightedRows={[
           {
-            startRow: 0,
-            endRow: 12,
+            startRow: 1,
+            endRow: 24,
             id: 1,
-            text: 'Såhär ser en slide ut i datafilen',
+          },
+          {
+            startRow: 2,
+            endRow: 12,
+            id: 2,
+          },
+          {
+            startRow: 13,
+            endRow: 24,
+            id: 3,
           },
         ]}
-        code={` {
-      component: (
-        <ChapterSlide
-          chapter={4}
-          alignXY='left'
-          title='Programmering'
-          subTitle='Dynamisk kodslide'
-          imageUrl='https://images.unsplash.com/photo-1579403124614-197f69d8187b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'
-        />
-      ),
-      id: 111,
-      chapter: 'Chapter 4',
-    },`}
+        code={`export const slides: SlideType[] = [
+{
+  component: (
+    <TextSlide
+      alignYX='centerCenter'
+      preTitle='Present code & more'
+      title='Preso.js'
+      paragraph='Oscar Andersson, Herman Berglund, Victor Wikström'
+    />
+  ),
+  id: 100,
+},
+{
+  component: (
+    <ChapterSlide
+      chapter={1}
+      alignXY='center'
+      title='Introduktion'
+      subTitle='Vad är preso.js?'
+    />
+  ),
+  id: 101,
+  chapter: 'Introduktion',
+},`}
       />
     ),
-    id: 112,
-    chapter: 'Chapter 4',
+    id: 114,
+    chapter: 'Programmering',
   },
   {
     component: (
@@ -244,71 +326,68 @@ export const slides: SlideType[] = [
         heading='tailwind.config.js'
         highlightedRows={[
           {
-            startRow: 0,
-            endRow: 42,
+            startRow: 1,
+            endRow: 43,
             id: 1,
-            text: 'Såhär ser en slide ut i datafilen',
           },
           {
-            startRow: 3,
-            endRow: 10,
+            startRow: 4,
+            endRow: 11,
             id: 2,
-            text: 'Uppdatera fontSize',
           },
           {
-            startRow: 27,
-            endRow: 35,
+            startRow: 28,
+            endRow: 36,
             id: 3,
-            text: 'Uppdatera färger',
           },
         ]}
         code={`module.exports = {
-          content: ['./src/**/*.{js,jsx,ts,tsx}'],
-          theme: {
-            fontSize: {
-              xl: ['6rem'],
-              lg: ['5rem'],
-              md: ['4rem'],
-              sm: ['3rem'],
-              xs: ['2rem'],
-              xxs: ['1.25rem'],
-              mini: ['0.8rem'],
-            },
-            extend: {
-              spacing: {
-                128: '32rem',
-                144: '36rem',
-              },
-              blur: {
-                '4xl': '100px',
-              },
-              borderRadius: {
-                '4xl': '2rem',
-              },
-              backgroundImage: {
-                'gradient-radial':
-                  'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
-              },
-              colors: {
-                background: '#000',
-                primary: '#B25CFA',
-                secondary: '#FF62AA',
-                tertiary: '#4C65F7',
-                textPrimary: '#FFF',
-                textSecondary: '#b2b2b2',
-                textAlternative: '#B25CFA',
-              },
-              width: {
-                '1000px': '62.5rem',
-              },
-            },
-          },
-          plugins: [],
-        };`}
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    fontSize: {
+      xl: ['6rem'],
+      lg: ['5rem'],
+      md: ['4rem'],
+      sm: ['3rem'],
+      xs: ['2rem'],
+      xxs: ['1.25rem'],
+      mini: ['0.8rem'],
+    },
+    extend: {
+      spacing: {
+        128: '32rem',
+        144: '36rem',
+      },
+      blur: {
+        '4xl': '100px',
+      },
+      borderRadius: {
+        '4xl': '2rem',
+      },
+      backgroundImage: {
+        'gradient-radial':
+          'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
+      },
+      colors: {
+        background: '#000',
+        primary: '#B25CFA',
+        secondary: '#FF62AA',
+        tertiary: '#4C65F7',
+        textPrimary: '#FFF',
+        textSecondary: '#b2b2b2',
+        textAlternative: '#B25CFA',
+      },
+      width: {
+        '1000px': '62.5rem',
+      },
+    },
+  },
+  plugins: [],
+};`}
       />
     ),
-    id: 113,
-    chapter: 'Chapter 4',
+    id: 115,
+    chapter: 'Programmering',
   },
   {
     component: (
@@ -316,10 +395,24 @@ export const slides: SlideType[] = [
         heading='Code Slide'
         highlightedRows={[
           {
-            startRow: 0,
-            endRow: 12,
+            startRow: 1,
+            endRow: 25,
             id: 1,
-            text: 'kod kod kod',
+          },
+          {
+            startRow: 11,
+            endRow: 15,
+            id: 2,
+          },
+          {
+            startRow: 23,
+            endRow: 27,
+            id: 3,
+          },
+          {
+            startRow: 17,
+            endRow: 21,
+            id: 4,
           },
         ]}
         code={`import classNames from 'classnames';
@@ -347,11 +440,17 @@ type Row = {
 type CurrentlyHighlighted = {
   startRow: number;
   endRow: number;
-  text?: string;
   id: number;
 };
 
 const CodeSlide = ({ highlightedRows, code, heading }: CodeSlideProps) => {
+  /**
+   * @property {string} heading - Heading displayed with text-md and text-textPrimary color (optional).
+   * @property {string} preHeading - Pre heading displayed with text-xs and text-textPrimary color (optional).
+   * @property {string} code - String of code you want to highligt from.
+   * @property {array} highlightedRows - Array of objects each containing startRow, endRow, text and id.
+   */
+
   SyntaxHighlighter.registerLanguage('jsx', jsx);
 
   const [codeChildren, setCodeChildren] = useState<Element[]>();
@@ -365,166 +464,79 @@ const CodeSlide = ({ highlightedRows, code, heading }: CodeSlideProps) => {
   // state för vad som är highlightat just nu
   const [currentlyHighlighted, setCurrentlyHighlighted] =
     useState<CurrentlyHighlighted>(highlightedRows[0]);
-
-  useEffect(() => {
-    const element = document.getElementById();
-    element?.scrollIntoView({
-      block: 'start',
-    });
-  }, [currentlyHighlighted]);
-
-  const changeHighlight = useCallback(
-    (dir: string) => {
-      if (dir === 'up') {
-        if (currentlyHighlighted.id === 1) return;
-        setCurrentlyHighlighted(
-          (prev: CurrentlyHighlighted) =>
-            highlightedRows[highlightedRows.indexOf(prev) - 1]
-        );
-      }
-      if (dir === 'down') {
-        if (currentlyHighlighted.id === highlightedRows.length) return;
-        setCurrentlyHighlighted(
-          (prev: CurrentlyHighlighted) =>
-            highlightedRows[highlightedRows.indexOf(prev) + 1]
-        );
-      }
-    },
-    [currentlyHighlighted, highlightedRows]
-  );
-
-  const keyPress = useCallback(
-    (e: KeyboardEvent) => {
-      switch (e.key) {
-        case 'ArrowUp':
-          changeHighlight('up');
-          break;
-        case 'ArrowDown':
-          changeHighlight('down');
-          break;
-      }
-      return;
-    },
-    [changeHighlight]
-  );
-
-  useEffect(() => {
-    window.addEventListener('keyup', keyPress);
-    return () => window.removeEventListener('keyup', keyPress);
-  }, [keyPress]);
-
-  // Set styling for all elements everytime we change highlighted snippet
-  useEffect(() => {
-    if (codeChildren) {
-      for (const child of codeChildren) {
-        child.classList.add('opacity-20', 'transition-all', 'text-mini');
-      }
-    }
-  }, [currentlyHighlighted, codeChildren]);
-
-  // Populate an array with all elements in state
-  useEffect(() => {
-    const codeParent: HTMLElement | null = document.querySelector('code');
-    if (codeParent?.children) {
-      setCodeChildren(Array.from(codeParent.children));
-    }
-  }, []);
-
-  // Populate array with all element indexes starting on a new row
-  useEffect(() => {
-    let countRows: number = 0;
-    if (codeChildren) {
-      for (let i = 0; i < codeChildren.length; i++) {
-        if (codeChildren[i].classList.contains('linenumber')) {
-          countRows++;
-          setLineIndexes((prev) => [...prev, i]);
-          codeChildren[i].setAttribute();
-        }
-        codeChildren[i].classList.add(
-          'opacity-20',
-          'transition-all',
-          'text-mini'
-        );
-      }
-    }
-  }, [codeChildren]);
-
-  // Create all rows and set state rows
-  useEffect(() => {
-    for (let i = 0; i < lineIndexes.length; i++) {
-      setRows((prev) => [
-        ...prev,
-        {
-          id: i + 1,
-          startIndex: lineIndexes[i],
-          endIndex:
-            i === lineIndexes.length - 1 ? lineIndexes[i] : lineIndexes[i + 1],
-        },
-      ]);
-    }
-  }, [lineIndexes]);
-
-  // Styling highlighted snippet
-  useEffect(() => {
-    if (codeChildren && currentlyHighlighted && rows.length) {
-      const start = rows[currentlyHighlighted.startRow].startIndex;
-      const end = rows[currentlyHighlighted.endRow].endIndex;
-      for (let i = start; i < end; i++) {
-        codeChildren[i].classList.remove('opacity-20', 'text-mini');
-      }
-    }
-  }, [codeChildren, currentlyHighlighted, rows]);
-
-  return (
-    <div>
-      <SlideParent>
-        <div className={classNames('w-full flex justify-center')}>
-          <AnimatedText
-            className={classNames('text-md text-textPrimary sansHeading')}
-          >
-            {heading}
-          </AnimatedText>
-        </div>
-        <div
-          className={classNames(
-            'w-full h-full flex items-center justify-center overflow-hidden relative'
-          )}
-        >
-          <SyntaxHighlighter
-            showLineNumbers
-            language='jsx'
-            style={vscDarkPlus}
-            className={classNames(
-              'h-5/6 w-2/4 border-2 border-[#C8947D] rounded-lg'
-            )}
-          >
-            {code}
-          </SyntaxHighlighter>
-          {currentlyHighlighted.text && (
-            <div
-              style={{ borderRadius: '0 32px 32px 32px' }}
-              className={classNames(
-                'absolute right-0 top-1/4 w-80 bg-[#1E1E1E] p-6 border-2 border-white'
-              )}
-            >
-              <AnimatedText className={classNames('text-white text-xxs')}>
-                {currentlyHighlighted.text}
-              </AnimatedText>
-            </div>
-          )}
-        </div>
-      </SlideParent>
-      <BlurBlob position={2} size='large' color='secondary' />
-      <BlurBlob position={4} size='small' color='primary' />
-    </div>
-  );
-};
-
-export default CodeSlide;`}
+`}
       />
     ),
-    id: 114,
-    chapter: 'Chapter 4',
+    id: 116,
+    chapter: 'Programmering',
+  },
+  {
+    component: (
+      <CodeSlide
+        heading='Hitta och skapa rader'
+        highlightedRows={[
+          {
+            startRow: 1,
+            endRow: 7,
+            id: 1,
+          },
+          {
+            startRow: 9,
+            endRow: 26,
+            id: 2,
+          },
+          {
+            startRow: 28,
+            endRow: 41,
+            id: 3,
+          },
+        ]}
+        code={`// Populate an array with all elements in state
+useEffect(() => {
+  const codeParent: HTMLElement | null = document.querySelector('code');
+  if (codeParent?.children) {
+    setCodeChildren(Array.from(codeParent.children));
+  }
+}, []);
+
+// Populate array with all element indexes starting on a new row
+useEffect(() => {
+  let countRows: number = 0;
+  if (codeChildren) {
+    for (let i = 0; i < codeChildren.length; i++) {
+      if (codeChildren[i].classList.contains('linenumber')) {
+        countRows++;
+        setLineIndexes((prev) => [...prev, i]);
+        codeChildren[i].setAttribute("id", "countRows");
+      }
+      codeChildren[i].classList.add(
+        'opacity-20',
+        'transition-all',
+        'text-xxs'
+      );
+    }
+  }
+}, [codeChildren]);
+
+// Create all rows and set state rows
+useEffect(() => {
+  for (let i = 0; i < lineIndexes.length; i++) {
+    setRows((prev) => [
+      ...prev,
+      {
+        id: i + 1,
+        startIndex: lineIndexes[i],
+        endIndex:
+          i === lineIndexes.length - 1 ? lineIndexes[i] : lineIndexes[i + 1],
+      },
+    ]);
+  }
+}, [lineIndexes]);
+`}
+      />
+    ),
+    id: 118,
+    chapter: 'Programmering',
   },
   {
     component: (
@@ -532,10 +544,14 @@ export default CodeSlide;`}
         heading='Animated Text'
         highlightedRows={[
           {
-            startRow: 0,
-            endRow: 12,
+            startRow: 1,
+            endRow: 30,
             id: 1,
-            text: 'animering wowowoww',
+          },
+          {
+            startRow: 5,
+            endRow: 13,
+            id: 2,
           },
         ]}
         code={`import React from 'react';
@@ -654,27 +670,55 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
 export default AnimatedText;`}
       />
     ),
-    id: 115,
-    chapter: 'Chapter 4',
+    id: 117,
+    chapter: 'Programmering',
   },
-  // {
-  //   component: <ChapterSlide chapter={5} />,
-  //   id: 116,
-  //   chapter: 'Chapter 5',
-  // },
-  // {
-  //   // utmaningar karusell
-  //   component: <CarouselSlide />,
-  //   id: 117,
-  //   chapter: 'Chapter 5',
-  // },
-  // {
-  //   component: <BulletSlide title='Lärdomar' />,
-  //   id: 118,
-  //   chapter: 'Chapter 5',
-  // },
-  // {
-  //   component: <TextSlide title='Tack för oss!' />,
-  //   id: 119,
-  // },
+  {
+    component: (
+      <ChapterSlide
+        chapter={5}
+        title='utmaningar & lärdomar'
+        subTitle='detta tar vi med oss'
+        alignXY='center'
+      />
+    ),
+    id: 118,
+    chapter: 'Lärdomar',
+  },
+  {
+    // utmaningar karusell
+    component: (
+      <CarouselSlide
+        title='utmaningar'
+        carouselCards={challengeCarouselCards}
+      />
+    ),
+    id: 119,
+    chapter: 'Lärdomar',
+  },
+  {
+    component: (
+      <BulletSlide
+        title='Vad har vi lärt oss'
+        subTitle='Lärdomar'
+        bullets={[
+          'Dynamiska och användarvänliga(?) komponenter',
+          'Tailwind (uppsättning och modifiering av tailwind.config)',
+          'React hooks (useCallback, useMemo, useEffect)',
+        ]}
+      />
+    ),
+    id: 120,
+    chapter: 'Lärdomar',
+  },
+  {
+    component: (
+      <TextSlide
+        title='Tack för oss!'
+        subTitle='Dags för frågor'
+        alignYX='centerCenter'
+      />
+    ),
+    id: 121,
+  },
 ];
