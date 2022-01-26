@@ -150,8 +150,8 @@ const CodeSlide = ({ highlightedRows, code, heading }: CodeSlideProps) => {
   // Styling highlighted snippet
   useEffect(() => {
     if (codeChildren && currentlyHighlighted && rows.length) {
-      const start = rows[currentlyHighlighted.startRow].startIndex;
-      const end = rows[currentlyHighlighted.endRow].endIndex;
+      const start = rows[currentlyHighlighted.startRow - 1].startIndex;
+      const end = rows[currentlyHighlighted.endRow - 1].endIndex;
       for (let i = start; i < end; i++) {
         codeChildren[i].classList.remove('opacity-20', 'text-mini');
       }
