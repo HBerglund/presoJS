@@ -33,7 +33,7 @@ const carouselCards: CarouselSlideType[] = [
         imageUrl='https://media.istockphoto.com/photos/pleasant-young-indian-woman-freelancer-consult-client-via-video-call-picture-id1300972573'
       />
     ),
-    id: 100,
+    id: 200,
   },
   {
     component: (
@@ -44,7 +44,7 @@ const carouselCards: CarouselSlideType[] = [
         imageUrl='https://media.istockphoto.com/photos/millennial-male-team-leader-organize-virtual-workshop-with-employees-picture-id1300972574'
       />
     ),
-    id: 101,
+    id: 201,
   },
   {
     component: (
@@ -55,7 +55,7 @@ const carouselCards: CarouselSlideType[] = [
         imageUrl='https://media.istockphoto.com/photos/one-beautiful-woman-looking-at-the-camera-in-profile-picture-id1303539316'
       />
     ),
-    id: 102,
+    id: 202,
   },
 ];
 
