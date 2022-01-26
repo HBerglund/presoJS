@@ -43,7 +43,9 @@ const TextSlide = ({
   return (
     <div>
       <SlideParent>
-        <div className={classNames('h-full flex flex-col', getAlignment())}>
+        <div
+          className={classNames('h-full w-full flex flex-col', getAlignment())}
+        >
           {preTitle && (
             <AnimatedText
               disableAnimations={disableAnimations}

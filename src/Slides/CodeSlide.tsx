@@ -10,7 +10,6 @@ import SlideParent from '../Components/SlideParent';
 
 interface CodeSlideProps {
   heading?: string;
-  preHeading?: string;
   code: string;
   highlightedRows: CurrentlyHighlighted[];
 }
@@ -28,13 +27,14 @@ type CurrentlyHighlighted = {
   id: number;
 };
 
+const CodeSlide = ({ highlightedRows, code, heading }: CodeSlideProps) => {
 /**
  * @property {string} heading - Heading displayed with text-md and text-textPrimary color (optional).
  * @property {string} preHeading - Pre heading displayed with text-xs and text-textPrimary color (optional).
  * @property {string} code - String of code you want to highligt from.
  * @property {array} highlightedRows - Array of objects each containing startRow, endRow, text and id.
  */
-const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
+
   SyntaxHighlighter.registerLanguage('jsx', jsx);
 
   const [codeChildren, setCodeChildren] = useState<Element[]>();
@@ -150,8 +150,8 @@ const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
   // Styling highlighted snippet
   useEffect(() => {
     if (codeChildren && currentlyHighlighted && rows.length) {
-      const start = rows[currentlyHighlighted.startRow].startIndex;
-      const end = rows[currentlyHighlighted.endRow].endIndex;
+      const start = rows[currentlyHighlighted.startRow - 1].startIndex;
+      const end = rows[currentlyHighlighted.endRow - 1].endIndex;
       for (let i = start; i < end; i++) {
         codeChildren[i].classList.remove('opacity-20', 'text-mini');
       }
@@ -165,7 +165,7 @@ const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
           <AnimatedText
             className={classNames('text-md text-textPrimary sansHeading')}
           >
-            Child Animation
+            {heading}
           </AnimatedText>
         </div>
         <div
