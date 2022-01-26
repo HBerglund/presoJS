@@ -10,7 +10,6 @@ import SlideParent from '../Components/SlideParent';
 
 interface CodeSlideProps {
   heading?: string;
-  preHeading?: string;
   code: string;
   highlightedRows: CurrentlyHighlighted[];
 }
@@ -28,7 +27,7 @@ type CurrentlyHighlighted = {
   id: number;
 };
 
-const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
+const CodeSlide = ({ highlightedRows, code, heading }: CodeSlideProps) => {
   SyntaxHighlighter.registerLanguage('jsx', jsx);
 
   const [codeChildren, setCodeChildren] = useState<Element[]>();
@@ -159,7 +158,7 @@ const CodeSlide = ({ highlightedRows, code }: CodeSlideProps) => {
           <AnimatedText
             className={classNames('text-md text-textPrimary sansHeading')}
           >
-            Child Animation
+            {heading}
           </AnimatedText>
         </div>
         <div
