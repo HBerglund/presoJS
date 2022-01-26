@@ -65,60 +65,136 @@ const carouselCards: CarouselSlideType[] = [
  * @property {string} chapter - Chapter wich displayed in progress bar (optional).
  */
 export const slides: SlideType[] = [
-  // {
-  //   component: <TextSlide />,
-  //   id: 100,
-  // },
-  // {
-  //   component: <ChapterSlide chapter={1} />,
-  //   id: 101,
-  //   chapter: 'Chapter 1',
-  // },
-  // {
-  //   component: <BulletSlide title='Introduktion och mål' />,
-  //   id: 102,
-  //   chapter: 'Chapter 1',
-  // },
-  // {
-  //   component: <BulletSlide title='Syfte' />,
-  //   id: 103,
-  //   chapter: 'Chapter 1',
-  // },
-  // {
-  //   component: <TextSlide title='Målgrupp' />,
-  //   id: 104,
-  //   chapter: 'Chapter 1',
-  // },
-  // {
-  //   component: <TestimonialSlide preHeading='MIA OCH JOHN' />,
-  //   id: 105,
-  //   chapter: 'Chapter 1',
-  // },
-  // {
-  //   component: <ChapterSlide chapter={2} />,
-  //   id: 106,
-  //   chapter: 'Chapter 2',
-  // },
-  // {
-  //   component: <ImageSlide title='Projektplanering' />,
-  //   id: 107,
-  //   chapter: 'Chapter 2',
-  // },
-  // {
-  //   component: <ChapterSlide chapter={3} />,
-  //   id: 108,
-  //   chapter: 'Chapter 3',
-  // },
-  // {
-  //   component: <BulletSlide title='Design' />,
-  //   id: 109,
-  //   chapter: 'Chapter 3',
-  // },
-  // {
-  //   component: <ImageSlide title='Wireframes' />,
-  //   id: 110,
-  //   chapter: 'Chapter 3',
-  // },
+  {
+    component: (
+      <TextSlide
+        alignYX='centerCenter'
+        preTitle='Present code & more'
+        title='Preso.js'
+        paragraph='Oscar Andersson, Herman Berglund, Victor Wikström'
+      />
+    ),
+    id: 100,
+  },
+  {
+    component: (
+      <ChapterSlide
+        chapter={1}
+        alignXY='center'
+        title='Introduktion'
+        subTitle='Vad är preso.js?'
+      />
+    ),
+    id: 101,
+    chapter: 'Chapter 1',
+  },
+  {
+    component: (
+      <BulletSlide
+        title='Presentationsverktyg'
+        subTitle='Introduktion och mål'
+        bullets={[
+          'Webbaserat presentationsverktyg',
+          'Förkunskaper i React',
+          'Eleganta presentationer',
+        ]}
+      />
+    ),
+    id: 102,
+    chapter: 'Chapter 1',
+  },
+  {
+    component: (
+      <BulletSlide
+        title='Genomförande av projektet'
+        subTitle='Syfte'
+        bullets={[
+          'Komponentbibliotek',
+          'Animationsbibliotek',
+          'Planera, designa och programmera',
+        ]}
+      />
+    ),
+    id: 103,
+    chapter: 'Chapter 1',
+  },
+  {
+    component: (
+      <BulletSlide
+        title='Vilka använder preso.js?'
+        subTitle='Målgrupp'
+        bullets={['Projektledare', 'Utvecklare', 'Studenter']}
+      />
+    ),
+    id: 104,
+    chapter: 'Chapter 1',
+  },
+  {
+    component: (
+      <TestimonialSlide
+        preHeading='Vad säger våra användare om oss?'
+        quote='"Finally! A presentation tool with sleek design for us programmers. What a treat!"'
+        name='Filet MiJohn'
+        role='Students'
+        imageUrl='#'
+      />
+    ),
+    id: 105,
+    chapter: 'Chapter 1',
+  },
+  {
+    component: (
+      <ChapterSlide
+        chapter={2}
+        alignXY='left'
+        title='Planering'
+        imageUrl='https://images.unsplash.com/photo-1506784881475-0e408bbca849'
+      />
+    ),
+    id: 106,
+    chapter: 'Chapter 2',
+  },
+  {
+    component: (
+      <BulletSlide
+        title='Vårt arbete?'
+        subTitle='Hur har vi planerat'
+        bullets={['SCRUM', 'Sprintar', 'Dagliga möten']}
+      />
+    ),
+    id: 107,
+    chapter: 'Chapter 2',
+  },
+  {
+    component: (
+      <ImageSlide
+        title='Planering'
+        subTitle='Bilder från trello etc.'
+        imageUrls={[
+          'https://images.pexels.com/photos/6632859/pexels-photo-6632859.jpeg',
+          'https://images.pexels.com/photos/6632859/pexels-photo-6632859.jpeg',
+        ]}
+      />
+    ),
+    id: 108,
+    chapter: 'Chapter 2',
+  },
+
+  {
+    component: <ChapterSlide chapter={3} />,
+    id: 109,
+    chapter: 'Chapter 3',
+  },
+  {
+    component: <BulletSlide title='Design' />,
+    id: 110,
+    chapter: 'Chapter 3',
+  },
+  {
+    component: <ImageSlide title='Wireframes' />,
+    id: 110,
+    chapter: 'Chapter 3',
+  },
   {
     component: (
       <ChapterSlide
