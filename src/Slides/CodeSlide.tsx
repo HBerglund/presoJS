@@ -99,7 +99,7 @@ const CodeSlide = ({ highlightedRows, code, heading }: CodeSlideProps) => {
   useEffect(() => {
     if (codeChildren) {
       for (const child of codeChildren) {
-        child.classList.add('opacity-20', 'transition-all', 'text-mini');
+        child.classList.add('opacity-20', 'transition-all', 'text-xxs');
       }
     }
   }, [currentlyHighlighted, codeChildren]);
