@@ -668,7 +668,7 @@ export default AnimatedText;
   {
     component: (
       <BulletSlide
-        title='Vad vi har lärt oss'
+        title='Vad har vi lärt oss?'
         subTitle='Lärdomar'
         bullets={[
           'Dynamiska och användarvänliga(?) komponenter',
