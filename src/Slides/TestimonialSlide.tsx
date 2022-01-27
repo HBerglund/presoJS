@@ -6,14 +6,14 @@ import BlurBlob from '../Components/BlurBlob';
 import SlideParent from '../Components/SlideParent';
 import Image from '../Components/Image';
 
-type TestimonialSlideProps = {
+interface TestimonialSlideProps {
   preHeading?: string;
   quote?: string;
   name?: string;
   role?: string;
   imageUrl?: string;
   disableAnimations?: boolean;
-};
+}
 
 /**
  * @property {string} preHeading - Pre heading displayed text-xs and text-textPrimary color (optional).

@@ -2,12 +2,12 @@ import React, { FC, Fragment, useContext } from 'react';
 import { PresentationContext } from '../Context/PresentationContext';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import AnimatedText from '../Components/AnimatedText';
 import SlideParent from '../Components/SlideParent';
 import Image from '../Components/Image';
-import AnimatedText from '../Components/AnimatedText';
 import BlurBlob from '../Components/BlurBlob';
 
-type ChapterSlideProps = {
+interface ChapterSlideProps {
   alignXY?: 'left' | 'center';
   chapter: number;
   title?: string;
@@ -15,7 +15,7 @@ type ChapterSlideProps = {
   imageUrl?: string;
   disableAnimations?: boolean;
   langSwe?: boolean;
-};
+}
 
 /**
  * @property {string} alignXY - Position of content ('left' | 'center') (optional).

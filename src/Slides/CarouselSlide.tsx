@@ -8,10 +8,10 @@ import SlideParent from '../Components/SlideParent';
 import BlurBlob from '../Components/BlurBlob';
 import AnimatedText from '../Components/AnimatedText';
 
-type CarouselSlideProps = {
+interface CarouselSlideProps {
   carouselCards: CarouselSlideType[];
   title?: string;
-};
+}
 
 /**
  * @property {array} carouselCards - Array of CarouselSlideCard.

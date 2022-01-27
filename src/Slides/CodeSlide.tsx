@@ -1,12 +1,11 @@
-import classNames from 'classnames';
 import React, { useCallback, useEffect, useState } from 'react';
+import classNames from 'classnames';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import SlideParent from '../Components/SlideParent';
 import AnimatedText from '../Components/AnimatedText';
 import BlurBlob from '../Components/BlurBlob';
-
-import SlideParent from '../Components/SlideParent';
 
 interface CodeSlideProps {
   heading?: string;
@@ -38,13 +37,13 @@ const CodeSlide = ({ highlightedRows, code, heading }: CodeSlideProps) => {
 
   const [codeChildren, setCodeChildren] = useState<Element[]>();
 
-  // Array som innehåller index för alla "linenumber" spans
+  // Array contains indexes for all "linenumber" spans
   const [lineIndexes, setLineIndexes] = useState<number[]>([]);
 
-  // Array som innehåller arrayer med index
+  // Array contains multiple arrays with index
   const [rows, setRows] = useState<Row[]>([]);
 
-  // state för vad som är highlightat just nu
+  // State for currently highlighted
   const [currentlyHighlighted, setCurrentlyHighlighted] =
     useState<CurrentlyHighlighted>(highlightedRows[0]);
 

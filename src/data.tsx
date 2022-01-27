@@ -249,7 +249,7 @@ export const slides: SlideType[] = [
           },
           {
             startRow: 2,
-            endRow: 12,
+            endRow: 11,
             id: 2,
           },
           {
@@ -263,7 +263,6 @@ export const slides: SlideType[] = [
   component: (
     <TextSlide
       alignYX='centerCenter'
-      preTitle='Present code & more'
       title='Preso.js'
       paragraph='Oscar Andersson, Herman Berglund, Victor Wikström'
     />
@@ -277,11 +276,13 @@ export const slides: SlideType[] = [
       alignXY='center'
       title='Introduktion'
       subTitle='Vad är preso.js?'
+      langSwe
     />
   ),
   id: 101,
   chapter: 'Introduktion',
-},`}
+},
+`}
       />
     ),
     id: 113,
@@ -299,7 +300,7 @@ export const slides: SlideType[] = [
           },
           {
             startRow: 4,
-            endRow: 11,
+            endRow: 12,
             id: 2,
           },
           {
@@ -350,7 +351,8 @@ export const slides: SlideType[] = [
     },
   },
   plugins: [],
-};`}
+};
+`}
       />
     ),
     id: 114,
@@ -367,30 +369,29 @@ export const slides: SlideType[] = [
             id: 1,
           },
           {
-            startRow: 11,
-            endRow: 15,
+            startRow: 10,
+            endRow: 14,
             id: 2,
           },
           {
-            startRow: 23,
-            endRow: 27,
+            startRow: 22,
+            endRow: 26,
             id: 3,
           },
           {
-            startRow: 17,
-            endRow: 21,
+            startRow: 16,
+            endRow: 20,
             id: 4,
           },
         ]}
-        code={`import classNames from 'classnames';
-import React, { useCallback, useEffect, useState } from 'react';
+        code={`import React, { useCallback, useEffect, useState } from 'react';
+import classNames from 'classnames';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import SlideParent from '../Components/SlideParent';
 import AnimatedText from '../Components/AnimatedText';
 import BlurBlob from '../Components/BlurBlob';
-
-import SlideParent from '../Components/SlideParent';
 
 interface CodeSlideProps {
   heading?: string;
@@ -422,13 +423,13 @@ const CodeSlide = ({ highlightedRows, code, heading }: CodeSlideProps) => {
 
   const [codeChildren, setCodeChildren] = useState<Element[]>();
 
-  // Array som innehåller index för alla "linenumber" spans
+  // Array contains indexes for all "linenumber" spans
   const [lineIndexes, setLineIndexes] = useState<number[]>([]);
 
-  // Array som innehåller arrayer med index
+  // Array contains multiple arrays with index
   const [rows, setRows] = useState<Row[]>([]);
 
-  // state för vad som är highlightat just nu
+  // State for currently highlighted
   const [currentlyHighlighted, setCurrentlyHighlighted] =
     useState<CurrentlyHighlighted>(highlightedRows[0]);
 `}
@@ -634,7 +635,8 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
   );
 };
 
-export default AnimatedText;`}
+export default AnimatedText;
+`}
       />
     ),
     id: 117,

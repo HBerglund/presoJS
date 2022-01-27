@@ -3,13 +3,13 @@ import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import SlideParent from '../Components/SlideParent';
 
-type Props = {
+interface VideoSlideProps {
   alignXY?: 'left' | 'center';
   title?: string;
   subTitle?: string;
   url: string;
   size?: 'full' | 'large' | 'small';
-};
+}
 
 /**
  * @property {string} alignYX - Position ('left' | 'center') (optional)..
@@ -18,7 +18,13 @@ type Props = {
  * @property {string} url - Url address for the image.
  * @property {string} size - Size of video frame ('full' | 'large' | 'small'). (optional).
  */
-const VideoSlide: FC<Props> = ({ alignXY, title, subTitle, url, size }) => {
+const VideoSlide: FC<VideoSlideProps> = ({
+  alignXY,
+  title,
+  subTitle,
+  url,
+  size,
+}: VideoSlideProps) => {
   useEffect(() => {
     getAlignment();
     getWidth();
