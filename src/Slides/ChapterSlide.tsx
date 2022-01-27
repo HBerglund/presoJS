@@ -14,6 +14,7 @@ type ChapterSlideProps = {
   subTitle?: string;
   imageUrl?: string;
   disableAnimations?: boolean;
+  langSwe?: boolean;
 };
 
 /**
@@ -23,6 +24,7 @@ type ChapterSlideProps = {
  * @property {string} subTitle - Sub title displayed text-lg and text-textPrimary color (optional).
  * @property {string} imageUrl - Url address for the image (optional).
  * @property {string} disableAnimations - If true, no text animations are shown for any text (optional).
+ * @property {boolean} langSwe - If true, static text inside the slide is displayed in Swedish (optional).
  */
 const ChapterSlide: FC<ChapterSlideProps> = ({
   alignXY,
@@ -31,6 +33,7 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
   subTitle,
   imageUrl,
   disableAnimations,
+  langSwe,
 }: ChapterSlideProps) => {
   const presentationContext = useContext(PresentationContext);
   const chapterAnimation = {
@@ -82,7 +85,7 @@ const ChapterSlide: FC<ChapterSlideProps> = ({
                         'text-textPrimary bodySans text-xs mr-4'
                       )}
                     >
-                      Chapter
+                      {langSwe ? 'Kapitel' : 'Chapter'}
                     </span>
                     <div
                       className={classNames(
