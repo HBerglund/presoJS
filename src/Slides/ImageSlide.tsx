@@ -1,16 +1,16 @@
 import React, { FC, Fragment, useContext } from 'react';
 import { PresentationContext } from '../Context/PresentationContext';
 import classNames from 'classnames';
-import { AnimateSharedLayout, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import SlideParent from '../Components/SlideParent';
 import BlurBlob from '../Components/BlurBlob';
 import AnimatedText from '../Components/AnimatedText';
 
-type ImageSlideProps = {
+interface ImageSlideProps {
   title?: string;
   subTitle?: string;
   imageUrls: string[];
-};
+}
 
 /**
  * @property {string} title - Title displayed text-lg and text-textPrimary color (optional).

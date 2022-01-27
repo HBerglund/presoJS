@@ -3,13 +3,13 @@ import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import AnimatedText from './AnimatedText';
 
-type CarouselSlideProps = {
+interface CarouselSlideProps {
   content?: string;
   name?: string;
   role?: string;
   imageUrl?: string;
   disableAnimations?: boolean;
-};
+}
 
 /**
  * @property {string} content - Text inside the card displayed text-xs and text-textPrimary color.

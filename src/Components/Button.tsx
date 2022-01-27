@@ -1,11 +1,11 @@
 import React from 'react';
 
-interface Props {
+interface ButtonProps {
   text: string;
   url: string;
 }
 
-const Button = (props: Props) => {
+const Button = (props: ButtonProps) => {
   return (
     <div
       onClick={() => window.open(props.url, '_blank')}

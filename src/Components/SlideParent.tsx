@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import { PresentationContext } from '../Context/PresentationContext';
-import BlurBlob from './BlurBlob';
 
-type Props = {
+interface Props {
   children: React.ReactNode;
-};
+}
 
 const SlideParent: React.FC<Props> = ({ children }) => {
   const presentationContext = useContext(PresentationContext);

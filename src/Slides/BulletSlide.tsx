@@ -1,8 +1,8 @@
 import React, { Fragment, useCallback, useEffect, useState } from 'react';
+import SlideParent from '../Components/SlideParent';
 import AnimatedText from '../Components/AnimatedText';
 import BlurBlob from '../Components/BlurBlob';
 import Bullet from '../Components/Bullet';
-import SlideParent from '../Components/SlideParent';
 
 interface BulletSlideProps {
   title?: string;

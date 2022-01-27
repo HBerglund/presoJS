@@ -14,12 +14,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Navigation
 
-Use the left and right arrows on your keyboard to navigate through the presentation.
+Use your keyboard's "Left" and "Right" arrows to navigate through the presentation.
 
 Some slides includes navigation of its own:
+
 - BulletSlide: Use "Enter" to navigate trough the bullet points.
-- CodeSlide: Use "Up" and "Down" arrow to navigate through your code snippets. 
-- CarouselSlideCard: Use "A" and "D" or the click the arrow icons to navigate through the carousel.
+- CodeSlide: Use "Up" and "Down" arrow to navigate through your code snippets.
+- CarouselSlideCard: Use "A" and "D" or click the arrow icons to navigate through the carousel.
 
 ## tailwind.config.js
 
@@ -46,13 +47,13 @@ slides = [
 {
 component: <ExampleSlide />,
 id: 1,
-chapter: 'Chapter 1
+chapter: 'Topic etc.'
 },
 ]
 
 For each component slide, you can read the jsDoc comments to see what props you need/can add for the specific component by hovering any <ExampleSlide>.
 
-NOTE: Each component must have a unique id.
+NOTE: Each component must have a unique number id.
 
 ## Components
 
@@ -82,17 +83,16 @@ Present snippets of code in an easy-to-follow stream of highlighted lines of cod
 
 ### CarouselSlide
 
-Use CarouselSlideCard to create a carousel of cards. Each CarouselSlide component takes an array of CarouselSlideCard as props. 
+Use CarouselSlideCard to create a carousel of cards. Each CarouselSlide component takes an array of CarouselSlideCard as props.
 
 ## CarouselSlideCard
 
-Text content to use as a card inside CarouselSlide. Properties includes content, name, role, image etc. 
+Text content to use as a card inside CarouselSlide. Properties includes content, name, role, image etc.
 
 ### TestimonialSlide
 
 Motivate your audience and introduce the topic you're going to cover by using quotes by others to add credibility.
 
 ### Links
-  
+
 Example presentation using presoJS https://nostalgic-almeida-4e04ea.netlify.app/.
-  

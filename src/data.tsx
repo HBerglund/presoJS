@@ -23,42 +23,6 @@ export type CarouselSlideType = {
  * @property {React.ReactNode} component - Component slide to be rendered.
  * @property {number} id - Unique id of component.
  */
-const carouselCards: CarouselSlideType[] = [
-  {
-    component: (
-      <CarouselSlideCard
-        content='"While initial client leads are the hardest to get, all my subsequent leads came from existing client referrals. Do good work and build relationships. Do good work and build relationships. Do good work. Do good."'
-        name='Oscar Andersson'
-        role='Gardener'
-        imageUrl='https://media.istockphoto.com/photos/pleasant-young-indian-woman-freelancer-consult-client-via-video-call-picture-id1300972573'
-      />
-    ),
-    id: 200,
-  },
-  {
-    component: (
-      <CarouselSlideCard
-        content='"While initial client leads are the hardest to get, all my subsequent leads came from existing client referrals."'
-        name='Victor Wikström'
-        role='Spiritual leader'
-        imageUrl='https://media.istockphoto.com/photos/millennial-male-team-leader-organize-virtual-workshop-with-employees-picture-id1300972574'
-      />
-    ),
-    id: 201,
-  },
-  {
-    component: (
-      <CarouselSlideCard
-        content='"Being independent doesnt always translate to a better income. Both paths can enable you to make money, but being independent gives you way more creative freedom."'
-        name='Herman Berglund'
-        role='Songwriter'
-        imageUrl='https://media.istockphoto.com/photos/one-beautiful-woman-looking-at-the-camera-in-profile-picture-id1303539316'
-      />
-    ),
-    id: 202,
-  },
-];
-
 const challengeCarouselCards: CarouselSlideType[] = [
   {
     component: (
@@ -104,7 +68,6 @@ export const slides: SlideType[] = [
     component: (
       <TextSlide
         alignYX='centerCenter'
-        preTitle='Present code & more'
         title='Preso.js'
         paragraph='Oscar Andersson, Herman Berglund, Victor Wikström'
       />
@@ -118,6 +81,7 @@ export const slides: SlideType[] = [
         alignXY='center'
         title='Introduktion'
         subTitle='Vad är preso.js?'
+        langSwe
       />
     ),
     id: 101,
@@ -184,6 +148,7 @@ export const slides: SlideType[] = [
         alignXY='left'
         title='Planering'
         imageUrl='https://images.unsplash.com/photo-1506784881475-0e408bbca849'
+        langSwe
       />
     ),
     id: 106,
@@ -208,9 +173,10 @@ export const slides: SlideType[] = [
         subTitle='mockups & wireframes'
         alignXY='left'
         imageUrl='https://images.unsplash.com/photo-1633355444132-695d5876cd00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDg3fHxmaWdtYXxlbnwwfHx8fDE2MzQ3MzUzNjc&ixlib=rb-1.2.1&q=80&w=2000'
+        langSwe
       />
     ),
-    id: 109,
+    id: 108,
     chapter: 'Designprocess',
   },
 
@@ -226,7 +192,7 @@ export const slides: SlideType[] = [
         ]}
       />
     ),
-    id: 110,
+    id: 109,
     chapter: 'Designprocess',
   },
   {
@@ -240,7 +206,7 @@ export const slides: SlideType[] = [
         ]}
       />
     ),
-    id: 111,
+    id: 110,
     chapter: 'Designprocess',
   },
   {
@@ -254,7 +220,7 @@ export const slides: SlideType[] = [
         ]}
       />
     ),
-    id: 112,
+    id: 111,
     chapter: 'Designprocess',
   },
   {
@@ -265,9 +231,10 @@ export const slides: SlideType[] = [
         title='Programmering'
         subTitle='Dynamisk kodslide'
         imageUrl='https://images.unsplash.com/photo-1579403124614-197f69d8187b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'
+        langSwe
       />
     ),
-    id: 113,
+    id: 112,
     chapter: 'Programmering',
   },
   {
@@ -282,7 +249,7 @@ export const slides: SlideType[] = [
           },
           {
             startRow: 2,
-            endRow: 12,
+            endRow: 11,
             id: 2,
           },
           {
@@ -296,7 +263,6 @@ export const slides: SlideType[] = [
   component: (
     <TextSlide
       alignYX='centerCenter'
-      preTitle='Present code & more'
       title='Preso.js'
       paragraph='Oscar Andersson, Herman Berglund, Victor Wikström'
     />
@@ -310,14 +276,16 @@ export const slides: SlideType[] = [
       alignXY='center'
       title='Introduktion'
       subTitle='Vad är preso.js?'
+      langSwe
     />
   ),
   id: 101,
   chapter: 'Introduktion',
-},`}
+},
+`}
       />
     ),
-    id: 114,
+    id: 113,
     chapter: 'Programmering',
   },
   {
@@ -332,7 +300,7 @@ export const slides: SlideType[] = [
           },
           {
             startRow: 4,
-            endRow: 11,
+            endRow: 12,
             id: 2,
           },
           {
@@ -383,10 +351,11 @@ export const slides: SlideType[] = [
     },
   },
   plugins: [],
-};`}
+};
+`}
       />
     ),
-    id: 115,
+    id: 114,
     chapter: 'Programmering',
   },
   {
@@ -400,30 +369,29 @@ export const slides: SlideType[] = [
             id: 1,
           },
           {
-            startRow: 11,
-            endRow: 15,
+            startRow: 10,
+            endRow: 14,
             id: 2,
           },
           {
-            startRow: 23,
-            endRow: 27,
+            startRow: 22,
+            endRow: 26,
             id: 3,
           },
           {
-            startRow: 17,
-            endRow: 21,
+            startRow: 16,
+            endRow: 20,
             id: 4,
           },
         ]}
-        code={`import classNames from 'classnames';
-import React, { useCallback, useEffect, useState } from 'react';
+        code={`import React, { useCallback, useEffect, useState } from 'react';
+import classNames from 'classnames';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import SlideParent from '../Components/SlideParent';
 import AnimatedText from '../Components/AnimatedText';
 import BlurBlob from '../Components/BlurBlob';
-
-import SlideParent from '../Components/SlideParent';
 
 interface CodeSlideProps {
   heading?: string;
@@ -455,19 +423,19 @@ const CodeSlide = ({ highlightedRows, code, heading }: CodeSlideProps) => {
 
   const [codeChildren, setCodeChildren] = useState<Element[]>();
 
-  // Array som innehåller index för alla "linenumber" spans
+  // Array contains indexes for all "linenumber" spans
   const [lineIndexes, setLineIndexes] = useState<number[]>([]);
 
-  // Array som innehåller arrayer med index
+  // Array contains multiple arrays with index
   const [rows, setRows] = useState<Row[]>([]);
 
-  // state för vad som är highlightat just nu
+  // State for currently highlighted
   const [currentlyHighlighted, setCurrentlyHighlighted] =
     useState<CurrentlyHighlighted>(highlightedRows[0]);
 `}
       />
     ),
-    id: 116,
+    id: 115,
     chapter: 'Programmering',
   },
   {
@@ -535,7 +503,7 @@ useEffect(() => {
 `}
       />
     ),
-    id: 118,
+    id: 116,
     chapter: 'Programmering',
   },
   {
@@ -667,7 +635,8 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
   );
 };
 
-export default AnimatedText;`}
+export default AnimatedText;
+`}
       />
     ),
     id: 117,
@@ -680,13 +649,13 @@ export default AnimatedText;`}
         title='utmaningar & lärdomar'
         subTitle='detta tar vi med oss'
         alignXY='center'
+        langSwe
       />
     ),
     id: 118,
     chapter: 'Lärdomar',
   },
   {
-    // utmaningar karusell
     component: (
       <CarouselSlide
         title='utmaningar'
@@ -699,7 +668,7 @@ export default AnimatedText;`}
   {
     component: (
       <BulletSlide
-        title='Vad har vi lärt oss'
+        title='Vad vi har lärt oss'
         subTitle='Lärdomar'
         bullets={[
           'Dynamiska och användarvänliga(?) komponenter',
