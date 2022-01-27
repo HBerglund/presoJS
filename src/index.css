@@ -68,8 +68,8 @@ body,
     display: block;
   }
   .largeImage {
-    width: 40vw;
-    height: 40vw;
+    width: 30vw;
+    height: 30vw;
     max-width: 800px;
     min-width: 400px;
     max-height: 800px;
